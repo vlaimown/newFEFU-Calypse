@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float waittime;
 
     [SerializeField] GameController gameController;
+    [SerializeField] PlayerStat playerStat;
 
     [SerializeField] private DialogManager dialoguesManager;
     [SerializeField] private DialoguesController dialoguesController;
@@ -19,8 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 direction;
 
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRange = 0.5f;
+    public Transform attackPoint;
+    public float attackRange;
 
     public float maxspeed;
     public float speed;
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
      public bool facingRight;
 
+    public CharacterStats myStats;
+
     private void Start()
     { 
         hero = GetComponent<Rigidbody2D>();
@@ -52,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
         maxcooldown = 1f;
         cooldown = maxcooldown;
+
+        myStats = GetComponent<CharacterStats>();
     }
 
     private void FixedUpdate()
@@ -91,23 +96,23 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetButtonDown("Fire1") && (attackEnable == true) && (cooldown == 1) && flag == 0)
+        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == 1) && flag == 0)
         {
-            Attack();
+           Attack(myStats);
         }
     }
 }
 
-    private void Attack()
+    private void Attack(CharacterStats targetStats)
     {
         speed = 0;
-
         animator.SetBool("IsAttacking", true);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
+            enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
+            //Debug.Log("We hit " + enemy.name);
         }
     }
 

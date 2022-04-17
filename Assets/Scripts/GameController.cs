@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] Zombie zombie;
 
     public PlayerController playerController;
     public DialoguesController dialoguesController;
@@ -18,9 +19,10 @@ public class GameController : MonoBehaviour
     public Text secondQuest;
     public Text thirdQuest;
     public Text fourthQuest;
-    public Text fifthQuest;
+    //public Text fifthQuest;
 
     public GameObject zombie_1;
+    public GameObject newZombie = null;
 
     public Image backgroundQuest;
     public Text questText;
@@ -65,14 +67,21 @@ public class GameController : MonoBehaviour
             backgroundQuest.gameObject.SetActive(false);
             questText.gameObject.SetActive(false);
             Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
+            newZombie = GameObject.Find("Zombie(Clone)");
             bottleFlag = 1;
         }
 
-        
-        if (dialogManager.dialogueNumber == 5 && Vector2.Distance(zombie_1.transform.position, playerController.transform.position) < 3f)
+        if (newZombie != null)
         {
-            dialoguesController.fifthDialogue.TriggerDialog();
-            thirdQuest.gameObject.SetActive(true);
+            if (dialogManager.dialogueNumber == 5 && Vector2.Distance(newZombie.transform.position, playerController.hero.position) <= 4f)
+            {
+                dialoguesController.fifthDialogue.TriggerDialog();
+                dialogManager.dialogueWindow.SetActive(true);
+            }
+        }
+        if (dialogManager.dialogueNumber == 6)
+        {
+            fourthQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
         }

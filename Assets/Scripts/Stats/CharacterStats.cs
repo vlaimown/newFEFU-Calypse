@@ -7,14 +7,6 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
-    }
-
     private void Awake()
     {
         currentHealth = maxHealth;

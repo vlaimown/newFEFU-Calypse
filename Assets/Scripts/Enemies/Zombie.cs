@@ -15,7 +15,7 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    [SerializeField] Transform zombiePosition;
+    /*[SerializeField]*/ public Transform zombiePosition;
     [SerializeField] Transform zombieAttackArea;
 
     private void Start()
@@ -106,5 +106,4 @@ public class Zombie : MonoBehaviour
 
         Gizmos.DrawWireSphere(zombieAttackArea.position, zombieAttackZone);
     }
-
 }
