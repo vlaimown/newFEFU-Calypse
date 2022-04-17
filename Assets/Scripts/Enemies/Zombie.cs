@@ -4,6 +4,9 @@ public class Zombie : MonoBehaviour
 {
     public PlayerController playerController;
 
+    CharacterCombat combat;
+    Transform target;
+
     [SerializeField] float triggerZone;
     [SerializeField] float zombieAttackZone;
     [SerializeField] float speed;
@@ -16,9 +19,12 @@ public class Zombie : MonoBehaviour
     [SerializeField] Transform zombieAttackArea;
 
     private void Start()
-    { 
+    {
+        target = PlayerManager.instance.player.transform;
+
         playerController = FindObjectOfType<PlayerController>();
         zombiePosition = GetComponent<Transform>();
+        combat = GetComponent<CharacterCombat>();
 
         zombieFacingRight = false;
     }
@@ -35,7 +41,12 @@ public class Zombie : MonoBehaviour
 
         if (Vector2.Distance(playerController.hero.transform.position, transform.position) < zombieAttackZone)
         {
+            CharacterStats targetStats = target.GetComponent<CharacterStats>();
             anim.SetBool("IsAttacking", true);
+            if (targetStats != null)
+            {
+                combat.Attack(targetStats);
+            }
             speed = 0;
         }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-
+    public PlayerController playerController;
     public DialoguesController dialoguesController;
     public DialogManager dialogManager;
     public Inventory inventory;
@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public Text secondQuest;
     public Text thirdQuest;
     public Text fourthQuest;
+    public Text fifthQuest;
 
     public GameObject zombie_1;
 
@@ -40,18 +41,21 @@ public class GameController : MonoBehaviour
             questText.gameObject.SetActive(true);
         }
 
-        if (dialoguesController.fourthDialogueFlag == 1)
-        {
-            secondQuest.gameObject.SetActive(false);
-            backgroundQuest.gameObject.SetActive(false);
-            questText.gameObject.SetActive(false);
-            if (dialogManager.dialogueNumber == 5)
+        //if (GameObject.Find("FourthDialogue") != null) {
+            if (dialoguesController.fourthDialogueFlag == 1)
             {
-                thirdQuest.gameObject.SetActive(true);
-                backgroundQuest.gameObject.SetActive(true);
-                questText.gameObject.SetActive(true);
-                //Destroy(dialoguesController.fourthDialogue.gameObject);
-            }
+                secondQuest.gameObject.SetActive(false);
+                backgroundQuest.gameObject.SetActive(false);
+                questText.gameObject.SetActive(false);
+                if (dialogManager.dialogueNumber == 5)
+                {
+                    thirdQuest.gameObject.SetActive(true);
+                    backgroundQuest.gameObject.SetActive(true);
+                    questText.gameObject.SetActive(true);
+
+                    //Destroy(dialoguesController.fourthDialogue.gameObject);
+                }
+            //}
         }
 
         if (inventory.itemList.Exists(item => item.name == "Slavda Bottle (1)") && bottleFlag == 0)
@@ -60,14 +64,17 @@ public class GameController : MonoBehaviour
             thirdQuest.gameObject.SetActive(false);
             backgroundQuest.gameObject.SetActive(false);
             questText.gameObject.SetActive(false);
-            Instantiate(zombie_1, new Vector2(-7, -2), Quaternion.identity);
+            Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
             bottleFlag = 1;
         }
 
         
-        if (dialoguesController.fourthDialogueFlag == 1)
+        if (dialogManager.dialogueNumber == 5 && Vector2.Distance(zombie_1.transform.position, playerController.transform.position) < 3f)
         {
-
+            dialoguesController.fifthDialogue.TriggerDialog();
+            thirdQuest.gameObject.SetActive(true);
+            backgroundQuest.gameObject.SetActive(true);
+            questText.gameObject.SetActive(true);
         }
     }
 }

@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1492226525986869486}
   - component: {fileID: 5598865831314885186}
   - component: {fileID: 1570287333312192153}
+  - component: {fileID: -5048041028940088278}
+  - component: {fileID: 6248010792503099418}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -137,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  triggerZone: 4
+  triggerZone: 9
   zombieAttackZone: 0.7
   speed: 1
   maxspeed: 1
@@ -196,6 +198,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 2.0649998}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &-5048041028940088278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770851429389258666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1944e435c9f7a254ea5ddc803ff851d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+--- !u!114 &6248010792503099418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770851429389258666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabdc483dff484e448c54f375c151981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
 --- !u!1 &5396849182186830574
 GameObject:
   m_ObjectHideFlags: 0
