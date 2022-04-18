@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
             questText.gameObject.SetActive(false);
             Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
             newZombie = GameObject.Find("Zombie(Clone)");
-            
+
             bottleFlag = 1;
         }
 

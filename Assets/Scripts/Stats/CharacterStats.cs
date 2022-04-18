@@ -17,7 +17,8 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage (int damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount -= /*currentHealth / maxHealth;*/ 0.1f;
+        //healthBar.fillAmount -= (maxHealth - currentHealth) / maxHealth;
+        //healthBar.fillAmount -= /*currentHealth / maxHealth;*/ 0.1f;
         //Debug.Log(transform.name + " take " + damage + " damage.");
 
         if (currentHealth <= 0)
