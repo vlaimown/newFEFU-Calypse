@@ -19,7 +19,9 @@ public class GameController : MonoBehaviour
     public Text secondQuest;
     public Text thirdQuest;
     public Text fourthQuest;
-    //public Text fifthQuest;
+    public Text fifthQuest;
+
+    [SerializeField] GoToHotel hotelScene;
 
     public GameObject zombie_1;
     public GameObject newZombie = null;
@@ -68,6 +70,7 @@ public class GameController : MonoBehaviour
             questText.gameObject.SetActive(false);
             Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
             newZombie = GameObject.Find("Zombie(Clone)");
+            
             bottleFlag = 1;
         }
 
@@ -79,11 +82,29 @@ public class GameController : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
             }
         }
+
         if (dialogManager.dialogueNumber == 6)
         {
             fourthQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
+        }
+
+        if (newZombie == null && dialogManager.dialogueNumber == 6)
+        {
+            fourthQuest.gameObject.SetActive(false);
+            backgroundQuest.gameObject.SetActive(false);
+            questText.gameObject.SetActive(false);
+            dialoguesController.sixDialogue.TriggerDialog();
+            dialogManager.dialogueWindow.SetActive(true);
+        }
+
+        if (dialogManager.dialogueNumber == 7)
+        {
+            fifthQuest.gameObject.SetActive(true);
+            backgroundQuest.gameObject.SetActive(true);
+            questText.gameObject.SetActive(true);
+            hotelScene.hotelSceneEnable = true;
         }
     }
 }

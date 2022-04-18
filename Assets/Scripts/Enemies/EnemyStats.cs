@@ -9,5 +9,6 @@ public class EnemyStats : CharacterStats
         base.Die();
 
         Destroy(gameObject);
+        //healthBar.enabled = false;
     }
 }

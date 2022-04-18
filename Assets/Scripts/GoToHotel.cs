@@ -10,6 +10,7 @@ public class GoToHotel : MonoBehaviour
     public Image buttonToHotel;
 
     public int goToHotelFlag;
+    public bool hotelSceneEnable = false;
 
     public CircleCollider2D heroCircleCollider;
 
@@ -21,11 +22,12 @@ public class GoToHotel : MonoBehaviour
     private void Start()
     {
         goToHotelFlag = 0;
+        hotelSceneEnable = false;
     }
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.3f && player.moveToHotelFlag == 1)
+        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.3f && player.moveToHotelFlag == 1 && hotelSceneEnable == true)
         {
             buttonToHotel.gameObject.SetActive(true);
             if (Input.GetKey("e"))

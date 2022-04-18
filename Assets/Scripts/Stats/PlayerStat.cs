@@ -8,5 +8,6 @@ public class PlayerStat : CharacterStats
     {
         base.Die();
         PlayerManager.instance.KillPlayer();
+        Debug.Log("Вы отчислены");
     }
 }

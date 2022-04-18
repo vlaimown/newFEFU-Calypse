@@ -94,7 +94,7 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 5 && (counter == 1 || counter == 2))
+        else if (dialogueNumber == 5)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
@@ -102,6 +102,14 @@ public class DialogManager : MonoBehaviour
         }
         #endregion
 
+        #region
+        else if (dialogueNumber == 6 && (counter == 1 || counter == 3 || counter == 5 || counter == 6 || counter == 7))
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
 
         else
         {

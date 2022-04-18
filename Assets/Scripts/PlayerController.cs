@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float waittime;
 
     [SerializeField] GameController gameController;
-    [SerializeField] PlayerStat playerStat;
 
     [SerializeField] private DialogManager dialoguesManager;
     [SerializeField] private DialoguesController dialoguesController;
@@ -98,21 +97,25 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("h") && (attackEnable == true) && (cooldown == 1) && flag == 0)
         {
-           Attack(myStats);
+           //Attack(myStats);
+           AttackAnimation();
         }
     }
 }
 
-    private void Attack(CharacterStats targetStats)
+    private void AttackAnimation()
     {
         speed = 0;
         animator.SetBool("IsAttacking", true);
+    }
+
+    public void playerAttack()
+    {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
-            //Debug.Log("We hit " + enemy.name);
         }
     }
 

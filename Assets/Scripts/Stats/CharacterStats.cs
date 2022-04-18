@@ -1,7 +1,9 @@
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    public Image healthBar;
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
 
@@ -15,7 +17,8 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage (int damage)
     {
         currentHealth -= damage;
-        Debug.Log(transform.name + " take " + damage + " damage.");
+        healthBar.fillAmount -= /*currentHealth / maxHealth;*/ 0.1f;
+        //Debug.Log(transform.name + " take " + damage + " damage.");
 
         if (currentHealth <= 0)
         {
