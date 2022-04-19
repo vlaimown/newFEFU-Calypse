@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour 
 {
     public static Inventory instance;
+    PlayerController playerController;
 
     public List<Item> itemList = new List<Item>();
 
@@ -20,6 +21,7 @@ public class Inventory : MonoBehaviour
     {
         instance = this;
         windowInventory.SetActive(true);
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -35,10 +37,12 @@ public class Inventory : MonoBehaviour
 
         else if (inventoryOpened == true)
         {
+            playerController.attackEnable = false;
             if (Input.GetKeyUp("i"))
             {
                 windowInventory.SetActive(false);
                 inventoryOpened = false;
+                playerController.attackEnable = true;
             }
         }
     }

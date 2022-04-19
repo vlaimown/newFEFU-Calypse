@@ -46,7 +46,7 @@ public class DialogManager : MonoBehaviour
         nameText.text = dialog.name;
         if (dialog.name == "Главный герой")
         {
-            nameText.color = Color.blue;
+            nameText.color = new Color(0, 1, 150);
             characterIcon.sprite = heroIcon;
         }
 
@@ -114,7 +114,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             nameText.text = "Главный герой";
-            nameText.color = Color.blue;
+            nameText.color = new Color(0, 1, 150);
             characterIcon.sprite = heroIcon;
         }
 
