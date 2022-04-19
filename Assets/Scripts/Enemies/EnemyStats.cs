@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class EnemyStats : CharacterStats
 {
-
-
     public override void Die()
     {
         base.Die();
 
+        player.GetComponent<SpriteRenderer>().color = Color.white;
         Destroy(gameObject);
-        //healthBar.enabled = false;
+        healthBar.fillAmount = 1f;
     }
 }

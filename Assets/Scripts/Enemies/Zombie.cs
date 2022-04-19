@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
     public PlayerController playerController;
+
+    public bool zombieAttackFlag;
 
     CharacterCombat combat;
     Transform target;
@@ -15,11 +19,20 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    /*[SerializeField]*/ public Transform zombiePosition;
+    /*[SerializeField]*/
+    public Transform zombiePosition;
     [SerializeField] Transform zombieAttackArea;
+    [SerializeField] LayerMask hero;
+
+    [SerializeField] CharacterStats myStats;
+
+    public Rigidbody2D zombieBody;
 
     private void Start()
     {
+        zombieBody = GetComponent<Rigidbody2D>();
+        zombieAttackFlag = false;
+
         target = PlayerManager.instance.player.transform;
 
         playerController = FindObjectOfType<PlayerController>();
@@ -27,6 +40,7 @@ public class Zombie : MonoBehaviour
         combat = GetComponent<CharacterCombat>();
 
         zombieFacingRight = false;
+        myStats = GetComponent<CharacterStats>();
     }
 
     private void FixedUpdate()
@@ -43,10 +57,12 @@ public class Zombie : MonoBehaviour
         {
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             anim.SetBool("IsAttacking", true);
-            if (targetStats != null)
+            zombieAttackFlag = true;
+            /*if (targetStats != null)
             {
+                zombieAttackFlag = true;
                 combat.Attack(targetStats);
-            }
+            }*/
             speed = 0;
         }
 
@@ -84,11 +100,30 @@ public class Zombie : MonoBehaviour
 
     public void Flip()
     {
-            zombieFacingRight = !zombieFacingRight;
-            Vector3 scaler = transform.localScale;
-            scaler.x *= -1;
+        zombieFacingRight = !zombieFacingRight;
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
 
-            transform.localScale = scaler;
+        transform.localScale = scaler;
+    }
+
+    void ZombieAttack()
+    {
+        if (gameObject != null)
+        {
+            Collider2D[] hitHeroes = Physics2D.OverlapCircleAll(zombieAttackArea.position, zombieAttackZone, hero);
+
+            foreach (Collider2D hero in hitHeroes)
+            {
+                hero.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
+                //hero.GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(RedVersionOfSprite());
+            }
+        }
+        else
+        {
+            playerController.hero.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     private void OnDrawGizmos()
@@ -105,5 +140,18 @@ public class Zombie : MonoBehaviour
         }
 
         Gizmos.DrawWireSphere(zombieAttackArea.position, zombieAttackZone);
+    }
+
+    IEnumerator RedVersionOfSprite()
+    {
+        if (gameObject != null)
+        {
+            playerController.hero.GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(0.35f);
+            playerController.hero.GetComponent<SpriteRenderer>().color = Color.white;
+        } else
+        {
+            playerController.hero.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 }

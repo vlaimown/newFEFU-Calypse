@@ -6,26 +6,41 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     public float attackSpeed = 1f;
-    private float attackCooldown = 0f;
+    public float maxAttackCooldown = 1f;
+    public float attackCooldown = 0f;
+    public float attackDelay;
+
+    [SerializeField] Zombie zombie;
 
     public CharacterStats myStats;
 
     private void Start()
     {
+        attackCooldown = maxAttackCooldown;
         myStats = GetComponent<CharacterStats>();
     }
 
     private void Update()
     {
-        attackCooldown -= Time.deltaTime;
+        if (attackCooldown > 0 && zombie.zombieAttackFlag == true){
+            attackCooldown -= Time.deltaTime;
+        }
     }
 
     public void Attack (CharacterStats targetStats)
     {
         if (attackCooldown <= 0f)
         {
+            StartCoroutine(DoDamage(targetStats, attackDelay));
             targetStats.TakeDamage(myStats.damage.GetValue());
-            attackCooldown = 1f / attackSpeed;
+            attackCooldown = maxAttackCooldown;
         }
+    }
+
+    IEnumerator DoDamage (CharacterStats stats, float delay)
+    {
+        yield return new WaitForSeconds (delay);
+
+        stats.TakeDamage(myStats.damage.GetValue());
     }
 }

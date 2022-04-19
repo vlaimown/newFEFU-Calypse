@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
        // Debug.Log("Interacting wiht " + transform.name);
-    }
+    }/*
 
     private void Update()
     {
@@ -26,5 +26,5 @@ public class Interactable : MonoBehaviour
                 //hasInteracted = true;
             //}
         }
-    }
+    }*/
 }

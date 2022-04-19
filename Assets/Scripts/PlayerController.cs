@@ -40,8 +40,13 @@ public class PlayerController : MonoBehaviour
 
     public CharacterStats myStats;
 
+    public SpriteRenderer zombie;
+
+    [SerializeField] GameObject currentTarget = null;
+
     private void Start()
-    { 
+    {
+        currentTarget = null;
         hero = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         facingRight = true;
@@ -116,7 +121,36 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
+
+            float dist = Mathf.Infinity;
+            var cols = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            Collider2D currentCollider = cols[0];
+            foreach (Collider2D col in cols)
+            {
+                float currentDist = Vector2.Distance(attackPoint.position, col.transform.position);
+                if (currentDist < dist)
+                {
+                    currentCollider = col;
+                    dist = currentDist;
+                }
+            }
+            currentTarget = currentCollider.gameObject;
+            
+
+            //zombie.GetComponent<SpriteRenderer>();
+            //enemy.GetComponent<SpriteRenderer>().color = Color.red;
+            StartCoroutine(RedVersionOfSprite());
+            //StopCoroutine(RedVersionOfSprite());
         }
+    }
+
+    IEnumerator RedVersionOfSprite()
+    {
+        currentTarget.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.35f);
+        currentTarget.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
+        currentTarget = null;
     }
 
     private void ReturnAttack()

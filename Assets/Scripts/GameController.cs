@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] Zombie zombie;
+    [SerializeField] GameObject arrow_pointer;
+    [SerializeField] Image WASD_animation;
 
     public PlayerController playerController;
     public DialoguesController dialoguesController;
@@ -43,6 +45,9 @@ public class GameController : MonoBehaviour
             secondQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
+
+            arrow_pointer.SetActive(true);
+            WASD_animation.gameObject.SetActive(true);
         }
 
         //if (GameObject.Find("FourthDialogue") != null) {
@@ -51,6 +56,10 @@ public class GameController : MonoBehaviour
                 secondQuest.gameObject.SetActive(false);
                 backgroundQuest.gameObject.SetActive(false);
                 questText.gameObject.SetActive(false);
+
+                arrow_pointer.SetActive(false);
+                WASD_animation.gameObject.SetActive(false);
+
                 if (dialogManager.dialogueNumber == 5)
                 {
                     thirdQuest.gameObject.SetActive(true);
@@ -76,7 +85,7 @@ public class GameController : MonoBehaviour
 
         if (newZombie != null)
         {
-            if (dialogManager.dialogueNumber == 5 && Vector2.Distance(newZombie.transform.position, playerController.hero.position) <= 4f)
+            if (dialogManager.dialogueNumber == 5 && Vector2.Distance(newZombie.transform.position, playerController.hero.position) <= 5f)
             {
                 dialoguesController.fifthDialogue.TriggerDialog();
                 dialogManager.dialogueWindow.SetActive(true);

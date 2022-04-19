@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: -4600988006788306740}
   m_Layer: 10
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
+  maxAttackCooldown: 1
+  attackCooldown: 0
+  attackDelay: 2
+  zombie: {fileID: 4155560215517414234}
   myStats: {fileID: 0}
 --- !u!114 &6087890974370034756
 MonoBehaviour:
@@ -183,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b369c76d39f2ef243ae44af1ef27f82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 4028201719914912985}
   maxHealth: 100
   damage:
     baseValue: 10
@@ -200,14 +204,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  zombieAttackFlag: 0
   triggerZone: 10
-  zombieAttackZone: 1
+  zombieAttackZone: 0.8
   speed: 0
   maxspeed: 1
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}
   zombieAttackArea: {fileID: 5929543979403213029}
+  hero:
+    serializedVersion: 2
+    m_Bits: 256
+  myStats: {fileID: 0}
+  zombieBody: {fileID: 0}
 --- !u!95 &8640749023890743126
 Animator:
   serializedVersion: 3
@@ -301,7 +311,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &1474693748201525210
 MonoBehaviour:
