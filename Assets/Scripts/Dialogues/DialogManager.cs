@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
     public Image characterIcon;
     public Sprite heroIcon;
     public Sprite ZagumIcon;
+    public Sprite HelloWorldIcon;
 
     public GameObject dialogueWindow;
     private DialoguesController dialoguesController;
@@ -106,6 +107,22 @@ public class DialogManager : MonoBehaviour
         else if (dialogueNumber == 6 && (counter == 1 || counter == 3 || counter == 5 || counter == 6 || counter == 7))
         {
             nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 7 && (counter == 1))
+        {
+            nameText.text = "Hello World Cat";
+            nameText.color = Color.green;
+            characterIcon.sprite = HelloWorldIcon;
+        }
+
+        else if (dialogueNumber == 7 && (counter == 4 || counter == 5 || counter == 6))
+        {
+            nameText.text = "Загумённов";
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
         }

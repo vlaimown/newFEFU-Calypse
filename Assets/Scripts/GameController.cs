@@ -6,7 +6,10 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject bottle;
-    [SerializeField] Image HelloWorldText;
+    public Item BJD_conspect;
+    private bool conspect_flag = false;
+
+    public InventoryUI inventoryUI;
 
     [SerializeField] Zombie zombie;
     [SerializeField] GameObject arrow_pointer;
@@ -35,11 +38,6 @@ public class GameController : MonoBehaviour
 
     public Image backgroundQuest;
     public Text questText;
-
-    private void Start()
-    {
-        //StartCoroutine(HelloWorldBubble());
-    }
 
     private void FixedUpdate()
     {
@@ -122,7 +120,22 @@ public class GameController : MonoBehaviour
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
             hotelScene.hotelSceneEnable = true;
+        }
+
+        if (dialogManager.dialogueNumber == 7 && Vector2.Distance(dialoguesController.seventhDialogue.transform.position, playerController.hero.position) < dialoguesController.seventhDialogue.radius)
+        {
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.seventhDialogue.TriggerDialog();
+            Destroy(dialoguesController.seventhDialogue.gameObject);
+            conspect_flag = true;
+        }
+
+        if (dialogManager.dialogueNumber == 8 && conspect_flag == true)
+        {
+            conspect_flag = false;
             inventoryEnable = true;
+            inventory.itemList.Add(BJD_conspect);
+            inventoryUI.UpdateUI();
         }
     }
 

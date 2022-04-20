@@ -3,9 +3,15 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+    [SerializeField] GameController gameController;
     Item item;
     public Button removeButton;
     public Image icon;
+
+    private void Start()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
 
     public void AddItem(Item newItem)
     {
@@ -33,7 +39,11 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
-            item.Use(/*item*/);
+            //item.Use(item);
+            if (item.name == "Slavda Bottle (1)")
+            {
+                gameController.bottle.SetActive(true);
+            }
         }
     }
 }

@@ -13,10 +13,11 @@ public class DialoguesController : MonoBehaviour
     public DialogTrigger dialogueTrigger;
     public PlayerController playerController;
 
-    public DialogTrigger thirdDialogue;
-    public DialogTrigger fourthDialogue;
-    public DialogTrigger fifthDialogue;
-    public DialogTrigger sixDialogue;
+    public DialogTrigger thirdDialogue,
+                         fourthDialogue,
+                         fifthDialogue,
+                         sixDialogue,
+                         seventhDialogue;
 
     public int fourthDialogueFlag = 0;
     public float radius;

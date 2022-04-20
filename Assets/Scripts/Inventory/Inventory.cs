@@ -60,10 +60,10 @@ public class Inventory : MonoBehaviour
             {
                 itemList.Add(item);
 
-                if (item.name == "Slavda Bottle (1)" || item.name == "Slavda Bottle (1)(Clone)")
+                /*if (item.name == "Slavda Bottle (1)" || item.name == "Slavda Bottle (1)(Clone)")
                 {
                     gameController.bottle.SetActive(true);
-                }
+                }*/
             }
 
             if (onItemChangedCallback != null)
