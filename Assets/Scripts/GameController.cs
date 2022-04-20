@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject bottle;
+
     [SerializeField] Zombie zombie;
     [SerializeField] GameObject arrow_pointer;
     [SerializeField] Image WASD_animation;
+    public Image F;
 
     public PlayerController playerController;
     public DialoguesController dialoguesController;
@@ -16,6 +19,7 @@ public class GameController : MonoBehaviour
 
     public Animator anim;
     private int bottleFlag = 0;
+    public bool inventoryEnable = false;
 
     public Text firstQuest;
     public Text secondQuest;
@@ -50,25 +54,21 @@ public class GameController : MonoBehaviour
             WASD_animation.gameObject.SetActive(true);
         }
 
-        //if (GameObject.Find("FourthDialogue") != null) {
-            if (dialoguesController.fourthDialogueFlag == 1)
+        if (dialoguesController.fourthDialogueFlag == 1)
+        {
+            secondQuest.gameObject.SetActive(false);
+            backgroundQuest.gameObject.SetActive(false);
+            questText.gameObject.SetActive(false);
+
+            arrow_pointer.SetActive(false);
+            WASD_animation.gameObject.SetActive(false);
+
+            if (dialogManager.dialogueNumber == 5)
             {
-                secondQuest.gameObject.SetActive(false);
-                backgroundQuest.gameObject.SetActive(false);
-                questText.gameObject.SetActive(false);
-
-                arrow_pointer.SetActive(false);
-                WASD_animation.gameObject.SetActive(false);
-
-                if (dialogManager.dialogueNumber == 5)
-                {
-                    thirdQuest.gameObject.SetActive(true);
-                    backgroundQuest.gameObject.SetActive(true);
-                    questText.gameObject.SetActive(true);
-
-                    //Destroy(dialoguesController.fourthDialogue.gameObject);
-                }
-            //}
+                thirdQuest.gameObject.SetActive(true);
+                backgroundQuest.gameObject.SetActive(true);
+                questText.gameObject.SetActive(true);
+            }
         }
 
         if (inventory.itemList.Exists(item => item.name == "Slavda Bottle (1)") && bottleFlag == 0)
@@ -81,11 +81,12 @@ public class GameController : MonoBehaviour
             newZombie = GameObject.Find("Zombie(Clone)");
 
             bottleFlag = 1;
+            bottle.SetActive(true);
         }
 
         if (newZombie != null)
         {
-            if (dialogManager.dialogueNumber == 5 && Vector2.Distance(newZombie.transform.position, playerController.hero.position) <= 5f)
+            if (dialogManager.dialogueNumber == 5 && Vector2.Distance(newZombie.transform.position, playerController.hero.position) <= 5.7f)
             {
                 dialoguesController.fifthDialogue.TriggerDialog();
                 dialogManager.dialogueWindow.SetActive(true);
@@ -114,6 +115,7 @@ public class GameController : MonoBehaviour
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
             hotelScene.hotelSceneEnable = true;
+            inventoryEnable = true;
         }
     }
 }

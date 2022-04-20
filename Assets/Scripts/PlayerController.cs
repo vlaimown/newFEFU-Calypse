@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameController gameController;
 
-    [SerializeField] private DialogManager dialoguesManager;
-    [SerializeField] private DialoguesController dialoguesController;
+    [SerializeField] DialogManager dialoguesManager;
+    [SerializeField] DialoguesController dialoguesController;
 
     public Rigidbody2D hero;
     public Transform character;
@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     public Transform attackPoint;
     public float attackRange;
 
-    public float maxspeed;
-    public float speed;
+    public float maxspeed,
+                 speed;
 
     public int flag,
                moveToHotelFlag;
@@ -31,12 +31,11 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask enemyLayers;
 
-     public bool attackEnable;
+     public bool attackEnable, 
+                 facingRight;
 
-     public float cooldown,
+    public float cooldown,
                   maxcooldown;
-
-     public bool facingRight;
 
     public CharacterStats myStats;
 
@@ -102,7 +101,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("h") && (attackEnable == true) && (cooldown == 1) && flag == 0)
         {
-           //Attack(myStats);
            AttackAnimation();
         }
     }
@@ -135,12 +133,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
             currentTarget = currentCollider.gameObject;
-            
 
-            //zombie.GetComponent<SpriteRenderer>();
-            //enemy.GetComponent<SpriteRenderer>().color = Color.red;
             StartCoroutine(RedVersionOfSprite());
-            //StopCoroutine(RedVersionOfSprite());
         }
     }
 

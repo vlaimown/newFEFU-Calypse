@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Slavda Bottle (1)
   m_EditorClassIdentifier: 
   name: Slavda Bottle (1)
-  icon: {fileID: 21300000, guid: c4ad06c1a988f2649a3c4be940d022b1, type: 3}
+  icon: {fileID: 21300000, guid: 0146f2c393adad54ebfd282403d1dffc, type: 3}
   isDefaultItem: 0

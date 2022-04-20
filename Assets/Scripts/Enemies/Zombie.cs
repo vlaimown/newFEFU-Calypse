@@ -116,7 +116,6 @@ public class Zombie : MonoBehaviour
             foreach (Collider2D hero in hitHeroes)
             {
                 hero.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
-                //hero.GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(RedVersionOfSprite());
             }
         }

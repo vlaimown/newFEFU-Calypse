@@ -8,9 +8,17 @@ public class ItemPick : MonoBehaviour
     public Inventory inventory;
     public Item item;
 
+    [SerializeField] GameController gameController;
+
     public PlayerController character;
-    public Image IconButton;
     [SerializeField] float radius;
+
+    private void Start()
+    {
+        inventory = FindObjectOfType<Inventory>();
+        character = FindObjectOfType<PlayerController>();
+        gameController = FindObjectOfType<GameController>();
+    }
 
     private void OnDrawGizmos()
     {
@@ -20,11 +28,11 @@ public class ItemPick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IconButton.gameObject.SetActive(true);
+        gameController.F.gameObject.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IconButton.gameObject.SetActive(false);
+        gameController.F.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -44,9 +52,5 @@ public class ItemPick : MonoBehaviour
                 }
             }
         }
-        /*else
-        {
-            IconButton.gameObject.SetActive(false);
-        }*/
     }
 }
