@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject bottle;
+    [SerializeField] Image HelloWorldText;
 
     [SerializeField] Zombie zombie;
     [SerializeField] GameObject arrow_pointer;
@@ -35,8 +36,14 @@ public class GameController : MonoBehaviour
     public Image backgroundQuest;
     public Text questText;
 
+    private void Start()
+    {
+        //StartCoroutine(HelloWorldBubble());
+    }
+
     private void FixedUpdate()
     {
+
         if (dialogManager.PrayFlag == 1)
         {
             firstQuest.gameObject.SetActive(true);
@@ -118,4 +125,13 @@ public class GameController : MonoBehaviour
             inventoryEnable = true;
         }
     }
+
+    /*IEnumerator HelloWorldBubble()
+    {
+        HelloWorldText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        HelloWorldText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(HelloWorldBubble());
+    }*/
 }
