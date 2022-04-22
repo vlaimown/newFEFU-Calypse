@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512931640287128753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.62, y: 1.94, z: 0}
+  m_LocalPosition: {x: -0.42, y: 2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3925680882144041804
 Transform:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2290452747290640453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.167, y: -0.087, z: 0}
+  m_LocalPosition: {x: 0.167, y: -0.085, z: 0}
   m_LocalScale: {x: 0.9739468, y: 1.1653131, z: 1}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3318fd6555bfeaa4aab8e901f9576c06, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   zombieAttackFlag: 0
   triggerZone: 10
-  zombieAttackZone: 1.2
+  zombieAttackZone: 1
   speed: 0
   maxspeed: 1
   zombieFacingRight: 0

@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour
     public float maxspeed,
                  speed;
 
-    public int flag,
-               moveToHotelFlag;
+    public int moveToHotelFlag;
+
+    [SerializeField] bool wait_attack_flag;
                 
 
     public LayerMask enemyLayers;
@@ -53,10 +54,9 @@ public class PlayerController : MonoBehaviour
         speed = maxspeed;
         attackEnable = true;
 
-        flag = 0;
         moveToHotelFlag = 0;
 
-        maxcooldown = 1f;
+        maxcooldown = 0.3f;
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();
@@ -75,16 +75,15 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.sqrMagnitude);
 
-        if (cooldown > 0 && flag == 1)
+        if (wait_attack_flag == true)
         {
             cooldown -= Time.deltaTime;
-            attackEnable = false;
         }
-        else if (cooldown <= 0)
+        if (cooldown <= 0 && wait_attack_flag == true)
         {
-            attackEnable = true;
             cooldown = maxcooldown;
-            flag = 0;
+            wait_attack_flag = false;
+            attackEnable = true;
         }
 
         hero.MovePosition(hero.position + direction * speed * Time.deltaTime);
@@ -99,7 +98,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == 1) && flag == 0)
+        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown))
         {
            AttackAnimation();
         }
@@ -108,8 +107,9 @@ public class PlayerController : MonoBehaviour
 
     private void AttackAnimation()
     {
+        attackEnable = false;
         speed = 0;
-        animator.SetBool("IsAttacking", true);
+        animator.SetTrigger("IsAttackingDefault");
     }
 
     public void playerAttack()
@@ -149,10 +149,9 @@ public class PlayerController : MonoBehaviour
 
     private void ReturnAttack()
     {
-        animator.SetBool("IsAttacking", false);
-        attackEnable = false;
+        //attackEnable = true;
         speed = maxspeed;
-        flag = 1;
+        wait_attack_flag = true;
     }
 
     private void OnDrawGizmosSelected()

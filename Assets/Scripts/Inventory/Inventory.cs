@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
     Item item;
 
     public GameObject windowInventory;
-    public bool inventoryOpened = false;
+    //public bool inventoryOpened = false;
 
     public int space;
 
@@ -31,22 +31,22 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (inventoryOpened == false) 
+        if (windowInventory.activeSelf == false) 
         { 
             if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
             {
                 windowInventory.SetActive(true);
-                inventoryOpened = true;
+                //inventoryOpened = true;
             }
         }
 
-        else if (inventoryOpened == true)
+        else if (windowInventory.activeSelf == true)
         {
             playerController.attackEnable = false;
             if (Input.GetKeyUp("i"))
             {
                 windowInventory.SetActive(false);
-                inventoryOpened = false;
+                //inventoryOpened = false;
                 playerController.attackEnable = true;
             }
         }
