@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Inventory\ItemPick.cs" />
     <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialogManager.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SheetDropLoot.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialoguesController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
@@ -77,11 +78,10 @@
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\SortingLayers.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Dialogues\Dialogue.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
-    <Compile Include="Assets\Scripts\UI.cs" />
-    <Compile Include="Assets\Scripts\Enemies\SheetDropLoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
