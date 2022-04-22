@@ -14,7 +14,7 @@ public class EnemyStats : CharacterStats
         player.GetComponent<SpriteRenderer>().color = Color.white;
         Destroy(gameObject);
         healthBar.fillAmount = 1f;
-        SpawnSheet();
+        //SpawnSheet();
     }
 
     public void SpawnSheet()
