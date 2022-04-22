@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512931640287128753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.73, y: 1.88, z: 59.43769}
+  m_LocalPosition: {x: -0.91, y: 1.84, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -276,7 +276,8 @@ MonoBehaviour:
   healthBar: {fileID: 4028201719914912985}
   maxHealth: 100
   damage:
-    baseValue: 5
+    baseValue: 10
+  sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
 --- !u!114 &4155560215517414234
 MonoBehaviour:
   m_ObjectHideFlags: 0

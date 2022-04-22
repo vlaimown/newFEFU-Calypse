@@ -6,14 +6,18 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject bottle;
-    public Item BJD_conspect;
-    private bool conspect_flag = false;
+    public GameObject BJD_notebook;
+    public Item BJD;
+    private bool BJD_flag = false;
 
     public InventoryUI inventoryUI;
+    [SerializeField] Image read_next;
+    private bool read_next_flag = false;
 
     [SerializeField] Zombie zombie;
     [SerializeField] GameObject arrow_pointer;
     [SerializeField] Image WASD_animation;
+
     public Image F;
 
     public PlayerController playerController;
@@ -25,11 +29,15 @@ public class GameController : MonoBehaviour
     private int bottleFlag = 0;
     public bool inventoryEnable = false;
 
-    public Text firstQuest;
-    public Text secondQuest;
-    public Text thirdQuest;
-    public Text fourthQuest;
-    public Text fifthQuest;
+    public Text firstQuest,
+                secondQuest,
+                thirdQuest,
+                fourthQuest,
+                fifthQuest;
+
+    public Text CATScounter;
+    public int catsCount = 0;
+    public GameObject HelloWorldCat;
 
     [SerializeField] GoToHotel hotelScene;
 
@@ -117,9 +125,10 @@ public class GameController : MonoBehaviour
         if (dialogManager.dialogueNumber == 7)
         {
             fifthQuest.gameObject.SetActive(true);
+            CATScounter.gameObject.SetActive(true);
+            CATScounter.text = $"({catsCount}/3)";
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
-            hotelScene.hotelSceneEnable = true;
         }
 
         if (dialogManager.dialogueNumber == 7 && Vector2.Distance(dialoguesController.seventhDialogue.transform.position, playerController.hero.position) < dialoguesController.seventhDialogue.radius)
@@ -127,15 +136,23 @@ public class GameController : MonoBehaviour
             dialogManager.dialogueWindow.SetActive(true);
             dialoguesController.seventhDialogue.TriggerDialog();
             Destroy(dialoguesController.seventhDialogue.gameObject);
-            conspect_flag = true;
+            BJD_flag = true;
         }
 
-        if (dialogManager.dialogueNumber == 8 && conspect_flag == true)
+        if (dialogManager.dialogueNumber == 8 && BJD_flag == true)
         {
-            conspect_flag = false;
+            BJD_flag = false;
             inventoryEnable = true;
-            inventory.itemList.Add(BJD_conspect);
+            inventory.itemList.Add(BJD);
             inventoryUI.UpdateUI();
+        }
+
+        if (dialogManager.dialogueNumber == 9 && read_next_flag == false)
+        {
+            read_next_flag = true;
+            inventory.windowInventory.SetActive(false);
+            read_next.gameObject.SetActive(true);
+            hotelScene.hotelSceneEnable = true;
         }
     }
 

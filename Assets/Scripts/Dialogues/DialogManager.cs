@@ -21,7 +21,7 @@ public class DialogManager : MonoBehaviour
     public Sprite HelloWorldIcon;
 
     public GameObject dialogueWindow;
-    private DialoguesController dialoguesController;
+    //private DialoguesController dialoguesController;
 
     [SerializeField] DialogTrigger secondDialogue;
 
@@ -121,6 +121,15 @@ public class DialogManager : MonoBehaviour
         }
 
         else if (dialogueNumber == 7 && (counter == 4 || counter == 5 || counter == 6))
+        {
+            nameText.text = "Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 8 && (counter == 1 || counter == 2 || counter == 3))
         {
             nameText.text = "Загумённов";
             nameText.color = Color.yellow;

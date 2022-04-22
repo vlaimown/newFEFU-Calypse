@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65546b448d5c76f4fa1afc5e6de6bad9, type: 3}
-  m_Name: "\u0411\u0416\u0414 \u0422\u0435\u0442\u0440\u0430\u0434\u044C"
+  m_Name: "\u0411\u0416\u0414"
   m_EditorClassIdentifier: 
-  name: "\u0411\u0416\u0414 \u0422\u0435\u0442\u0440\u0430\u0434\u044C"
-  icon: {fileID: 21300000, guid: 02f81665259e76d48a8ae0043a3f5edb, type: 3}
+  name: "\u0411\u0416\u0414"
+  icon: {fileID: 21300000, guid: cafb427da6b81e941a8b7ed3b59edc97, type: 3}
   isDefaultItem: 0

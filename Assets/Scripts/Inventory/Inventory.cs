@@ -83,6 +83,11 @@ public class Inventory : MonoBehaviour
             gameController.bottle.SetActive(false);
         }
 
+        if (item.name == "ÁÆÄ")
+        {
+            gameController.BJD_notebook.SetActive(false);
+        }
+
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();

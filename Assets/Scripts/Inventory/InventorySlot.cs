@@ -42,7 +42,20 @@ public class InventorySlot : MonoBehaviour
             //item.Use(item);
             if (item.name == "Slavda Bottle (1)")
             {
+                gameController.BJD_notebook.SetActive(false);
                 gameController.bottle.SetActive(true);
+            }
+
+            if (item.name == "ÁÆÄ")
+            {
+                gameController.bottle.SetActive(false);
+                gameController.BJD_notebook.SetActive(true);
+
+                if (gameController.dialogManager.dialogueNumber == 8)
+                {
+                    gameController.dialogManager.dialogueWindow.SetActive(true);
+                    gameController.dialoguesController.eighthDialogue.TriggerDialog();
+                }
             }
         }
     }
