@@ -53,7 +53,7 @@ public class Zombie : MonoBehaviour
             speed = maxspeed;
         }
 
-        if (Vector2.Distance(playerController.hero.transform.position, transform.position) < zombieAttackZone)
+        else if (Vector2.Distance(playerController.hero.position, transform.position) <= zombieAttackZone)
         {
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             anim.SetBool("IsAttacking", true);
@@ -66,7 +66,7 @@ public class Zombie : MonoBehaviour
             speed = 0;
         }
 
-        if (Vector2.Distance(playerController.hero.transform.position, transform.position) > triggerZone)
+        else if (Vector2.Distance(playerController.hero.transform.position, transform.position) > triggerZone)
         {
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsAttacking", false);

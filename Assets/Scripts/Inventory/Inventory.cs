@@ -36,6 +36,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
             {
                 windowInventory.SetActive(true);
+                playerController.attackEnable = false;
                 //inventoryOpened = true;
             }
         }

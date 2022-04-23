@@ -152,7 +152,7 @@ public class GameController : MonoBehaviour
         if (dialogManager.dialogueNumber == 9 && read_next_flag == false)
         {
             read_next_flag = true;
-            inventory.windowInventory.SetActive(false);
+            //inventory.windowInventory.SetActive(false);
             read_next.gameObject.SetActive(true);
             hotelScene.hotelSceneEnable = true;
         }

@@ -98,7 +98,14 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown) && animator.GetBool("BottleAttack") == true)
+        if (
+                Input.GetKey("h") 
+                && (attackEnable == true) 
+                && (cooldown == maxcooldown) 
+                && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))
+                && (gameController.bottle.activeSelf == true || gameController.BJD_notebook.activeSelf == true)
+                
+           )
         {
            AttackAnimation();
         }
@@ -187,16 +194,32 @@ public class PlayerController : MonoBehaviour
         dialoguesController.thirdDialogue.TriggerDialog();
     }
 
-    public void functionForBottleAttack()
+    public void functionInvise()
     {
-        if (gameController.bottle.activeSelf == true)
+        if (animator.GetBool("BottleAttack") == true)
         {
-            gameController.bottle.SetActive(false);
+            if (gameController.bottle.activeSelf == true)
+            {
+                gameController.bottle.SetActive(false);
+            }
+
+            else if (gameController.bottle.activeSelf == false)
+            {
+                gameController.bottle.SetActive(true);
+            }
         }
 
-        else if (gameController.bottle.activeSelf == false)
+        else if (animator.GetBool("BJDAttack") == true)
         {
-            gameController.bottle.SetActive(true);
+            if (gameController.BJD_notebook.activeSelf == true)
+            {
+                gameController.BJD_notebook.SetActive(true);
+            }
+
+            else if (gameController.BJD_notebook.activeSelf == false)
+            {
+                gameController.BJD_notebook.SetActive(false);
+            }
         }
     }
 }
