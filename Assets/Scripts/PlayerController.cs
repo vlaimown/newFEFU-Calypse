@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown)/* && animator.GetBool("BottleAttack") == true*/)
+        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown) && animator.GetBool("BottleAttack") == true)
         {
            AttackAnimation();
         }
@@ -185,5 +185,18 @@ public class PlayerController : MonoBehaviour
         gameController.backgroundQuest.gameObject.SetActive(false);
         gameController.questText.gameObject.SetActive(false);
         dialoguesController.thirdDialogue.TriggerDialog();
+    }
+
+    public void functionForBottleAttack()
+    {
+        if (gameController.bottle.activeSelf == true)
+        {
+            gameController.bottle.SetActive(false);
+        }
+
+        else if (gameController.bottle.activeSelf == false)
+        {
+            gameController.bottle.SetActive(true);
+        }
     }
 }

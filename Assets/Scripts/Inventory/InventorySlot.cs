@@ -12,6 +12,7 @@ public class InventorySlot : MonoBehaviour
     private void Start()
     {
         gameController = FindObjectOfType<GameController>();
+        //anim = FindObjectOfType<Animator>();
     }
 
     public void AddItem(Item newItem)

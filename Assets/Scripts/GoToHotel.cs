@@ -66,7 +66,7 @@ public class GoToHotel : MonoBehaviour
                     if (Vector2.Distance(player.character.position, hotelPoint.position) < 0.21f)
                     {
                         heroCircleCollider.enabled = true;
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadScene(2);
                         goToHotelFlag = 0;
                         player.character.transform.localScale = defaultScale;
                     }
