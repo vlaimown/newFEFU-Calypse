@@ -21,7 +21,6 @@ public class DialogManager : MonoBehaviour
     public Sprite HelloWorldIcon;
 
     public GameObject dialogueWindow;
-    //private DialoguesController dialoguesController;
 
     [SerializeField] DialogTrigger secondDialogue;
 

@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown))
+        if (Input.GetKey("h") && (attackEnable == true) && (cooldown == maxcooldown)/* && animator.GetBool("BottleAttack") == true*/)
         {
            AttackAnimation();
         }
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("IsPraying", false);
         speed = maxspeed;
-        attackEnable = true;
+        //attackEnable = true;
         dialoguesManager.dialogueWindow.SetActive(true);
         gameController.firstQuest.gameObject.SetActive(false);
         gameController.backgroundQuest.gameObject.SetActive(false);

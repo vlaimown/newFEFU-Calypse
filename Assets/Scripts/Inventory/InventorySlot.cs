@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour
     Item item;
     public Button removeButton;
     public Image icon;
+    [SerializeField] Animator anim;
 
     private void Start()
     {
@@ -44,12 +45,16 @@ public class InventorySlot : MonoBehaviour
             {
                 gameController.BJD_notebook.SetActive(false);
                 gameController.bottle.SetActive(true);
+                anim.SetBool("BottleAttack", true);
+                anim.SetBool("BJDAttack", false);
             }
 
             if (item.name == "ÁÆÄ")
             {
                 gameController.bottle.SetActive(false);
                 gameController.BJD_notebook.SetActive(true);
+                anim.SetBool("BottleAttack", false);
+                anim.SetBool("BJDAttack", true);
 
                 if (gameController.dialogManager.dialogueNumber == 8)
                 {

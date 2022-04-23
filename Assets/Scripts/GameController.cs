@@ -86,12 +86,14 @@ public class GameController : MonoBehaviour
 
         if (inventory.itemList.Exists(item => item.name == "Slavda Bottle (1)") && bottleFlag == 0)
         {
+            playerController.attackEnable = true;
             dialoguesController.fourthDialogueFlag = 2;
             thirdQuest.gameObject.SetActive(false);
             backgroundQuest.gameObject.SetActive(false);
             questText.gameObject.SetActive(false);
             Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
             newZombie = GameObject.Find("Zombie(Clone)");
+            anim.SetBool("BottleAttack", true);
 
             bottleFlag = 1;
             bottle.SetActive(true);
