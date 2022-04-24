@@ -25,7 +25,6 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        //windowInventory.SetActive(true);
         playerController = FindObjectOfType<PlayerController>();
     }
 

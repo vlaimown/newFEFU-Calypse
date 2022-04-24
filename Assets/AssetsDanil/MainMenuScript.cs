@@ -24,9 +24,11 @@ public class MainMenuScript : MonoBehaviour
     public void ReturnMenu()
     {
         Info.SetActive(false);
-         
     }
 
-    
+    public void SurvivalMode()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 }

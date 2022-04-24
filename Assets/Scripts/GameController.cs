@@ -50,11 +50,18 @@ public class GameController : MonoBehaviour
     [SerializeField] Image god_paper_cutscene;
     [SerializeField] Image background_god_paper_cutscene;
     public float gameWillStartIn;
+    [SerializeField] Image fade;
+
+    private void Awake()
+    {
+        inventory.windowInventory.SetActive(true);
+    }
 
     private void Start()
     {
         gameWillStartIn = 3.25f;
         playerController.speed = 0;
+        fade.gameObject.SetActive(true);
     }
 
     private void FixedUpdate()
