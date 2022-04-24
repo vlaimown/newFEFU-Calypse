@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour 
 {
     public static Inventory instance;
-    //public InventorySlot inventorySlot;
     [SerializeField] GameObject newGameObject;
     PlayerController playerController;
     [SerializeField] GameController gameController;
+    [SerializeField] DialogManager dialogManager;
+    public GameObject pointer_BJD;
 
     public List<Item> itemList = new List<Item>();
 
@@ -18,7 +20,6 @@ public class Inventory : MonoBehaviour
     Item item;
 
     public GameObject windowInventory;
-    //public bool inventoryOpened = false;
 
     public int space;
 
@@ -36,7 +37,12 @@ public class Inventory : MonoBehaviour
             {
                 windowInventory.gameObject.SetActive(true);
                 playerController.attackEnable = false;
-                //inventoryOpened = true;
+                
+                if (dialogManager.dialogueNumber == 8)
+                {
+                    gameController.interactive_with_inventory_button.gameObject.SetActive(false);
+                    pointer_BJD.gameObject.SetActive(true);
+                }
             }
         }
 
@@ -46,8 +52,13 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyUp("i"))
             {
                 windowInventory.gameObject.SetActive(false);
-                //inventoryOpened = false;
                 playerController.attackEnable = true;
+
+                if (dialogManager.dialogueNumber == 8)
+                {
+                    gameController.interactive_with_inventory_button.gameObject.SetActive(true);
+                    pointer_BJD.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -59,11 +70,6 @@ public class Inventory : MonoBehaviour
             if (itemList.Count < space)
             {
                 itemList.Add(item);
-
-                /*if (item.name == "Slavda Bottle (1)" || item.name == "Slavda Bottle (1)(Clone)")
-                {
-                    gameController.bottle.SetActive(true);
-                }*/
             }
 
             if (onItemChangedCallback != null)

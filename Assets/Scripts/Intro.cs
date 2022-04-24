@@ -8,12 +8,7 @@ public class Intro : MonoBehaviour
 {
     public int firstCutscene;
     public PlayerController player;
-    //public Inventory windowINV;
 
-    //public Queue<Image> opening;
-    //public GameObject introCanvas;
-    //public Image[] introImgs;
-    //Image image;
     public int flagIntro = 0;
     public GameObject windowIntro;
     public Image[] opening;
@@ -22,16 +17,11 @@ public class Intro : MonoBehaviour
     [SerializeField] int N = 0;
 
     public float gameWillStartIn;
-    //public int counter = 0;
 
     private void Start()
     {
-        //Time.timeScale = 0;
         i = 0;
         firstCutscene = 0;
-        //opening = new Queue<Image>();
-        //counter = 0;
-        //opening = openingParent.GetComponentsInChildren<Image>();
         opening[0].gameObject.SetActive(true);
     }
 
@@ -44,48 +34,9 @@ public class Intro : MonoBehaviour
         }
         else if (i == (N - 1))
         {
-            /*windowINV.windowInventory.SetActive(false);
-            windowIntro.gameObject.SetActive(false);
-            gameWillStartIn = 0.65f;
-            flagIntro = 1;
-            firstCutscene = 1;
-            player.waittime = 2.5f;*/
             SceneManager.LoadScene(2);
-            //Time.timeScale = 1;
 
             return;
         }
     }
-
-    /*public void StartDialogue()
-    {
-        opening.Clear();
-
-        foreach (Image img in introImgs)
-        {
-            opening.Enqueue(img);
-        }
-
-        NextImage();
-    }
-
-    public void NextImage()
-    {
-        counter++;
-
-        if (opening.Count == 0)
-        {
-            EndIntro();
-            return;
-        }
-
-        Image image = opening.Dequeue();
-        image.gameObject.SetActive(true);
-    }
-
-    public void EndIntro()
-    {
-        introCanvas.SetActive(false);
-        counter = 0;
-    }*/
 }

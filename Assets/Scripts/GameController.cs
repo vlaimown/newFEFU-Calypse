@@ -52,6 +52,9 @@ public class GameController : MonoBehaviour
     public float gameWillStartIn;
     [SerializeField] Image fade;
 
+    [SerializeField] Image attack_button;
+    public Image interactive_with_inventory_button;
+
     private void Awake()
     {
         inventory.windowInventory.SetActive(true);
@@ -147,6 +150,7 @@ public class GameController : MonoBehaviour
             {
                 dialoguesController.fifthDialogue.TriggerDialog();
                 dialogManager.dialogueWindow.SetActive(true);
+
             }
         }
 
@@ -155,10 +159,14 @@ public class GameController : MonoBehaviour
             fourthQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);
+
+            attack_button.gameObject.SetActive(true);
         }
 
         if (newZombie == null && dialogManager.dialogueNumber == 6)
         {
+            attack_button.gameObject.SetActive(false);
+
             fourthQuest.gameObject.SetActive(false);
             backgroundQuest.gameObject.SetActive(false);
             questText.gameObject.SetActive(false);
@@ -189,14 +197,19 @@ public class GameController : MonoBehaviour
             inventoryEnable = true;
             inventory.itemList.Add(BJD);
             inventoryUI.UpdateUI();
+
+            interactive_with_inventory_button.gameObject.SetActive(true);
         }
 
         if (dialogManager.dialogueNumber == 9 && read_next_flag == false)
         {
             read_next_flag = true;
-            //inventory.windowInventory.SetActive(false);
+            inventory.pointer_BJD.SetActive(false);
             read_next.gameObject.SetActive(true);
             hotelScene.hotelSceneEnable = true;
+
+            inventory.windowInventory.gameObject.SetActive(false);
+            playerController.attackEnable = true;
         }
     }
 

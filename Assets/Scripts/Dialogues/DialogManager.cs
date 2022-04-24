@@ -5,12 +5,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    //public int PrayFlag;
     public int dialogueNumber;
-
-    //public Intro introLink;
-    //[SerializeField] private Image firstCutsceneImage;
-    //[SerializeField] private Image cutsceneBackgroundImage;
 
     public int counter;
     public string newName;
@@ -165,31 +160,5 @@ public class DialogManager : MonoBehaviour
         dialogueWindow.SetActive(false);
         Time.timeScale = 1;
         counter = 0;
-
-       /* if (introLink.firstCutscene == 1)
-        {
-            firstCutsceneImage.gameObject.SetActive(true);
-            cutsceneBackgroundImage.gameObject.SetActive(true);
-        }*/
-
-        //dialoguesController.diffFlag = 0;
-    }
-
-    private void Update()
-    {
-        /*if (Hero.waittime > 0 && introLink.firstCutscene == 1 && counter == 0 && introLink.gameWillStartIn < 0)
-        {
-            Hero.waittime -= Time.deltaTime;
-            if (Hero.waittime < 0)
-            {
-                introLink.firstCutscene = 0;
-                firstCutsceneImage.gameObject.SetActive(false);
-                cutsceneBackgroundImage.gameObject.SetActive(false);
-                dialogueWindow.SetActive(true);
-
-                secondDialogue.TriggerDialog();
-                PrayFlag = 1;
-            }
-        }*/
     }
 }

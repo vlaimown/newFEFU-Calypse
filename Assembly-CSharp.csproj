@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Dialogues\Dialogue.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
+    <Compile Include="Assets\Scripts\GoToKitchen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

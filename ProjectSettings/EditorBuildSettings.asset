@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SecondScene.unity
     guid: dc750b65d128aee499c59015fc592f95
   - enabled: 1
+    path: Assets/Scenes/KitchenScene.unity
+    guid: 7d872780f75b70d41810e5c57e1ebb98
+  - enabled: 1
     path: Assets/Scenes/SurvivalMode.unity
     guid: ac34c2791c917c142b81a5ddde28a123
   m_configObjects: {}

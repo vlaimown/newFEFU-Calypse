@@ -76,5 +76,5 @@ public class GoToHotel : MonoBehaviour
         {
             buttonToHotel.gameObject.SetActive(false);
         }
-        }
     }
+}

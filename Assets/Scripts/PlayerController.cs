@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         facingRight = true;
 
-        //speed = maxspeed;
         attackEnable = true;
 
         moveToHotelFlag = 0;
@@ -64,10 +63,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        //if (dialoguesController.PrayFlag == 2)
-        //{
-        
+    {  
         moveToHotelFlag = 1;
 
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -99,19 +95,15 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (
-                Input.GetKey("h") 
-                && (attackEnable == true) 
-                && (cooldown == maxcooldown) 
-                && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))
-                && (gameController.bottle.activeSelf == true || gameController.BJD_notebook.activeSelf == true)
-                
-           )
+    if (Input.GetKey("x") 
+        && (attackEnable == true) 
+        && (cooldown == maxcooldown) 
+        && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))
+        && (gameController.bottle.activeSelf == true || gameController.BJD_notebook.activeSelf == true))
         {
-           AttackAnimation();
+            AttackAnimation();
         }
-    //}
-}
+    }
 
     private void AttackAnimation()
     {
@@ -157,7 +149,6 @@ public class PlayerController : MonoBehaviour
 
     private void ReturnAttack()
     {
-        //attackEnable = true;
         speed = maxspeed;
         wait_attack_flag = true;
     }
@@ -187,12 +178,6 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("IsPraying", false);
         speed = maxspeed;
-        //attackEnable = true;
-        /*dialoguesManager.dialogueWindow.SetActive(true);
-        gameController.firstQuest.gameObject.SetActive(false);
-        gameController.backgroundQuest.gameObject.SetActive(false);
-        gameController.questText.gameObject.SetActive(false);
-        dialoguesController.thirdDialogue.TriggerDialog();*/
         dialoguesManager.dialogueWindow.SetActive(true);
         dialoguesController.thirdDialogue.TriggerDialog();
     }

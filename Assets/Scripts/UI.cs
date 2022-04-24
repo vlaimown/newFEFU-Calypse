@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -30,5 +31,10 @@ public class UI : MonoBehaviour
     public void InventoryInvise()
     {
         inventory.windowInventory.SetActive(false);
+    }
+
+    public void GoToKitchenFunction()
+    {
+        SceneManager.LoadScene(4);
     }
 }
