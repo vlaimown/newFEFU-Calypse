@@ -2910,7 +2910,7 @@ Transform:
   m_LocalScale: {x: 1.832, y: 1.8, z: 0}
   m_Children: []
   m_Father: {fileID: 1536573536}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &742084213
 SpriteRenderer:
@@ -5364,7 +5364,7 @@ Transform:
   - {fileID: 1318057408}
   - {fileID: 319155736}
   m_Father: {fileID: 1536573536}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507146253
 GameObject:
@@ -5496,6 +5496,7 @@ GameObject:
   - component: {fileID: 1536573541}
   - component: {fileID: 1536573543}
   - component: {fileID: 1536573542}
+  - component: {fileID: 1536573544}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -5587,6 +5588,7 @@ Transform:
   m_LocalPosition: {x: -37.09, y: -3.46, z: 0}
   m_LocalScale: {x: 0.245, y: 0.245, z: 0}
   m_Children:
+  - {fileID: 1894567200}
   - {fileID: 1586426592}
   - {fileID: 742084212}
   - {fileID: 1436750863}
@@ -5611,8 +5613,7 @@ MonoBehaviour:
   dialoguesController: {fileID: 313950889}
   hero: {fileID: 1536573534}
   character: {fileID: 1536573536}
-  rb: {fileID: 1536573534}
-  circleCollider2D: {fileID: 1536573539}
+  hitBoxPoint: {fileID: 1894567200}
   animator: {fileID: 1536573538}
   direction: {x: 0, y: 0}
   attackPoint: {fileID: 1586426592}
@@ -5663,7 +5664,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.7}
+  m_Offset: {x: 0.25, y: 0.9}
   serializedVersion: 2
   m_Radius: 1
 --- !u!114 &1536573540
@@ -5730,6 +5731,32 @@ MonoBehaviour:
   maxHealth: 100
   damage:
     baseValue: 40
+--- !u!61 &1536573544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536573533}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 3.9750001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.7514324, y: 7.9500003}
+    newSize: {x: 3.7414286, y: 7.9300003}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.7514324, y: 7.9500003}
+  m_EdgeRadius: 0
 --- !u!1 &1562451223
 GameObject:
   m_ObjectHideFlags: 0
@@ -6113,7 +6140,7 @@ Transform:
   m_LocalScale: {x: 3.333333, y: 3.333333, z: 1}
   m_Children: []
   m_Father: {fileID: 1536573536}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1587293602
 GameObject:
@@ -7213,6 +7240,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893610983}
   m_CullTransparentMesh: 1
+--- !u!1 &1894567199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894567200}
+  m_Layer: 0
+  m_Name: HitBoxPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894567200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894567199}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1536573536}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936734654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8487,7 +8544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1742242193024073450, guid: dfdd5eeb8a957194ebac4886d197fabe, type: 3}
       propertyPath: radius
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1742242193024073450, guid: dfdd5eeb8a957194ebac4886d197fabe, type: 3}
       propertyPath: character

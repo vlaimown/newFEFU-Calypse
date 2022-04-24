@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour
 {
     public PlayerController playerController;
 
+    public float distnce;
     public bool zombieAttackFlag;
 
     CharacterCombat combat;
@@ -45,15 +46,17 @@ public class Zombie : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(playerController.hero.transform.position, transform.position) <= triggerZone && (Vector2.Distance(playerController.hero.transform.position, transform.position) > zombieAttackZone))
+        distnce = Vector2.Distance(playerController.hitBoxPoint.transform.position, zombieAttackArea.transform.position);
+
+        if ((Vector2.Distance(playerController.hero.transform.position, transform.position) <= triggerZone))
         {
             anim.SetBool("IsAttacking", false);
             anim.SetBool("IsRunning", true);
-            transform.position = Vector2.MoveTowards(transform.position, playerController.hero.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerController.hero.position, speed * Time.deltaTime);
             speed = maxspeed;
         }
 
-        else if (Vector2.Distance(playerController.hero.position, transform.position) <= zombieAttackZone)
+        if (Mathf.Abs(distnce) <= zombieAttackZone)
         {
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             anim.SetBool("IsAttacking", true);
@@ -66,7 +69,7 @@ public class Zombie : MonoBehaviour
             speed = 0;
         }
 
-        else if (Vector2.Distance(playerController.hero.transform.position, transform.position) > triggerZone)
+        if (Vector2.Distance(playerController.hero.transform.position, transform.position) > triggerZone)
         {
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsAttacking", false);

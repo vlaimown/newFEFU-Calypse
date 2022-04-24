@@ -16,25 +16,25 @@ public class CharacterCombat : MonoBehaviour
 
     private void Start()
     {
-        attackCooldown = maxAttackCooldown;
+        //attackCooldown = maxAttackCooldown;
         myStats = GetComponent<CharacterStats>();
     }
 
     private void Update()
     {
-        if (attackCooldown > 0 && zombie.zombieAttackFlag == true){
+        /*if (attackCooldown > 0 && zombie.zombieAttackFlag == true){
             attackCooldown -= Time.deltaTime;
-        }
+        }*/
     }
 
     public void Attack (CharacterStats targetStats)
     {
-        if (attackCooldown <= 0f)
-        {
+        //if (attackCooldown <= 0f)
+        //{
             StartCoroutine(DoDamage(targetStats, attackDelay));
             targetStats.TakeDamage(myStats.damage.GetValue());
-            attackCooldown = maxAttackCooldown;
-        }
+            //attackCooldown = maxAttackCooldown;
+        //}
     }
 
     IEnumerator DoDamage (CharacterStats stats, float delay)
