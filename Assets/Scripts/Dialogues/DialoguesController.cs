@@ -10,10 +10,12 @@ public class DialoguesController : MonoBehaviour
     public Image buttonF;
 
     public DialogManager dialogueManager;
-    public DialogTrigger dialogueTrigger;
+    public int PrayFlag = 0;
     public PlayerController playerController;
 
-    public DialogTrigger thirdDialogue,
+    public DialogTrigger firstDialogue,
+                         secondDialogue,
+                         thirdDialogue,
                          fourthDialogue,
                          fifthDialogue,
                          sixDialogue,
@@ -26,21 +28,22 @@ public class DialoguesController : MonoBehaviour
 
     public int startFlag;
     public int coun = 0;
-    public GameObject Intro;
+    //public GameObject Intro;
 
-    public Intro gameWillStart;
+    //public Intro gameWillStart;
 
     private void Start()
     {
-        startFlag = 0;
-
-        Intro.SetActive(true);
+        //startFlag = 0;
+        //dialogueManager.dialogueWindow.SetActive(true);
+       // firstDialogue.TriggerDialog();
+        //Intro.SetActive(true);
     }
 
     private void FixedUpdate()
     {
 
-        if (gameWillStart.gameWillStartIn > 0 && gameWillStart.flagIntro == 1)
+        /*if (gameWillStart.gameWillStartIn > 0 && gameWillStart.flagIntro == 1)
         {
             playerController.speed = 0;
             playerController.attackEnable = false;
@@ -61,25 +64,31 @@ public class DialoguesController : MonoBehaviour
                 }
                 startFlag = 1;
             }
-        }
+        }*/
 
-        if (dialogueManager.PrayFlag == 1)
+
+
+
+        if (PrayFlag == 2 && dialogueManager.dialogueNumber == 3)
         {
-            buttonF.gameObject.SetActive(true);
-            if (Input.GetKey("f"))
-            {
-                anim.SetBool("IsPraying", true);
-                dialogueManager.PrayFlag = 0;
-                buttonF.gameObject.SetActive(false);
-                anim.SetBool("ReadyToGo", true);
+        buttonF.gameObject.SetActive(true);
+        if (Input.GetKey("f"))
+        {
+            anim.SetBool("IsPraying", true);
+            buttonF.gameObject.SetActive(false);
+            anim.SetBool("ReadyToGo", true);
+            PrayFlag = 3;
             }
         }
 
+
+
+
         if (Vector2.Distance(playerController.hero.transform.position, fourthDialogue.transform.position) < fourthDialogue.radius && fourthDialogueFlag == 0)
-        {
+           {
             dialogueManager.dialogueWindow.SetActive(true);
             fourthDialogue.TriggerDialog();
             fourthDialogueFlag = 1;
+           }
         }
     }
-}

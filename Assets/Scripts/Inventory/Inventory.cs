@@ -25,28 +25,28 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        windowInventory.SetActive(true);
+        //windowInventory.SetActive(true);
         playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
     {
-        if (windowInventory.activeSelf == false) 
+        if (windowInventory.gameObject.activeSelf == false) 
         { 
             if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
             {
-                windowInventory.SetActive(true);
+                windowInventory.gameObject.SetActive(true);
                 playerController.attackEnable = false;
                 //inventoryOpened = true;
             }
         }
 
-        else if (windowInventory.activeSelf == true)
+        else if (windowInventory.gameObject.activeSelf == true)
         {
             playerController.attackEnable = false;
             if (Input.GetKeyUp("i"))
             {
-                windowInventory.SetActive(false);
+                windowInventory.gameObject.SetActive(false);
                 //inventoryOpened = false;
                 playerController.attackEnable = true;
             }

@@ -103,7 +103,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 98a194efa1c7dd04c9b097125a9ce01c, type: 2}
   gameController: {fileID: 0}
   character: {fileID: 0}
-  radius: 1
+  radius: 1.05
 --- !u!58 &1742242193024073461
 CircleCollider2D:
   m_ObjectHideFlags: 0

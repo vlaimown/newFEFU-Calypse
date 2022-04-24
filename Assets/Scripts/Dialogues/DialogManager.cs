@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    public int PrayFlag;
+    //public int PrayFlag;
     public int dialogueNumber;
 
-    public Intro introLink;
-    [SerializeField] private Image firstCutsceneImage;
-    [SerializeField] private Image cutsceneBackgroundImage;
+    //public Intro introLink;
+    //[SerializeField] private Image firstCutsceneImage;
+    //[SerializeField] private Image cutsceneBackgroundImage;
 
     public int counter;
     public string newName;
@@ -22,8 +22,6 @@ public class DialogManager : MonoBehaviour
 
     public GameObject dialogueWindow;
 
-    [SerializeField] DialogTrigger secondDialogue;
-
     [SerializeField] private PlayerController Hero;
 
     public Text nameText,
@@ -34,7 +32,6 @@ public class DialogManager : MonoBehaviour
     private void Start()
     {
         dialogueNumber = 1;
-        PrayFlag = 0;
         counter = 0;
         sentences = new Queue<string>();
     }
@@ -56,7 +53,10 @@ public class DialogManager : MonoBehaviour
             characterIcon.sprite = ZagumIcon;
         }
 
-        sentences.Clear();
+        if (sentences != null)
+        {
+            sentences.Clear();
+        }
 
         foreach (string sentence in dialog.sentenses) { 
             sentences.Enqueue(sentence);
@@ -76,7 +76,7 @@ public class DialogManager : MonoBehaviour
         }
 
         #region
-        if (dialogueNumber == 3 && (counter == 2 || counter == 4 || counter == 7 || counter == 8))
+        if (dialogueNumber == 3 && (counter == 2 || counter == 4 || counter == 7 || counter == 8 || counter == 9))
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
@@ -166,18 +166,18 @@ public class DialogManager : MonoBehaviour
         Time.timeScale = 1;
         counter = 0;
 
-        if (introLink.firstCutscene == 1)
+       /* if (introLink.firstCutscene == 1)
         {
             firstCutsceneImage.gameObject.SetActive(true);
             cutsceneBackgroundImage.gameObject.SetActive(true);
-        }
+        }*/
 
         //dialoguesController.diffFlag = 0;
     }
 
     private void Update()
     {
-        if (Hero.waittime > 0 && introLink.firstCutscene == 1 && counter == 0 && introLink.gameWillStartIn < 0)
+        /*if (Hero.waittime > 0 && introLink.firstCutscene == 1 && counter == 0 && introLink.gameWillStartIn < 0)
         {
             Hero.waittime -= Time.deltaTime;
             if (Hero.waittime < 0)
@@ -190,6 +190,6 @@ public class DialogManager : MonoBehaviour
                 secondDialogue.TriggerDialog();
                 PrayFlag = 1;
             }
-        }
+        }*/
     }
 }

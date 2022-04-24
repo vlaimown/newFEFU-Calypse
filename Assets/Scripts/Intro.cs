@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Intro : MonoBehaviour
 {
     public int firstCutscene;
     public PlayerController player;
-    public Inventory windowINV;
+    //public Inventory windowINV;
 
     //public Queue<Image> opening;
     //public GameObject introCanvas;
@@ -25,7 +26,7 @@ public class Intro : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         i = 0;
         firstCutscene = 0;
         //opening = new Queue<Image>();
@@ -43,13 +44,14 @@ public class Intro : MonoBehaviour
         }
         else if (i == (N - 1))
         {
-            windowINV.windowInventory.SetActive(false);
+            /*windowINV.windowInventory.SetActive(false);
             windowIntro.gameObject.SetActive(false);
             gameWillStartIn = 0.65f;
             flagIntro = 1;
             firstCutscene = 1;
-            player.waittime = 2.5f;
-            Time.timeScale = 1;
+            player.waittime = 2.5f;*/
+            SceneManager.LoadScene(2);
+            //Time.timeScale = 1;
 
             return;
         }

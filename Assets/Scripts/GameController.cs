@@ -47,10 +47,43 @@ public class GameController : MonoBehaviour
     public Image backgroundQuest;
     public Text questText;
 
+    [SerializeField] Image god_paper_cutscene;
+    [SerializeField] Image background_god_paper_cutscene;
+    public float gameWillStartIn;
+
+    private void Start()
+    {
+        gameWillStartIn = 3.25f;
+        playerController.speed = 0;
+    }
+
     private void FixedUpdate()
     {
+        if (gameWillStartIn > 0)
+        {
+            gameWillStartIn -= Time.fixedDeltaTime;
+            if (gameWillStartIn < 2.5f && dialoguesController.PrayFlag == 0)
+            {
+                dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+                dialoguesController.firstDialogue.TriggerDialog();
+                dialoguesController.PrayFlag = 1;
+            }
+            else if (dialoguesController.PrayFlag == 1 && gameWillStartIn < 1.75f)
+            {
+                god_paper_cutscene.gameObject.SetActive(true);
+                background_god_paper_cutscene.gameObject.SetActive(true);
+            }
+        }
+        else if (gameWillStartIn < 0 && dialoguesController.PrayFlag == 1)
+        {
+            god_paper_cutscene.gameObject.SetActive(false);
+            background_god_paper_cutscene.gameObject.SetActive(false);
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.secondDialogue.TriggerDialog();
+            dialoguesController.PrayFlag = 2;
+        }
 
-        if (dialogManager.PrayFlag == 1)
+        if (dialogManager.dialogueNumber == 3 && gameWillStartIn < 0 && dialoguesController.PrayFlag == 2)
         {
             firstQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
@@ -59,6 +92,8 @@ public class GameController : MonoBehaviour
 
         if (dialogManager.dialogueNumber == 4 && dialoguesController.fourthDialogueFlag != 1)
         {
+            firstQuest.gameObject.SetActive(false);
+
             secondQuest.gameObject.SetActive(true);
             backgroundQuest.gameObject.SetActive(true);
             questText.gameObject.SetActive(true);

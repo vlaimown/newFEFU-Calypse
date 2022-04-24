@@ -27,7 +27,7 @@ public class GoToHotel : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.3f && player.moveToHotelFlag == 1 && hotelSceneEnable == true)
+        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.5f && player.moveToHotelFlag == 1 && hotelSceneEnable == true)
         {
             buttonToHotel.gameObject.SetActive(true);
             if (Input.GetKey("e"))
@@ -66,7 +66,7 @@ public class GoToHotel : MonoBehaviour
                     if (Vector2.Distance(player.character.position, hotelPoint.position) < 0.21f)
                     {
                         heroCircleCollider.enabled = true;
-                        SceneManager.LoadScene(2);
+                        SceneManager.LoadScene(3);
                         goToHotelFlag = 0;
                         player.character.transform.localScale = defaultScale;
                     }
