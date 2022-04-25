@@ -7,8 +7,8 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject Enemy;
     public Transform[] EnemySpawnerPosition;
     private int _randomSpawnPoints;
-    public float RepeatRate = 3f;
-    public int DestroySpawner  ;
+    public float RepeatRate;
+    public int DestroySpawner;
     public int MaxEnenyInScene = 5;
     [SerializeField] private int count = 0;
 

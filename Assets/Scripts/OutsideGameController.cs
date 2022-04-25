@@ -14,8 +14,6 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] GameController gameController;
     [SerializeField] DialogTrigger eleventhDialogue;
 
-    [SerializeField] Item bottle;
-
     public float distance;
 
     private void Awake()
@@ -24,9 +22,8 @@ public class OutsideGameController : MonoBehaviour
         inventory.windowInventory.SetActive(true);
         fade.gameObject.SetActive(true);
 
-        inventory.itemList.Add(gameController.BJD);
-        inventory.itemList.Add(bottle);
-        gameController.inventoryUI.UpdateUI();
+        playerController.attackEnable = true;
+        gameController.inventoryEnable = true;
     }
     private void FixedUpdate()
     {

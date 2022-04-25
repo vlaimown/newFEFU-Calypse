@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-    if (Input.GetKey("x") 
+    if (Input.GetKey("h") 
         && (attackEnable == true) 
         && (cooldown == maxcooldown) 
         && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))

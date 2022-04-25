@@ -11,6 +11,10 @@ public class UI : MonoBehaviour
 
     [SerializeField] Inventory inventory;
     [SerializeField] Image fade;
+
+    [SerializeField] Item bottle;
+    [SerializeField] Item BJD;
+    [SerializeField] InventoryUI inventoryUI;
     public void CloseReadNext()
     {
         read_next.gameObject.SetActive(false);
@@ -31,6 +35,13 @@ public class UI : MonoBehaviour
     public void InventoryInvise()
     {
         inventory.windowInventory.SetActive(false);
+
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            inventory.itemList.Add(BJD);
+            inventory.itemList.Add(bottle);
+            inventoryUI.UpdateUI();
+        }
     }
 
     public void GoToKitchenFunction()

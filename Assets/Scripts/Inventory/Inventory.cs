@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
     {
         instance = this;
         playerController = FindObjectOfType<PlayerController>();
+        gameController = FindObjectOfType<GameController>();
     }
 
     private void Update()
