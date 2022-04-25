@@ -45,6 +45,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject currentTarget = null;
 
+   /* #region Weapons
+    [SerializeField] GameObject bottle;
+    [SerializeField] GameObject BJD;
+    #endregion*/
+
     private void Start()
     {
         currentTarget = null;

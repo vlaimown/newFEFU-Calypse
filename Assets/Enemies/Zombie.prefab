@@ -278,6 +278,7 @@ MonoBehaviour:
   damage:
     baseValue: 10
   sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
+  spawnEnemy: {fileID: 0}
 --- !u!114 &4155560215517414234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   triggerZone: 10
   zombieAttackZone: 0.9
   speed: 0
-  maxspeed: 1
+  maxspeed: 0.8
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}

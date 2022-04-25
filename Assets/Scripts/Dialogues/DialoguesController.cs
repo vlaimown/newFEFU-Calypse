@@ -24,7 +24,8 @@ public class DialoguesController : MonoBehaviour
                          ninthDialogue,
                          tenthDialogue,
                          eleventhDialogue,
-                         twelfthDialogue;
+                         twelfthDialogue,
+                         thirteenthDialogue;
 
     public int fourthDialogueFlag = 0;
     public float radius;

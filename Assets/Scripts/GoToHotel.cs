@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoToHotel : MonoBehaviour
 {
@@ -21,8 +22,11 @@ public class GoToHotel : MonoBehaviour
 
     private void Start()
     {
-        goToHotelFlag = 0;
-        hotelSceneEnable = false;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            goToHotelFlag = 0;
+            hotelSceneEnable = false;
+        }
     }
 
     private void FixedUpdate()
@@ -72,9 +76,9 @@ public class GoToHotel : MonoBehaviour
                     }
                 }
             }
-        else
-        {
-            buttonToHotel.gameObject.SetActive(false);
-        }
+         else
+         {
+             buttonToHotel.gameObject.SetActive(false);
+         }
     }
 }
