@@ -7,6 +7,7 @@ public class EnemyStats : CharacterStats
 {
     int rnd_sheet = 0;
     [SerializeField] GameObject sheet;
+    [SerializeField] SpawnEnemy spawnEnemy;
     public override void Die()
     {
         base.Die();
@@ -14,6 +15,13 @@ public class EnemyStats : CharacterStats
         player.GetComponent<SpriteRenderer>().color = Color.white;
         Destroy(gameObject);
         healthBar.fillAmount = 1f;
+
+        //if ()
+        //{
+        spawnEnemy = FindObjectOfType<SpawnEnemy>();
+        spawnEnemy.count = spawnEnemy.count - 1;
+        //}
+
         //SpawnSheet();
     }
 
