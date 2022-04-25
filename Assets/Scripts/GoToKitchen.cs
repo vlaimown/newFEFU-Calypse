@@ -14,7 +14,22 @@ public class GoToKitchen : MonoBehaviour
 
     [SerializeField] Image blackout;
 
+    [SerializeField] Inventory inventory;
+    [SerializeField] Image fade;
     public int door;
+
+    private void Awake()
+    {
+        inventory.windowInventory.SetActive(true);
+        fade.gameObject.SetActive(true);
+
+        playerController.attackEnable = true;
+    }
+
+    private void Start()
+    {
+        playerController.speed = playerController.maxspeed * 1.5f;
+    }
 
     void Update()
     {

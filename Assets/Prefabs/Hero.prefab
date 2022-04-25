@@ -223,6 +223,8 @@ MonoBehaviour:
   myStats: {fileID: 0}
   zombie: {fileID: 0}
   currentTarget: {fileID: 0}
+  bottle_weapon: {fileID: 5160503395852211802}
+  BJD_weapon: {fileID: 5160503396565634546}
 --- !u!50 &5160503395633488827
 Rigidbody2D:
   serializedVersion: 4
@@ -343,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5160503395852211749
 Transform:
   m_ObjectHideFlags: 0

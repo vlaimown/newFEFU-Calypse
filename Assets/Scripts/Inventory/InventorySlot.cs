@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InventorySlot : MonoBehaviour
 {
     [SerializeField] GameController gameController;
+    [SerializeField] PlayerController playerController;
     Item item;
     public Button removeButton;
     public Image icon;
@@ -44,23 +46,26 @@ public class InventorySlot : MonoBehaviour
             //item.Use(item);
             if (item.name == "Slavda Bottle (1)")
             {
-                gameController.BJD_notebook.SetActive(false);
-                gameController.bottle.SetActive(true);
+                playerController.BJD_weapon.SetActive(false);
+                playerController.bottle_weapon.SetActive(true);
                 anim.SetBool("BottleAttack", true);
                 anim.SetBool("BJDAttack", false);
             }
 
             if (item.name == "ÁÆÄ")
             {
-                gameController.bottle.SetActive(false);
-                gameController.BJD_notebook.SetActive(true);
+                playerController.bottle_weapon.SetActive(false);
+                playerController.BJD_weapon.SetActive(true);
                 anim.SetBool("BottleAttack", false);
                 anim.SetBool("BJDAttack", true);
 
-                if (gameController.dialogManager.dialogueNumber == 8)
+                if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
-                    gameController.dialogManager.dialogueWindow.SetActive(true);
-                    gameController.dialoguesController.eighthDialogue.TriggerDialog();
+                    if (gameController.dialogManager.dialogueNumber == 8)
+                    {
+                        gameController.dialogManager.dialogueWindow.SetActive(true);
+                        gameController.dialoguesController.eighthDialogue.TriggerDialog();
+                    }
                 }
             }
         }

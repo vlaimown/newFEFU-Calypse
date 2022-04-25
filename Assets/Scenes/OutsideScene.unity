@@ -3377,6 +3377,7 @@ MonoBehaviour:
   bottle: {fileID: 0}
   BJD: {fileID: 0}
   inventoryUI: {fileID: 0}
+  goToKitchen: {fileID: 0}
 --- !u!212 &3925606264139147792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3594,6 +3595,8 @@ MonoBehaviour:
   myStats: {fileID: 0}
   zombie: {fileID: 0}
   currentTarget: {fileID: 0}
+  bottle_weapon: {fileID: 3925606263820804080}
+  BJD_weapon: {fileID: 3925606265356305496}
 --- !u!4 &3925606264139147823
 Transform:
   m_ObjectHideFlags: 0
@@ -5548,6 +5551,10 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 915134629560013173, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 3925606264139147822}
     - target: {fileID: 915134629560013174, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0
@@ -6889,6 +6896,10 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 915134629560013173, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 3925606264139147822}
     - target: {fileID: 915134629560013174, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0
@@ -7520,6 +7531,10 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 915134629560013173, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 3925606264139147822}
     - target: {fileID: 915134629560013174, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0

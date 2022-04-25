@@ -38,7 +38,7 @@ public class UI : MonoBehaviour
     {
         inventory.windowInventory.SetActive(false);
 
-        if (SceneManager.GetActiveScene().buildIndex == 4)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             inventory.itemList.Add(bottle);
             inventory.itemList.Add(BJD);

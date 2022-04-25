@@ -45,10 +45,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject currentTarget = null;
 
-   /* #region Weapons
-    [SerializeField] GameObject bottle;
-    [SerializeField] GameObject BJD;
-    #endregion*/
+    #region Weapons
+    public GameObject bottle_weapon;
+    public GameObject BJD_weapon;
+    #endregion
 
     private void Start()
     {
@@ -104,12 +104,12 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
-
+        
     if (Input.GetKey("x") 
         && (attackEnable == true) 
         && (cooldown == maxcooldown) 
         && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))
-        && (gameController.bottle.activeSelf == true || gameController.BJD_notebook.activeSelf == true))
+        && (bottle_weapon.activeSelf == true || BJD_weapon.activeSelf == true))
         {
             AttackAnimation();
         }
@@ -196,27 +196,27 @@ public class PlayerController : MonoBehaviour
     {
         if (animator.GetBool("BottleAttack") == true)
         {
-            if (gameController.bottle.activeSelf == true)
+            if (bottle_weapon.activeSelf == true)
             {
-                gameController.bottle.SetActive(false);
+                bottle_weapon.SetActive(false);
             }
 
-            else if (gameController.bottle.activeSelf == false)
+            else if (bottle_weapon.activeSelf == false)
             {
-                gameController.bottle.SetActive(true);
+                bottle_weapon.SetActive(true);
             }
         }
 
         else if (animator.GetBool("BJDAttack") == true)
         {
-            if (gameController.BJD_notebook.activeSelf == true)
+            if (BJD_weapon.activeSelf == true)
             {
-                gameController.BJD_notebook.SetActive(false);
+                BJD_weapon.SetActive(false);
             }
 
-            else if (gameController.BJD_notebook.activeSelf == false)
+            else if (BJD_weapon.activeSelf == false)
             {
-                gameController.BJD_notebook.SetActive(true);
+                BJD_weapon.SetActive(true);
             }
         }
     }
