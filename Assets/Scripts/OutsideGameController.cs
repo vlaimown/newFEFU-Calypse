@@ -31,10 +31,20 @@ public class OutsideGameController : MonoBehaviour
         distance = Vector2.Distance(dialoguesController.eleventhDialogue.transform.position, playerController.hero.transform.position);
         if (distance <= dialoguesController.eleventhDialogue.radius)
             {
-                Debug.Log("dada");
                 dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
                 dialoguesController.eleventhDialogue.TriggerDialog();
                 Destroy(dialoguesController.eleventhDialogue.gameObject);
+            }
+        }
+
+        if (dialoguesController.twelfthDialogue != null)
+        {
+            distance = Vector2.Distance(dialoguesController.twelfthDialogue.transform.position, playerController.hero.transform.position);
+            if (distance <= dialoguesController.twelfthDialogue.radius)
+            {
+                dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+                dialoguesController.twelfthDialogue.TriggerDialog();
+                Destroy(dialoguesController.twelfthDialogue.gameObject);
             }
         }
     }

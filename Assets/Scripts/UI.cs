@@ -38,8 +38,8 @@ public class UI : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            inventory.itemList.Add(BJD);
             inventory.itemList.Add(bottle);
+            inventory.itemList.Add(BJD);
             inventoryUI.UpdateUI();
         }
     }

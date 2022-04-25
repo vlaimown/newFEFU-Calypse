@@ -23,7 +23,8 @@ public class DialoguesController : MonoBehaviour
                          eighthDialogue,
                          ninthDialogue,
                          tenthDialogue,
-                         eleventhDialogue;
+                         eleventhDialogue,
+                         twelfthDialogue;
 
     public int fourthDialogueFlag = 0;
     public float radius;

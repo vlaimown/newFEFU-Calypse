@@ -12,6 +12,8 @@ public class SpawnEnemy : MonoBehaviour
     public int MaxEnenyInScene = 5;
     [SerializeField] private int count = 0;
 
+    [SerializeField] CameraFollow cameraFollow;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if ( other.gameObject.tag  == "Player")
@@ -34,6 +36,9 @@ public class SpawnEnemy : MonoBehaviour
         }
         count++;
         _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
-        Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);       
+        if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
+        {
+            Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
+        }
     }
 }

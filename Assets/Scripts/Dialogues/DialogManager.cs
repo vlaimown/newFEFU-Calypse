@@ -142,7 +142,16 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 1 && (counter == 1 || counter == 2 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 4)
+        else if (dialogueNumber == 1 && (counter == 1 || counter == 2 || counter == 3 || counter == 4) && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 2 && (counter == 2 || counter == 3 || counter == 5) && SceneManager.GetActiveScene().buildIndex == 4)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
