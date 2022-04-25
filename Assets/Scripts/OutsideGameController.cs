@@ -26,6 +26,9 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] Item student_pass;
     public float distance;
 
+    public int skillsFlag = 0;
+    [SerializeField] GameObject water;
+
     [SerializeField] GoToHotel goToHotel;
 
     private void Awake()
@@ -52,19 +55,10 @@ public class OutsideGameController : MonoBehaviour
             }
         }
 
-        /*if (dialoguesController.twelfthDialogue != null)
-        {
-            distance = Vector2.Distance(dialoguesController.twelfthDialogue.transform.position, playerController.hero.transform.position);
-            if (distance <= dialoguesController.twelfthDialogue.radius)
-            {
-                dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
-                dialoguesController.twelfthDialogue.TriggerDialog();
-                Destroy(dialoguesController.twelfthDialogue.gameObject);
-            }
-        }*/
-
         if (dialogManager.dialogueNumber == 2 && SceneManager.GetActiveScene().buildIndex == 4)
         {
+            skillsFlag = 1;
+
             if (inventory.windowInventory.gameObject.activeSelf == false)
             {
                 gameController.interactive_with_inventory_button.gameObject.SetActive(true);
@@ -96,7 +90,7 @@ public class OutsideGameController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("z") && gameController.bottle.activeSelf == true)
+        if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
         {
             dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
             dialoguesController.twelfthDialogue.TriggerDialog();

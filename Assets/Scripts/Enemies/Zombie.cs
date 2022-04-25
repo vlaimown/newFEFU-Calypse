@@ -87,20 +87,6 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        anim.SetBool("IsAttacking", true);
-        anim.SetBool("IsRunnning", false);
-        speed = 0;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        anim.SetBool("IsAttacking", false);
-        anim.SetBool("IsRunning", true);
-        speed = maxspeed;
-    }*/
-
     public void Flip()
     {
         zombieFacingRight = !zombieFacingRight;

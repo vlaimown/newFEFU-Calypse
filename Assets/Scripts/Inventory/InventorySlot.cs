@@ -43,7 +43,6 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
-            //item.Use(item);
             if (item.name == "Slavda Bottle (1)")
             {
                 playerController.BJD_weapon.SetActive(false);

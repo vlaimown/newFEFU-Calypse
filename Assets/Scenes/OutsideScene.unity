@@ -167,6 +167,8 @@ MonoBehaviour:
   triggerPassQuestRadius: 1
   student_pass: {fileID: 11400000, guid: 351b96e1bdf2b554da8f457c237afe11, type: 2}
   distance: 0
+  skillsFlag: 0
+  water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   goToHotel: {fileID: 3925606263897368305}
 --- !u!4 &314927780
 Transform:
@@ -762,7 +764,7 @@ MonoBehaviour:
   count: 0
   spawnEnemyFlag: 0
   timeToSpawn: 0
-  maxTimeToSpawn: 10
+  maxTimeToSpawn: 8
   cameraFollow: {fileID: 3925606265168597553}
 --- !u!58 &3925606263264547309
 CircleCollider2D:
@@ -3572,6 +3574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waittime: 0
   gameController: {fileID: 3925606264530329360}
+  outsideGameController: {fileID: 314927779}
   dialoguesManager: {fileID: 3925606263750759408}
   dialoguesController: {fileID: 3925606265365932262}
   hero: {fileID: 3925606264139147793}
@@ -3597,6 +3600,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   bottle_weapon: {fileID: 3925606263820804080}
   BJD_weapon: {fileID: 3925606265356305496}
+  water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
+  water_count: 0
 --- !u!4 &3925606264139147823
 Transform:
   m_ObjectHideFlags: 0
