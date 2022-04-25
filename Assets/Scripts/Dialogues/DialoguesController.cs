@@ -21,25 +21,15 @@ public class DialoguesController : MonoBehaviour
                          sixDialogue,
                          seventhDialogue,
                          eighthDialogue,
-                         ninthDialogue;
+                         ninthDialogue,
+                         tenthDialogue,
+                         eleventhDialogue;
 
     public int fourthDialogueFlag = 0;
     public float radius;
 
     public int startFlag;
     public int coun = 0;
-    //public GameObject Intro;
-
-    //public Intro gameWillStart;
-
-    private void Start()
-    {
-        //startFlag = 0;
-        //dialogueManager.dialogueWindow.SetActive(true);
-       // firstDialogue.TriggerDialog();
-        //Intro.SetActive(true);
-    }
-
     private void FixedUpdate()
     {
 
@@ -71,24 +61,26 @@ public class DialoguesController : MonoBehaviour
 
         if (PrayFlag == 2 && dialogueManager.dialogueNumber == 3)
         {
-        buttonF.gameObject.SetActive(true);
-        if (Input.GetKey("f"))
-        {
-            anim.SetBool("IsPraying", true);
-            buttonF.gameObject.SetActive(false);
-            anim.SetBool("ReadyToGo", true);
-            PrayFlag = 3;
+            buttonF.gameObject.SetActive(true);
+            if (Input.GetKey("f"))
+            {
+                anim.SetBool("IsPraying", true);
+                buttonF.gameObject.SetActive(false);
+                anim.SetBool("ReadyToGo", true);
+                PrayFlag = 3;
             }
         }
 
 
 
-
-        if (Vector2.Distance(playerController.hero.transform.position, fourthDialogue.transform.position) < fourthDialogue.radius && fourthDialogueFlag == 0)
-           {
-            dialogueManager.dialogueWindow.SetActive(true);
-            fourthDialogue.TriggerDialog();
-            fourthDialogueFlag = 1;
-           }
+        if (fourthDialogue != null)
+        {
+            if (Vector2.Distance(playerController.hero.transform.position, fourthDialogue.transform.position) < fourthDialogue.radius && fourthDialogueFlag == 0)
+            {
+                dialogueManager.dialogueWindow.SetActive(true);
+                fourthDialogue.TriggerDialog();
+                fourthDialogueFlag = 1;
+            }
         }
+    }
     }

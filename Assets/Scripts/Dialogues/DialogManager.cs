@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -42,11 +43,11 @@ public class DialogManager : MonoBehaviour
             characterIcon.sprite = heroIcon;
         }
 
-        if (dialog.name == "Алексей Андреевич Загумённов")
+        /*if (dialog.name == "Алексей Андреевич Загумённов")
         {
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
-        }
+        }*/
 
         if (sentences != null)
         {
@@ -89,7 +90,7 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 5)
+        else if (dialogueNumber == 5 && (counter == 1 || counter == 3))
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
@@ -116,7 +117,7 @@ public class DialogManager : MonoBehaviour
 
         else if (dialogueNumber == 7 && (counter == 4 || counter == 5 || counter == 6))
         {
-            nameText.text = "Загумённов";
+            nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
         }
@@ -125,7 +126,25 @@ public class DialogManager : MonoBehaviour
         #region
         else if (dialogueNumber == 8 && (counter == 1 || counter == 2 || counter == 3))
         {
-            nameText.text = "Загумённов";
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 9 && (counter == 3 || counter == 5 || counter == 6 || counter == 8 || counter == 12 || counter == 14))
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 1 && (counter == 1 || counter == 2 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
         }

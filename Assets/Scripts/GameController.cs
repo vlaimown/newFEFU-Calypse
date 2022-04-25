@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -63,13 +64,16 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         gameWillStartIn = 3.25f;
-        playerController.speed = 0;
-        fade.gameObject.SetActive(true);
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            playerController.speed = 0;
+            fade.gameObject.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (gameWillStartIn > 0)
+        if (gameWillStartIn > 0 && SceneManager.GetActiveScene().buildIndex == 2)
         {
             gameWillStartIn -= Time.fixedDeltaTime;
             if (gameWillStartIn < 2.5f && dialoguesController.PrayFlag == 0)
@@ -210,6 +214,13 @@ public class GameController : MonoBehaviour
 
             inventory.windowInventory.gameObject.SetActive(false);
             playerController.attackEnable = true;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 4 && dialogManager.dialogueNumber == 1)
+        {
+            // будет 11
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.eleventhDialogue.TriggerDialog();
         }
     }
 
