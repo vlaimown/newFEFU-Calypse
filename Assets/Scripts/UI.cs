@@ -15,6 +15,8 @@ public class UI : MonoBehaviour
     [SerializeField] Item bottle;
     [SerializeField] Item BJD;
     [SerializeField] InventoryUI inventoryUI;
+
+    [SerializeField] GoToKitchen goToKitchen;
     public void CloseReadNext()
     {
         read_next.gameObject.SetActive(false);
@@ -44,8 +46,15 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void GoToKitchenFunction()
+    public void GoTo()
     {
-        SceneManager.LoadScene(4);
+        if (goToKitchen.door == 2)
+        {
+            SceneManager.LoadScene("KitchenScene");
+        }
+        if (goToKitchen.door == 1)
+        {
+            SceneManager.LoadScene("OutsideScene");
+        }
     }
 }

@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();
+
+        if (SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            animator.SetBool("ReadyToGo", true);
+        }
     }
 
     private void FixedUpdate()

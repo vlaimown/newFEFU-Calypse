@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour 
 {
@@ -32,33 +33,56 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (windowInventory.gameObject.activeSelf == false) 
-        { 
-            if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
+        if (SceneManager.GetActiveScene().buildIndex == 2) 
+        {
+            if (windowInventory.gameObject.activeSelf == false)
             {
-                windowInventory.gameObject.SetActive(true);
-                playerController.attackEnable = false;
-                
-                if (dialogManager.dialogueNumber == 8)
+                if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
                 {
-                    gameController.interactive_with_inventory_button.gameObject.SetActive(false);
-                    pointer_BJD.gameObject.SetActive(true);
+                    windowInventory.gameObject.SetActive(true);
+                    playerController.attackEnable = false;
+
+                    if (dialogManager.dialogueNumber == 8)
+                    {
+                        gameController.interactive_with_inventory_button.gameObject.SetActive(false);
+                        pointer_BJD.gameObject.SetActive(true);
+                    }
+                }
+            }
+            else if (windowInventory.gameObject.activeSelf == true)
+            {
+                playerController.attackEnable = false;
+                if (Input.GetKeyUp("i"))
+                {
+                    windowInventory.gameObject.SetActive(false);
+                    playerController.attackEnable = true;
+
+                    if (dialogManager.dialogueNumber == 8)
+                    {
+                        gameController.interactive_with_inventory_button.gameObject.SetActive(true);
+                        pointer_BJD.gameObject.SetActive(false);
+                    }
                 }
             }
         }
 
-        else if (windowInventory.gameObject.activeSelf == true)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
-            playerController.attackEnable = false;
-            if (Input.GetKeyUp("i"))
+            if (windowInventory.gameObject.activeSelf == false)
             {
-                windowInventory.gameObject.SetActive(false);
-                playerController.attackEnable = true;
-
-                if (dialogManager.dialogueNumber == 8)
+                if (Input.GetKeyUp("i"))
                 {
-                    gameController.interactive_with_inventory_button.gameObject.SetActive(true);
-                    pointer_BJD.gameObject.SetActive(false);
+                    windowInventory.gameObject.SetActive(true);
+                    playerController.attackEnable = false;
+                }
+            }
+            else if (windowInventory.gameObject.activeSelf == true)
+            {
+                playerController.attackEnable = false;
+                if (Input.GetKeyUp("i"))
+                {
+                    windowInventory.gameObject.SetActive(false);
+                    playerController.attackEnable = true;
                 }
             }
         }
