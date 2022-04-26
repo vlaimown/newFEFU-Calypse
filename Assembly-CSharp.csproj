@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\GoToKitchen.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialogManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\SheetDropLoot.cs" />
+    <Compile Include="Assets\Scripts\SurvivalMode\StartSurvivalMode.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialoguesController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GoToHotel.cs" />
+    <Compile Include="Assets\Scripts\SurvivalMode\SurvivalMode.cs" />
     <Compile Include="Assets\Scripts\Stats\Stat.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\OutsideGameController.cs" />

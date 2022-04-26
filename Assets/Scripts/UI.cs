@@ -17,6 +17,9 @@ public class UI : MonoBehaviour
     [SerializeField] InventoryUI inventoryUI;
 
     [SerializeField] GoToKitchen goToKitchen;
+    [SerializeField] GameObject survivalModePreview;
+
+    [SerializeField] SurvivalMode survivalMode;
     public void CloseReadNext()
     {
         read_next.gameObject.SetActive(false);
@@ -55,6 +58,16 @@ public class UI : MonoBehaviour
         if (goToKitchen.door == 1)
         {
             SceneManager.LoadScene("OutsideScene");
+        }
+    }
+
+    public void SurvivalMode()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            Time.timeScale = 0;
+            survivalModePreview.SetActive(true);
+            survivalMode.spawnEnemyFlag = true;
         }
     }
 }

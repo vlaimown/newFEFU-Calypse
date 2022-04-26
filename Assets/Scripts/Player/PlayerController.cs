@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D hero;
     public Transform character;
     public Transform hitBoxPoint;
-    [SerializeField] private Animator animator;
+    public Animator animator;
 
     public Vector2 direction;
 

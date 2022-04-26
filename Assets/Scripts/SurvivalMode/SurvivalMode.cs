@@ -1,39 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class SpawnEnemy : MonoBehaviour
+public class SurvivalMode : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
+    [SerializeField] Inventory inventory;
+    [SerializeField] Image fade;
+
     public GameObject Enemy;
     public Transform[] EnemySpawnerPosition;
     private int _randomSpawnPoints;
     public int MaxEnenyInScene = 5;
     public int count = 0;
 
-    public bool spawnEnemyFlag;
+    public bool spawnEnemyFlag = false;
     public float timeToSpawn;
     public float maxTimeToSpawn;
 
     [SerializeField] CameraFollow cameraFollow;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Awake()
     {
-        if ( other.gameObject.tag  == "Player")
-        {
-            spawnEnemyFlag = true;
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;  
-        }
+        playerController.speed = 0;
+        inventory.windowInventory.SetActive(true);
+        fade.gameObject.SetActive(true);
     }
 
-    private void Start()
+    void Start()
     {
-        spawnEnemyFlag = false;
-        timeToSpawn = maxTimeToSpawn;
+        
     }
 
     private void FixedUpdate()
     {
-        if (spawnEnemyFlag == true)
+       /* if (spawnEnemyFlag == true)
         {
             if (count < MaxEnenyInScene)
             {
@@ -53,6 +55,6 @@ public class SpawnEnemy : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 }

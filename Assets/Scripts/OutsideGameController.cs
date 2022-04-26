@@ -97,6 +97,7 @@ public class OutsideGameController : MonoBehaviour
 
 
             playerController.speed = 0;
+            playerController.animator.SetBool("ReadyToGo", false);
             if (inventory.windowInventory.gameObject.activeSelf == true)
             {
                 bottle_pointer.gameObject.SetActive(true);
@@ -110,14 +111,17 @@ public class OutsideGameController : MonoBehaviour
         if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
         {
             dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+            special_attack_button.gameObject.SetActive(false);
+            playerController.attackEnable = true;
+            inventory.windowInventory.gameObject.SetActive(false);
             dialoguesController.twelfthDialogue.TriggerDialog();
         }
 
         if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4)
         {
-            special_attack_button.gameObject.SetActive(false);
             bottle_pointer.gameObject.SetActive(false);
             playerController.speed = playerController.maxspeed;
+            playerController.animator.SetBool("ReadyToGo", true);
         }
 
         if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4 

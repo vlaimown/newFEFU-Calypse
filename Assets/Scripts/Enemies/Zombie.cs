@@ -10,7 +10,7 @@ public class Zombie : MonoBehaviour
     public bool zombieAttackFlag;
 
     CharacterCombat combat;
-    Transform target;
+    [SerializeField] Transform target;
 
     [SerializeField] float triggerZone;
     [SerializeField] float zombieAttackZone;

@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
     public Sprite heroIcon;
     public Sprite ZagumIcon;
     public Sprite HelloWorldIcon;
+    public Sprite DeveloperIcon;
 
     public GameObject dialogueWindow;
 
@@ -42,12 +43,6 @@ public class DialogManager : MonoBehaviour
             nameText.color = new Color(0, 1, 150);
             characterIcon.sprite = heroIcon;
         }
-
-        /*if (dialog.name == "Алексей Андреевич Загумённов")
-        {
-            nameText.color = Color.yellow;
-            characterIcon.sprite = ZagumIcon;
-        }*/
 
         if (sentences != null)
         {
@@ -151,7 +146,14 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 2 && (counter == 2 || counter == 3 || counter == 5) && SceneManager.GetActiveScene().buildIndex == 4)
+        else if (dialogueNumber == 2 && (counter == 4) && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            nameText.text = "Разработчик";
+            nameText.color = Color.green;
+            //characterIcon.sprite = DeveloperIcon;
+        }
+
+        else if (dialogueNumber == 2 && (counter == 2 || counter == 3 || counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 4)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;

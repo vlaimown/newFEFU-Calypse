@@ -116,5 +116,5 @@ MonoBehaviour:
   fade: {fileID: 8827527154570797075}
   bottle: {fileID: 11400000, guid: 98a194efa1c7dd04c9b097125a9ce01c, type: 2}
   BJD: {fileID: 11400000, guid: 96f62cc32644e1a44b1e8cefee00e199, type: 2}
-  inventoryUI: {fileID: 0}
+  inventoryUI: {fileID: 6235093860106599968, guid: 2cbd2181fe099cb4bacf0c5a72c80d23, type: 3}
   goToKitchen: {fileID: 0}

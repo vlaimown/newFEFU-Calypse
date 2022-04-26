@@ -272,13 +272,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b369c76d39f2ef243ae44af1ef27f82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
   healthBar: {fileID: 4028201719914912985}
   maxHealth: 100
   damage:
     baseValue: 10
   sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
-  spawnEnemy: {fileID: 0}
+  spawnEnemy: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
   skill: {fileID: 3181864709874127263, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
 --- !u!114 &4155560215517414234
 MonoBehaviour:
@@ -292,13 +292,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bcd77026a33844ab473d2aa698e03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
   distnce: 0
   zombieAttackFlag: 0
+  target: {fileID: 0}
   triggerZone: 10
-  zombieAttackZone: 0.9
+  zombieAttackZone: 1
   speed: 0
-  maxspeed: 1.1
+  maxspeed: 1.5
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}

@@ -49,16 +49,9 @@ public class Skill : MonoBehaviour
             playerController.hero.GetComponent<PlayerStat>().TakeDamage(-0.2f);
         }
 
-        //if (damageFlag == true)
-        //{
-            //for (int i = 0; i < enemy_counter; i++)
-            //{
-            foreach (Collider2D enemy in waterTargets)
-            {
-                enemy.GetComponent<EnemyStats>().TakeDamage(0.2f);
-                //enemy.
-           // }
-            //}
+        foreach (Collider2D enemy in waterTargets)
+        {
+             enemy.GetComponent<EnemyStats>().TakeDamage(0.3f);
         }
     }
 
@@ -86,15 +79,9 @@ public class Skill : MonoBehaviour
 
         if (collision.tag == "Enemy")
         {
-            //for (int i = 0; i < currentTarget.Length; i++)
-            //{
 
             collision.GetComponent<EnemyStats>();
             waterTargets.Add(collision);
-            //damageFlag = true;
-            //enemy_counter++;
-            //currentTarget.GetComponent<Collider2D>();
-            //}
         }
     }
 
