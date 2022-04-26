@@ -8,12 +8,13 @@ public class EnemyStats : CharacterStats
     int rnd_sheet = 0;
     [SerializeField] GameObject sheet;
     [SerializeField] SpawnEnemy spawnEnemy;
+
+    [SerializeField] Skill skill;
     public override void Die()
     {
         base.Die();
-
-        player.GetComponent<SpriteRenderer>().color = Color.white;
         Destroy(gameObject);
+        player.GetComponent<SpriteRenderer>().color = Color.white;
         healthBar.fillAmount = 1f;
 
         //if ()
@@ -22,6 +23,12 @@ public class EnemyStats : CharacterStats
         spawnEnemy.count = spawnEnemy.count - 1;
         //}
 
+        skill = FindObjectOfType<Skill>();
+
+        //if (skill.waterTargets.Count > 1)
+        //{
+            //skill.waterTargets.Remove(gameObject.GetComponent<Collider2D>());
+        //}
         //SpawnSheet();
     }
 

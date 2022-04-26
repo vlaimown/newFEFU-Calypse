@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +14,8 @@ public class Skill : MonoBehaviour
 
     [SerializeField] GameObject hero;
     [SerializeField] PlayerStat playerStat;
-    [SerializeField] Collider2D/*[]*/ currentTarget;
+
+    public List<Collider2D> waterTargets;
     [SerializeField] int enemy_counter;
 
     [SerializeField] float currentSkillTime;
@@ -46,9 +49,16 @@ public class Skill : MonoBehaviour
             playerController.hero.GetComponent<PlayerStat>().TakeDamage(-0.2f);
         }
 
-        if (damageFlag == true)
-        {
-            currentTarget/*[enemy_counter]*/.GetComponent<EnemyStats>().TakeDamage(0.2f);
+        //if (damageFlag == true)
+        //{
+            //for (int i = 0; i < enemy_counter; i++)
+            //{
+            foreach (Collider2D enemy in waterTargets)
+            {
+                enemy.GetComponent<EnemyStats>().TakeDamage(0.2f);
+                //enemy.
+           // }
+            //}
         }
     }
 
@@ -80,8 +90,8 @@ public class Skill : MonoBehaviour
             //{
 
             collision.GetComponent<EnemyStats>();
-            currentTarget/*[enemy_counter]*/ = collision;
-            damageFlag = true;
+            waterTargets.Add(collision);
+            //damageFlag = true;
             //enemy_counter++;
             //currentTarget.GetComponent<Collider2D>();
             //}
@@ -97,7 +107,7 @@ public class Skill : MonoBehaviour
 
         if (collision.tag == "Enemy")
         {
-            damageFlag = false;
+            waterTargets.Remove(collision);
         }
     }
 

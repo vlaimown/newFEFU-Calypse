@@ -1006,7 +1006,7 @@ MonoBehaviour:
   count: 0
   spawnEnemyFlag: 0
   timeToSpawn: 0
-  maxTimeToSpawn: 8
+  maxTimeToSpawn: 7
   cameraFollow: {fileID: 3925606265168597553}
 --- !u!58 &3925606263264547309
 CircleCollider2D:
