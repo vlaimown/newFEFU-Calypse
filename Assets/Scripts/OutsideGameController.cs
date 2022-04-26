@@ -31,6 +31,15 @@ public class OutsideGameController : MonoBehaviour
 
     [SerializeField] GoToHotel goToHotel;
 
+    [SerializeField]
+    Image backgroundMainQuest;
+
+    [SerializeField]
+    Text mainQuest,
+         neMainQuest,  
+         sixQuest,
+         seventhQuest;
+
     private void Awake()
     {
         anim.SetBool("ReadyToGo" ,true);
@@ -42,6 +51,14 @@ public class OutsideGameController : MonoBehaviour
 
         playerController.moveToHotelFlag = 1;
         goToHotel.hotelSceneEnable = true;
+
+        backgroundMainQuest.gameObject.SetActive(true);
+        mainQuest.gameObject.SetActive(true);
+
+        neMainQuest.gameObject.SetActive(true);
+        sixQuest.gameObject.SetActive(true);
+        gameController.CATScounter.gameObject.SetActive(true);
+        gameController.CATScounter.text = $"(1/3)";
     }
     private void FixedUpdate()
     {
@@ -112,12 +129,18 @@ public class OutsideGameController : MonoBehaviour
                 inventory.itemList.Add(student_pass);
                 inventoryUI.UpdateUI();
                 dialogManager.dialogueWindow.SetActive(true);
+                sixQuest.gameObject.SetActive(false);
                 dialoguesController.thirteenthDialogue.TriggerDialog();
             }
         }
         else
         {
             gameController.F.gameObject.SetActive(false);
+        }
+
+        if (dialogManager.dialogueNumber == 4 && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            seventhQuest.gameObject.SetActive(true);
         }
     }
     private void OnDrawGizmosSelected()
