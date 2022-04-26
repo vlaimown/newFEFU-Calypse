@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512931640287128753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 2, z: 0}
+  m_LocalPosition: {x: -0.23, y: 2, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -276,7 +276,7 @@ MonoBehaviour:
   healthBar: {fileID: 4028201719914912985}
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 15
   sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
   spawnEnemy: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
   skill: {fileID: 3181864709874127263, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
@@ -299,7 +299,7 @@ MonoBehaviour:
   triggerZone: 10
   zombieAttackZone: 1
   speed: 0
-  maxspeed: 1.5
+  maxspeed: 1.1
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}

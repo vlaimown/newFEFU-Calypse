@@ -28,7 +28,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void SurvivalMode()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
 
 }

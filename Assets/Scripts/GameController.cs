@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
                 fourthQuest,
                 fifthQuest;
 
+    [SerializeField] GameObject sixthQuest;
+
     public Text CATScounter;
     public int catsCount = 0;
     public GameObject HelloWorldCat;
@@ -63,7 +65,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        gameWillStartIn = 3.25f;
+        gameWillStartIn = 3.5f;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             playerController.speed = 0;
@@ -78,7 +80,7 @@ public class GameController : MonoBehaviour
             if (gameWillStartIn > 0)
             {
                 gameWillStartIn -= Time.fixedDeltaTime;
-                if (gameWillStartIn < 2.5f && dialoguesController.PrayFlag == 0)
+                if (gameWillStartIn < 2.75f && dialoguesController.PrayFlag == 0)
                 {
                     dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
                     dialoguesController.firstDialogue.TriggerDialog();
@@ -216,6 +218,11 @@ public class GameController : MonoBehaviour
 
                 inventory.windowInventory.gameObject.SetActive(false);
                 playerController.attackEnable = true;
+            }
+
+            if (dialogManager.dialogueNumber == 10)
+            {
+                sixthQuest.gameObject.SetActive(true);
             }
 
             if (SceneManager.GetActiveScene().buildIndex == 4 && dialogManager.dialogueNumber == 1)

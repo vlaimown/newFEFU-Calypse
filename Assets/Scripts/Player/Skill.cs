@@ -46,12 +46,12 @@ public class Skill : MonoBehaviour
 
         if (healFlag == true && (playerStat.currentHealth < playerStat.maxHealth))
         {
-            playerController.hero.GetComponent<PlayerStat>().TakeDamage(-0.2f);
+            playerController.hero.GetComponent<PlayerStat>().TakeDamage(-0.15f);
         }
 
         foreach (Collider2D enemy in waterTargets)
         {
-             enemy.GetComponent<EnemyStats>().TakeDamage(0.3f);
+             enemy.GetComponent<EnemyStats>().TakeDamage(0.2f);
         }
     }
 

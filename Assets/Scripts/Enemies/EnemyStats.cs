@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : CharacterStats
 {
@@ -20,7 +21,10 @@ public class EnemyStats : CharacterStats
         //if ()
         //{
         spawnEnemy = FindObjectOfType<SpawnEnemy>();
-        spawnEnemy.count = spawnEnemy.count - 1;
+        if (SceneManager.GetActiveScene().buildIndex != 6)
+        {
+            spawnEnemy.count = spawnEnemy.count - 1;
+        }
         //}
 
         skill = FindObjectOfType<Skill>();

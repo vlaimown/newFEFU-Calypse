@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         moveToHotelFlag = 0;
 
-        maxcooldown = 0.3f;
+        maxcooldown = 0.2f;
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0 && outsideGameController.skillsFlag == 1)
+        if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
         {
             water_count = 1;
             if (facingRight == true)

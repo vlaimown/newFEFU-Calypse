@@ -115,6 +115,8 @@ public class OutsideGameController : MonoBehaviour
             playerController.attackEnable = true;
             inventory.windowInventory.gameObject.SetActive(false);
             dialoguesController.twelfthDialogue.TriggerDialog();
+
+            bottle_pointer.gameObject.SetActive(false);
         }
 
         if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4)

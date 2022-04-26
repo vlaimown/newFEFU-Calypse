@@ -85,7 +85,7 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 5 && (counter == 1 || counter == 3))
+        else if (dialogueNumber == 5 && (counter == 1 || counter == 3 || counter == 4))
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
@@ -146,14 +146,23 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 2 && (counter == 4) && SceneManager.GetActiveScene().buildIndex == 4)
+        else if (dialogueNumber == 3 && (counter == 4) && SceneManager.GetActiveScene().buildIndex == 4)
         {
             nameText.text = "Разработчик";
             nameText.color = Color.green;
             //characterIcon.sprite = DeveloperIcon;
         }
 
-        else if (dialogueNumber == 2 && (counter == 2 || counter == 3 || counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 4)
+        else if (dialogueNumber == 3 && (counter == 2 || counter == 3 || counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        if (dialogueNumber == 2 && (counter == 2 || counter == 3 || counter == 6 || counter == 8) && SceneManager.GetActiveScene().buildIndex == 4)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
