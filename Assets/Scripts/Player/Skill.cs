@@ -56,7 +56,7 @@ public class Skill : MonoBehaviour
 
         foreach (Collider2D enemy in waterTargets)
         {
-             enemy.GetComponent<EnemyStats>().TakeDamage(0.23f);
+             enemy.GetComponent<EnemyStats>().TakeDamage(0.2f);
         }
     }
 

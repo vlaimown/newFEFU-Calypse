@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512931640287128753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 2, z: 0}
+  m_LocalPosition: {x: -0.24, y: 2, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -279,6 +279,7 @@ MonoBehaviour:
     baseValue: 15
   sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
   spawnEnemy: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
+  survivalMode: {fileID: 0}
   skill: {fileID: 3181864709874127263, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
 --- !u!114 &4155560215517414234
 MonoBehaviour:

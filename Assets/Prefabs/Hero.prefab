@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 5160503395633488824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.09, y: -3.46, z: 0}
-  m_LocalScale: {x: 0.245, y: 0.245, z: 0}
+  m_LocalScale: {x: 0.26, y: 0.26, z: 0}
   m_Children:
   - {fileID: 5160503394939760325}
   - {fileID: 5160503395583709445}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waittime: 0
   gameController: {fileID: 0}
-  outsideGameController: {fileID: 0}
+  waterSkill: {fileID: 0}
   dialoguesManager: {fileID: 0}
   dialoguesController: {fileID: 0}
   hero: {fileID: 5160503395633488827}
@@ -210,8 +210,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   attackPoint: {fileID: 5160503395583709445}
   attackRange: 0.4
-  maxspeed: 4.8
-  speed: 4.8
+  maxspeed: 4
+  speed: 4
   moveToHotelFlag: 0
   wait_attack_flag: 0
   enemyLayers:
@@ -226,8 +226,14 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   bottle_weapon: {fileID: 5160503395852211802}
   BJD_weapon: {fileID: 5160503396565634546}
+  skillCoolDownTime: 0
+  maxSkillCoolDownTime: 0
+  notAvaibleBottle: {fileID: 0}
+  avaibleBottle: {fileID: 0}
+  coolDownBottle: {fileID: 0}
   water: {fileID: 0}
   water_count: 0
+  avaible_skills: 0
 --- !u!50 &5160503395633488827
 Rigidbody2D:
   serializedVersion: 4
@@ -514,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5160503396565634557
 Transform:
   m_ObjectHideFlags: 0

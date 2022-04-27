@@ -9,6 +9,7 @@ public class EnemyStats : CharacterStats
     int rnd_sheet = 0;
     [SerializeField] GameObject sheet;
     [SerializeField] SpawnEnemy spawnEnemy;
+    [SerializeField] SurvivalMode survivalMode;
 
     [SerializeField] Skill skill;
     public override void Die()
@@ -18,14 +19,19 @@ public class EnemyStats : CharacterStats
         player.GetComponent<SpriteRenderer>().color = Color.white;
         healthBar.fillAmount = 1f;
 
-        //if ()
-        //{
-        spawnEnemy = FindObjectOfType<SpawnEnemy>();
         if (SceneManager.GetActiveScene().buildIndex != 6)
         {
+            spawnEnemy = FindObjectOfType<SpawnEnemy>();
             spawnEnemy.count = spawnEnemy.count - 1;
         }
-        //}
+
+        else if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            survivalMode = FindObjectOfType<SurvivalMode>();
+            survivalMode.count = survivalMode.count - 1;
+            survivalMode.diedZombieCount++;
+            survivalMode.maxScore += survivalMode.pointsForClassicZombie;
+        }
 
         skill = FindObjectOfType<Skill>();
 
