@@ -33,10 +33,15 @@ public class Skill : MonoBehaviour
     {
         if (water.gameObject != null)
         {
-            currentSkillTime -= Time.deltaTime;
+            currentSkillTime -= Time.fixedDeltaTime;
+            playerController.avaibleBottle.gameObject.SetActive(false);
+            playerController.coolDownBottle.gameObject.SetActive(true);
+            playerController.coolDownBottle.fillAmount = currentSkillTime / maxSkillTime;
         }
         if (currentSkillTime < 0)
         {
+            playerController.coolDownBottle.gameObject.SetActive(false);
+            playerController.notAvaibleBottle.gameObject.SetActive(true);
             Destroy(water.gameObject);
             currentSkillTime = maxSkillTime;
             playerController.water_count = 0;
@@ -51,7 +56,7 @@ public class Skill : MonoBehaviour
 
         foreach (Collider2D enemy in waterTargets)
         {
-             enemy.GetComponent<EnemyStats>().TakeDamage(0.2f);
+             enemy.GetComponent<EnemyStats>().TakeDamage(0.23f);
         }
     }
 

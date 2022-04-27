@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float waittime;
 
     [SerializeField] GameController gameController;
-    [SerializeField] OutsideGameController outsideGameController;
     [SerializeField] Skill waterSkill;
 
     [SerializeField] DialogManager dialoguesManager;
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
     public int moveToHotelFlag;
 
     [SerializeField] bool wait_attack_flag;
-                
 
     public LayerMask enemyLayers;
 
@@ -39,10 +37,9 @@ public class PlayerController : MonoBehaviour
                  facingRight;
 
     public float cooldown,
-                  maxcooldown;
+                 maxcooldown;
 
     public CharacterStats myStats;
-
     public SpriteRenderer zombie;
 
     [SerializeField] GameObject currentTarget = null;
@@ -52,16 +49,19 @@ public class PlayerController : MonoBehaviour
     public GameObject BJD_weapon;
     #endregion
 
+    #region Skills
     public float skillCoolDownTime;
     public float maxSkillCoolDownTime;
+
+    public Image notAvaibleBottle;
+    public Image avaibleBottle;
+    public Image coolDownBottle;
 
     [SerializeField] GameObject water;
     public int water_count = 0;
 
     public bool avaible_skills = false;
-
-
-
+    #endregion
 
 
     private void Start()
@@ -123,13 +123,18 @@ public class PlayerController : MonoBehaviour
         {
             if (skillCoolDownTime > 0)
             {
+                notAvaibleBottle.gameObject.SetActive(true);
                 skillCoolDownTime -= Time.fixedDeltaTime;
+                notAvaibleBottle.fillAmount = skillCoolDownTime / maxSkillCoolDownTime;
             }
 
             if (skillCoolDownTime <= 0)
             {
+                notAvaibleBottle.gameObject.SetActive(false);
+                avaibleBottle.gameObject.SetActive(true);
                 if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
                 {
+                    avaibleBottle.gameObject.SetActive(false);
                     water_count = 1;
 
                     if (facingRight == true)

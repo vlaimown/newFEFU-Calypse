@@ -37,6 +37,8 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] float waittimeoutside;
     [SerializeField] bool waittimeflag;
 
+    [SerializeField] Image bottleSkillIcon;
+
     [SerializeField]
     Text mainQuest,
          neMainQuest,
@@ -118,6 +120,7 @@ public class OutsideGameController : MonoBehaviour
         if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
         {
             waittimeoutside = 1f;
+            bottleSkillIcon.gameObject.SetActive(true);
             playerController.avaible_skills = true;
             //dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
             special_attack_button.gameObject.SetActive(false);
