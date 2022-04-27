@@ -224,13 +224,6 @@ public class GameController : MonoBehaviour
             {
                 sixthQuest.gameObject.SetActive(true);
             }
-
-            if (SceneManager.GetActiveScene().buildIndex == 4 && dialogManager.dialogueNumber == 1)
-            {
-                // будет 11
-                dialogManager.dialogueWindow.SetActive(true);
-                dialoguesController.eleventhDialogue.TriggerDialog();
-            }
         }
 
         /*IEnumerator HelloWorldBubble()

@@ -34,11 +34,15 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField]
     Image backgroundMainQuest;
 
+    [SerializeField] float waittimeoutside;
+    [SerializeField] bool waittimeflag;
+
     [SerializeField]
     Text mainQuest,
-         neMainQuest,  
+         neMainQuest,
          sixQuest,
          seventhQuest;
+         //mainQuestText;
 
     private void Awake()
     {
@@ -59,6 +63,9 @@ public class OutsideGameController : MonoBehaviour
         sixQuest.gameObject.SetActive(true);
         gameController.CATScounter.gameObject.SetActive(true);
         gameController.CATScounter.text = $"(1/3)";
+
+        waittimeoutside = 0;
+        waittimeflag = false;
     }
     private void FixedUpdate()
     {
@@ -72,7 +79,7 @@ public class OutsideGameController : MonoBehaviour
             }
         }
 
-        if (dialogManager.dialogueNumber == 2 && SceneManager.GetActiveScene().buildIndex == 4)
+        if (dialogManager.dialogueNumber == 2 && SceneManager.GetActiveScene().buildIndex == 4 && waittimeoutside == 0)
         {
             skillsFlag = 1;
 
@@ -110,13 +117,26 @@ public class OutsideGameController : MonoBehaviour
 
         if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
         {
-            dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+            waittimeoutside = 1f;
+            playerController.avaible_skills = true;
+            //dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
             special_attack_button.gameObject.SetActive(false);
             playerController.attackEnable = true;
             inventory.windowInventory.gameObject.SetActive(false);
-            dialoguesController.twelfthDialogue.TriggerDialog();
+            //dialoguesController.twelfthDialogue.TriggerDialog();
 
             bottle_pointer.gameObject.SetActive(false);
+            waittimeflag = true;
+        }
+
+        if (waittimeoutside > 0)
+        {
+            waittimeoutside -= Time.deltaTime;
+        }
+        else if (waittimeoutside <= 0 && skillsFlag == 1 && dialogManager.dialogueNumber == 2 && waittimeflag == true)
+        {
+            dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+            dialoguesController.twelfthDialogue.TriggerDialog();
         }
 
         if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4)

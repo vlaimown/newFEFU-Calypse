@@ -171,6 +171,8 @@ MonoBehaviour:
   water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   goToHotel: {fileID: 3925606263897368305}
   backgroundMainQuest: {fileID: 3925606264400075184}
+  waittimeoutside: 0
+  waittimeflag: 0
   mainQuest: {fileID: 3925606263529129839}
   neMainQuest: {fileID: 473728298}
   sixQuest: {fileID: 445219192}
@@ -250,8 +252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -341.78992, y: 92}
-  m_SizeDelta: {x: 683.5801, y: 192.76538}
+  m_AnchoredPosition: {x: -290.86, y: 71}
+  m_SizeDelta: {x: 581.72, y: 87.2113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445219192
 MonoBehaviour:
@@ -329,8 +331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -341.78998, y: 92}
-  m_SizeDelta: {x: 683.5801, y: 192.76538}
+  m_AnchoredPosition: {x: -290.86, y: 100.51999}
+  m_SizeDelta: {x: 581.72, y: 146.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473728298
 MonoBehaviour:
@@ -471,8 +473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -341.78992, y: 92}
-  m_SizeDelta: {x: 683.5801, y: 192.76538}
+  m_AnchoredPosition: {x: -290.86, y: 70.99802}
+  m_SizeDelta: {x: 581.72, y: 87.216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872839835 stripped
 MonoBehaviour:
@@ -540,7 +542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    name: "\u0410\u043B\u0435\u043A\u0441\u0435\u0439 \u0410\u043D\u0434\u0440\u0435\u0435\u0432\u0438\u0447
+      \u0417\u0430\u0433\u0443\u043C\u0451\u043D\u043D\u043E\u0432"
     sentenses:
     - "\u041E\u041C\u0413. \u042F \u0436\u0435 \u0441\u043E\u0432\u0441\u0435\u043C
       \u0437\u0430\u0431\u044B\u043B \u0432\u0430\u043C \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C"
@@ -912,8 +915,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -341.792, y: 96.379456}
-  m_SizeDelta: {x: 683.5839, y: 192.75891}
+  m_AnchoredPosition: {x: -290.86, y: 86.82501}
+  m_SizeDelta: {x: 581.72, y: 173.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836858572
 MonoBehaviour:
@@ -1067,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 3925606265168597553}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: maxTimeToSpawn
-      value: 8
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: MaxEnenyInScene
@@ -1664,8 +1667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.78992, y: -96.37778}
-  m_SizeDelta: {x: 683.5801, y: 192.76538}
+  m_AnchoredPosition: {x: -291.3606, y: -96.37778}
+  m_SizeDelta: {x: 580.7255, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3925606263529129809
 GameObject:
@@ -1684,7 +1687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3925606263529129838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1726,7 +1729,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0421\u043E\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0441\u0435\u0445
+  m_Text: "\n\u0421\u043E\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0441\u0435\u0445
     \"CATS\"\n"
 --- !u!224 &3925606263538139664
 RectTransform:
@@ -3346,8 +3349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.79022, y: -96.3826}
-  m_SizeDelta: {x: 683.5801, y: 192.76538}
+  m_AnchoredPosition: {x: -287.8678, y: -96.3826}
+  m_SizeDelta: {x: 575.7356, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3925606264026536377
 GameObject:
@@ -3366,7 +3369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3925606264049547093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3911,6 +3914,7 @@ MonoBehaviour:
   waittime: 0
   gameController: {fileID: 3925606264530329360}
   outsideGameController: {fileID: 314927779}
+  waterSkill: {fileID: 3181864709874127263, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   dialoguesManager: {fileID: 3925606263750759408}
   dialoguesController: {fileID: 3925606265365932262}
   hero: {fileID: 3925606264139147793}
@@ -3936,6 +3940,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   bottle_weapon: {fileID: 3925606263820804080}
   BJD_weapon: {fileID: 3925606265356305496}
+  skillCoolDownTime: 0
+  maxSkillCoolDownTime: 4
   water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   water_count: 0
 --- !u!4 &3925606264139147823
@@ -4648,8 +4654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.792, y: -96.37848}
-  m_SizeDelta: {x: 683.5839, y: 192.7589}
+  m_AnchoredPosition: {x: -291.36, y: -96.37848}
+  m_SizeDelta: {x: 580.72, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3925606264400075186
 GameObject:
@@ -5374,8 +5380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.78992, y: -129.38895}
-  m_SizeDelta: {x: 683.5801, y: 62.850525}
+  m_AnchoredPosition: {x: -290.86, y: -159.32208}
+  m_SizeDelta: {x: 581.72, y: 66.8768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3925606264808974240
 RectTransform:

@@ -37,6 +37,7 @@ public class SurvivalMode : MonoBehaviour
         fade.gameObject.SetActive(true);
 
         count = MaxEnenyInScene;
+        playerController.avaible_skills = true;
     }
 
     private void FixedUpdate()

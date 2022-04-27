@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameController gameController;
     [SerializeField] OutsideGameController outsideGameController;
+    [SerializeField] Skill waterSkill;
 
     [SerializeField] DialogManager dialoguesManager;
     [SerializeField] DialoguesController dialoguesController;
@@ -51,8 +52,17 @@ public class PlayerController : MonoBehaviour
     public GameObject BJD_weapon;
     #endregion
 
+    public float skillCoolDownTime;
+    public float maxSkillCoolDownTime;
+
     [SerializeField] GameObject water;
     public int water_count = 0;
+
+    public bool avaible_skills = false;
+
+
+
+
 
     private void Start()
     {
@@ -109,17 +119,28 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-
-        if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
+        if (avaible_skills == true) 
         {
-            water_count = 1;
-            if (facingRight == true)
+            if (skillCoolDownTime > 0)
             {
-                Instantiate(water, new Vector2(character.transform.position.x + 3.5f, character.position.y), Quaternion.identity);
+                skillCoolDownTime -= Time.fixedDeltaTime;
             }
-            else if (facingRight == false)
+
+            if (skillCoolDownTime <= 0)
             {
-                Instantiate(water, new Vector2(character.transform.position.x + 3.5f * -1f, character.position.y), Quaternion.identity);
+                if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
+                {
+                    water_count = 1;
+
+                    if (facingRight == true)
+                    {
+                        Instantiate(water, new Vector2(character.transform.position.x + 3.5f, character.position.y), Quaternion.identity);
+                    }
+                    else if (facingRight == false)
+                    {
+                        Instantiate(water, new Vector2(character.transform.position.x + 3.5f * -1f, character.position.y), Quaternion.identity);
+                    }
+                }
             }
         }
 
