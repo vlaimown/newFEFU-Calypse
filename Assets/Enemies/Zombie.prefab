@@ -300,7 +300,7 @@ MonoBehaviour:
   triggerZone: 10
   zombieAttackZone: 1
   speed: 0
-  maxspeed: 1.1
+  maxspeed: 1.5
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}

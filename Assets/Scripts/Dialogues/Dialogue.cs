@@ -6,6 +6,6 @@ using UnityEngine;
 public class Dialogue
 {
     public string name;
-    [TextArea(4, 10)]
+    [TextArea(6, 10)]
     public string[] sentenses;
 }

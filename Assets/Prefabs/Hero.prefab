@@ -227,7 +227,7 @@ MonoBehaviour:
   bottle_weapon: {fileID: 5160503395852211802}
   BJD_weapon: {fileID: 5160503396565634546}
   skillCoolDownTime: 0
-  maxSkillCoolDownTime: 0
+  maxSkillCoolDownTime: 8
   notAvaibleBottle: {fileID: 0}
   avaibleBottle: {fileID: 0}
   coolDownBottle: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5160503396565634557
 Transform:
   m_ObjectHideFlags: 0

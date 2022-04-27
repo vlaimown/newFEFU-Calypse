@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GoToHotel.cs" />
     <Compile Include="Assets\Scripts\SurvivalMode\SurvivalMode.cs" />
+    <Compile Include="Assets\Scripts\SurvivalMode\RedCat.cs" />
     <Compile Include="Assets\Scripts\Stats\Stat.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\OutsideGameController.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="Assets\Scripts\Player\Skill.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
-    <Compile Include="Assets\Scripts\SurvivalMode\RedCat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

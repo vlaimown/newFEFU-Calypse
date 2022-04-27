@@ -1115,11 +1115,11 @@ PrefabInstance:
       objectReference: {fileID: 3925606265168597553}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: maxTimeToSpawn
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: MaxEnenyInScene
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: EnemySpawnerPosition.Array.data[0]
