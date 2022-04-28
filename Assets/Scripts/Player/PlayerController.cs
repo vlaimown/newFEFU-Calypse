@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public static bool pass_flag = true;
+    [SerializeField] public static bool pass_flag = false;
 
     [SerializeField] AudioSource water_splash;
     public float waittime;

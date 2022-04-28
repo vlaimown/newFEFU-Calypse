@@ -747,7 +747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781755792
 GameObject:
@@ -942,6 +942,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &936517094
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35.507893
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4892442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.986917
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680197297947418978, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
+      propertyPath: m_Name
+      value: DialoguesController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
 --- !u!1 &957610756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2202,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 25.6, y: 5.2637167}
   m_EdgeRadius: 0
+--- !u!1001 &2110310123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8492189838770571071, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_Name
+      value: DialogManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
 --- !u!95 &292771459342204689
 Animator:
   serializedVersion: 3
@@ -2624,9 +2738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c31f1c45c7ce64e90d4bd0c19af468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  water_splash: {fileID: 0}
   waittime: 0
   gameController: {fileID: 0}
-  outsideGameController: {fileID: 0}
   waterSkill: {fileID: 0}
   dialoguesManager: {fileID: 0}
   dialoguesController: {fileID: 0}
@@ -2653,8 +2767,12 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   bottle_weapon: {fileID: 5160503396005169184}
   BJD_weapon: {fileID: 5160503395259241352}
+  student_pass: {fileID: 0}
   skillCoolDownTime: 0
   maxSkillCoolDownTime: 0
+  notAvaibleBottle: {fileID: 0}
+  avaibleBottle: {fileID: 0}
+  coolDownBottle: {fileID: 0}
   water: {fileID: 0}
   water_count: 0
   avaible_skills: 0
@@ -2811,6 +2929,9 @@ MonoBehaviour:
   inventoryUI: {fileID: 288608356}
   goToKitchen: {fileID: 293293398}
   survivalModePreview: {fileID: 0}
+  outsideGameController: {fileID: 0}
+  dialogManager: {fileID: 0}
+  dialoguesController: {fileID: 0}
   survivalMode: {fileID: 0}
 --- !u!114 &7356295042179638181
 MonoBehaviour:

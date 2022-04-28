@@ -14,7 +14,8 @@ public class InventorySlot : MonoBehaviour
     private void Start()
     {
         gameController = FindObjectOfType<GameController>();
-        //anim = FindObjectOfType<Animator>();
+        playerController = FindObjectOfType<PlayerController>();
+        anim = GameObject.Find("Hero").GetComponent<Animator>();
     }
 
     public void AddItem(Item newItem)

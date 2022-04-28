@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
 
     [SerializeField] Item bottle;
     [SerializeField] Item BJD;
+    [SerializeField] Item student_pass;
     [SerializeField] InventoryUI inventoryUI;
 
     [SerializeField] GoToKitchen goToKitchen;
@@ -28,6 +29,8 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
+        dialogManager = FindObjectOfType<DialogManager>();
+        dialoguesController = FindObjectOfType<DialoguesController>();
     }
 
     public void CloseReadNext()
@@ -45,10 +48,13 @@ public class UI : MonoBehaviour
     public void Fade()
     {
         fade.gameObject.SetActive(false);
-        if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true)
+        if (HoleController.quest_with_security_finished == false)
         {
-            dialogManager.dialogueWindow.SetActive(true);
-            dialoguesController.fourteenthDialogue.TriggerDialog();
+            if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true && SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                dialogManager.dialogueWindow.SetActive(true);
+                dialoguesController.fourteenthDialogue.TriggerDialog();
+            }
         }
     }
 
@@ -62,7 +68,7 @@ public class UI : MonoBehaviour
             inventory.itemList.Add(BJD);
             if (PlayerController.pass_flag == true)
             {
-                inventory.itemList.Add(BJD);
+                inventory.itemList.Add(student_pass);
             }
             inventoryUI.UpdateUI();
         }

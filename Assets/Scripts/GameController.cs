@@ -101,7 +101,6 @@ public class GameController : MonoBehaviour
                     {
                         Instantiate(sheet, transform.position, Quaternion.identity);
                         sound_flag = true;
-                        Destroy(sheet);
                     }
                     background_god_paper_cutscene.gameObject.SetActive(true);
                 }

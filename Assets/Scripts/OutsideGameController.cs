@@ -88,7 +88,7 @@ public class OutsideGameController : MonoBehaviour
             {
                 gameController.interactive_with_inventory_button.gameObject.SetActive(true);
             }
-            if ((inventory.windowInventory.gameObject.activeSelf == true) || (gameController.bottle.activeSelf == true))
+            if ((inventory.windowInventory.gameObject.activeSelf == true) || (playerController.bottle_weapon.activeSelf == true))
             {
                 gameController.interactive_with_inventory_button.gameObject.SetActive(false);
             }

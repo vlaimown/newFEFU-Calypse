@@ -18,6 +18,8 @@ public class GoToKitchen : MonoBehaviour
     [SerializeField] Image fade;
     public int door;
 
+    public static bool to_hole = false;
+
     private void Awake()
     {
         inventory.windowInventory.SetActive(true);
@@ -50,6 +52,8 @@ public class GoToKitchen : MonoBehaviour
             {
                 door = 1;
                 blackout.gameObject.SetActive(true);
+
+                to_hole = true;
             }
         }
 
