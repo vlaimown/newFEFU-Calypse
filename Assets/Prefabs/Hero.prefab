@@ -198,9 +198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c31f1c45c7ce64e90d4bd0c19af468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  water_splash: {fileID: 4668115770715814982, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}
   waittime: 0
   gameController: {fileID: 0}
-  waterSkill: {fileID: 0}
+  waterSkill: {fileID: 3181864709874127263, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   dialoguesManager: {fileID: 0}
   dialoguesController: {fileID: 0}
   hero: {fileID: 5160503395633488827}
@@ -209,7 +210,7 @@ MonoBehaviour:
   animator: {fileID: 5160503395633488775}
   direction: {x: 0, y: 0}
   attackPoint: {fileID: 5160503395583709445}
-  attackRange: 0.4
+  attackRange: 0.5
   maxspeed: 4
   speed: 4
   moveToHotelFlag: 0
@@ -221,17 +222,17 @@ MonoBehaviour:
   facingRight: 1
   cooldown: 0
   maxcooldown: 0
-  myStats: {fileID: 0}
+  myStats: {fileID: 5160503395633488770}
   zombie: {fileID: 0}
   currentTarget: {fileID: 0}
-  bottle_weapon: {fileID: 5160503395852211802}
-  BJD_weapon: {fileID: 5160503396565634546}
+  bottle_weapon: {fileID: 1742242193024073449, guid: dfdd5eeb8a957194ebac4886d197fabe, type: 3}
+  BJD_weapon: {fileID: 4692383821022720033, guid: 68520c6fd0d72864fa9d23e15c203a90, type: 3}
   skillCoolDownTime: 0
   maxSkillCoolDownTime: 8
   notAvaibleBottle: {fileID: 0}
   avaibleBottle: {fileID: 0}
   coolDownBottle: {fileID: 0}
-  water: {fileID: 0}
+  water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   water_count: 0
   avaible_skills: 0
 --- !u!50 &5160503395633488827
@@ -286,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.6
+  offset: 0.5
 --- !u!58 &5160503395633488774
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ MonoBehaviour:
   attackCooldown: 0
   attackDelay: 0.6
   zombie: {fileID: 4155560215517414234, guid: 7b6bd90e1b223e74389c3afe0a6f026e, type: 3}
-  myStats: {fileID: 0}
+  myStats: {fileID: 5160503395633488770}
 --- !u!114 &5160503395633488770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fccede96c908f489faa5c5d2a6bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5160503395633488772}
   healthBar: {fileID: 0}
   maxHealth: 100
   damage:
@@ -520,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5160503396565634557
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class DialogManager : MonoBehaviour
     public Sprite ZagumIcon;
     public Sprite HelloWorldIcon;
     public Sprite DeveloperIcon;
+    public Sprite SecurityIcon;
+    public Sprite Raider;
 
     public GameObject dialogueWindow;
 
@@ -129,6 +131,22 @@ public class DialogManager : MonoBehaviour
 
         #region
         else if (dialogueNumber == 9 && (counter == 3 || counter == 5 || counter == 6 || counter == 8 || counter == 12 || counter == 14))
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
+        else if (dialogueNumber == 1 && (counter == 1 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            nameText.text = "Охранник";
+            nameText.color = Color.red;
+            characterIcon.sprite = SecurityIcon;
+        }
+
+        else if (dialogueNumber == 1 && (counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 3)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;

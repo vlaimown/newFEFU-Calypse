@@ -44,7 +44,6 @@ public class OutsideGameController : MonoBehaviour
          neMainQuest,
          sixQuest,
          seventhQuest;
-         //mainQuestText;
 
     private void Awake()
     {
@@ -160,6 +159,7 @@ public class OutsideGameController : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
                 sixQuest.gameObject.SetActive(false);
                 dialoguesController.thirteenthDialogue.TriggerDialog();
+                PlayerController.pass_flag = true;
             }
         }
         else

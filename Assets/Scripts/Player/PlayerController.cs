@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] public static bool pass_flag = false;
+
+    [SerializeField] AudioSource water_splash;
     public float waittime;
 
     [SerializeField] GameController gameController;
@@ -134,6 +136,7 @@ public class PlayerController : MonoBehaviour
                 avaibleBottle.gameObject.SetActive(true);
                 if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
                 {
+                    Instantiate(water_splash, transform.position, Quaternion.identity);
                     avaibleBottle.gameObject.SetActive(false);
                     water_count = 1;
 

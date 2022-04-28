@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SurvivalMode.unity
     guid: ac34c2791c917c142b81a5ddde28a123
+  - enabled: 1
+    path: Assets/Scenes/ThirdScene.unity
+    guid: 497636060161dd5478ca5f2a3475f8a9
   m_configObjects: {}

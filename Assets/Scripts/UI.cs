@@ -18,8 +18,15 @@ public class UI : MonoBehaviour
 
     [SerializeField] GoToKitchen goToKitchen;
     [SerializeField] GameObject survivalModePreview;
+    [SerializeField] OutsideGameController outsideGameController;
 
     [SerializeField] SurvivalMode survivalMode;
+
+    private void Awake()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+
     public void CloseReadNext()
     {
         read_next.gameObject.SetActive(false);
@@ -45,17 +52,29 @@ public class UI : MonoBehaviour
         {
             inventory.itemList.Add(bottle);
             inventory.itemList.Add(BJD);
+            if (PlayerController.pass_flag == true)
+            {
+                inventory.itemList.Add(BJD);
+            }
             inventoryUI.UpdateUI();
         }
     }
 
     public void GoTo()
     {
-        if (goToKitchen.door == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 7)
         {
-            SceneManager.LoadScene("KitchenScene");
+            if (goToKitchen.door == 2)
+            {
+                SceneManager.LoadScene("KitchenScene");
+            }
+            if (goToKitchen.door == 1)
+            {
+                SceneManager.LoadScene("HostelScene");
+            }
         }
-        if (goToKitchen.door == 1)
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             SceneManager.LoadScene("OutsideScene");
         }

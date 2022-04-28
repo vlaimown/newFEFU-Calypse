@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Skill : MonoBehaviour
 {
+    #region Sounds
+    [SerializeField] GameObject water_splash;
+    #endregion
+
     [SerializeField] GameObject water;
     [SerializeField] float waterRange;
     [SerializeField] PlayerController playerController;

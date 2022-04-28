@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    [SerializeField] AudioSource classicZombie;
+
     public PlayerController playerController;
 
     public float distnce;
@@ -31,6 +33,7 @@ public class Zombie : MonoBehaviour
 
     private void Start()
     {
+        
         zombieBody = GetComponent<Rigidbody2D>();
         zombieAttackFlag = false;
 
