@@ -35,6 +35,7 @@ public class GoToKitchen : MonoBehaviour
 
     void Update()
     {
+        to_hole = true;
         if (Vector2.Distance(playerController.hero.transform.position, go_to_kitchen_point.transform.position) <= go_to_kitchen_zone)
         {
             E.gameObject.SetActive(true);
@@ -52,8 +53,6 @@ public class GoToKitchen : MonoBehaviour
             {
                 door = 1;
                 blackout.gameObject.SetActive(true);
-
-                to_hole = true;
             }
         }
 

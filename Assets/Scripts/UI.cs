@@ -51,19 +51,12 @@ public class UI : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 3) {
             if (HoleController.quest_with_security_finished == false)
             {
-                if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true && SceneManager.GetActiveScene().buildIndex == 3)
+                if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.kitchenVisisted == false)
                 {
                     dialogManager.dialogueWindow.SetActive(true);
                     dialoguesController.fourteenthDialogue.TriggerDialog();
                 }
             }
-        }
-
-        if (SceneManager.GetActiveScene().buildIndex == 5 && KitchenController.kitchenVisisted == false)
-        {
-            dialogManager.dialogueWindow.SetActive(true);
-            dialoguesController.sixteenthDialogue.TriggerDialog();
-            KitchenController.kitchenVisisted = true;
         }
     }
 
@@ -95,6 +88,11 @@ public class UI : MonoBehaviour
             {
                 SceneManager.LoadScene("HostelScene");
             }
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            SceneManager.LoadScene(7);
         }
 
         if (SceneManager.GetActiveScene().buildIndex == 3 && HoleController.goInFlag == false)

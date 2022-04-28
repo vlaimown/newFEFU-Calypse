@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HoleController : MonoBehaviour
 {
     [SerializeField] float maxHoleWaitTime;
     [SerializeField] float currentHoleWaitTime;
+
+    //[SerializeField] static bool already_visited = false;
 
     public static bool goInFlag = true;
 
@@ -28,7 +31,13 @@ public class HoleController : MonoBehaviour
 
     [SerializeField] static bool first_dialogue_with_security_complete = false;
     public static bool quest_with_security_finished = false;
-    //public static bool security_quetion = false;
+
+
+    [SerializeField] GameObject triggerLastDialogue;
+    [SerializeField] float triggerLastDialogueRange;
+
+    [SerializeField] GameObject Final;
+    [SerializeField] float waitFinalTime;
 
     private void Awake()
     {
@@ -44,7 +53,7 @@ public class HoleController : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerController.pass_flag == true || quest_with_security_finished == true) // тут другая проверка нужна (после кухни)
+        if (PlayerController.pass_flag == true || quest_with_security_finished == true)
         {
             playerController.avaible_skills = true;
         }
@@ -70,11 +79,14 @@ public class HoleController : MonoBehaviour
                 currentHoleWaitTime -= Time.deltaTime;
             }
 
-            if (currentHoleWaitTime <= 0 && dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == false)
+            if (first_dialogue_with_security_complete == false)
             {
-                dialogManager.dialogueWindow.SetActive(true);
-                dialoguesController.tenthDialogue.TriggerDialog();
-                first_dialogue_with_security_complete = true;
+                if (currentHoleWaitTime <= 0 && dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == false)
+                {
+                    dialogManager.dialogueWindow.SetActive(true);
+                    dialoguesController.tenthDialogue.TriggerDialog();
+                    first_dialogue_with_security_complete = true;
+                }
             }
 
             if (playerController.student_pass.activeSelf == true && dialogManager.dialogueNumber == 2)
@@ -82,8 +94,25 @@ public class HoleController : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
                 dialoguesController.fifteenthDialogue.TriggerDialog();
                 block.gameObject.SetActive(false);
-                quest_with_security_finished = true;
             }
+        }
+
+        if (quest_with_security_finished == true && (Vector2.Distance(triggerLastDialogue.transform.position, playerController.hero.position) <= triggerLastDialogueRange) && dialogManager.dialogueNumber == 1)
+        {
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.seventeenthDialogue.TriggerDialog();
+            playerController.speed = 0.5f;
+            waitFinalTime = 2f;
+        }
+
+        if (waitFinalTime > 0 && dialogManager.dialogueNumber == 2)
+        {
+            Final.gameObject.SetActive(true);
+            waitFinalTime -= Time.deltaTime;
+        }
+        else if (waitFinalTime <= 0)
+        {
+            SceneManager.LoadScene(0);
         }
 
         if (Vector2.Distance(playerController.hero.position, nextDoor.transform.position) <= interactiveWithTheDoor)
@@ -113,5 +142,6 @@ public class HoleController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(nextDoor.transform.position, interactiveWithTheDoor);
+        Gizmos.DrawWireSphere(triggerLastDialogue.transform.position, triggerLastDialogueRange);
     }
 }

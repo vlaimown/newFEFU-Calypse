@@ -50,7 +50,7 @@ MonoBehaviour:
   heroIcon: {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
   ZagumIcon: {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   HelloWorldIcon: {fileID: 21300000, guid: a925ba2ba4724b541af635d91931cec0, type: 3}
-  DeveloperIcon: {fileID: 0}
+  DeveloperIcon: {fileID: 21300000, guid: 530e84fffa9371343b10004c9d6aa141, type: 3}
   SecurityIcon: {fileID: 21300000, guid: 344a59bcb010e014da91d0bd1fa43634, type: 3}
   Raider: {fileID: 0}
   dialogueWindow: {fileID: 0}
