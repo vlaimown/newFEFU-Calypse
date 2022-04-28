@@ -167,6 +167,7 @@ MonoBehaviour:
   gameController: {fileID: 3925606264530329360}
   eleventhDialogue: {fileID: 1000774678}
   special_attack_button: {fileID: 1645528488}
+  block: {fileID: 631630589}
   bottle_pointer: {fileID: 8733673036862211513}
   triggerPassQuestPoint: {fileID: 1302379590}
   triggerPassQuestRadius: 1
@@ -413,6 +414,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473728296}
   m_CullTransparentMesh: 1
+--- !u!1 &631630588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631630590}
+  - component: {fileID: 631630589}
+  m_Layer: 0
+  m_Name: block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &631630589
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631630588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -23.26787, y: -1.0457798}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.92895126, y: 7.7922916}
+  m_EdgeRadius: 0
+--- !u!4 &631630590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631630588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &639173812 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 915134629560013169, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
@@ -1453,7 +1511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: MaxEnenyInScene
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: EnemySpawnerPosition.Array.data[0]

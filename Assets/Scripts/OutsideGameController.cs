@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class OutsideGameController : MonoBehaviour
 {
+    [SerializeField] static bool second_location_completed = false;
+    
     [SerializeField] Image fade;
     [SerializeField] Inventory inventory;
     [SerializeField] InventoryUI inventoryUI;
@@ -17,7 +19,7 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] DialogTrigger eleventhDialogue;
 
     [SerializeField] Image special_attack_button;
-    //[SerializeField] Image interactive_button;
+    [SerializeField] BoxCollider2D block;
 
     [SerializeField] GameObject bottle_pointer;
     [SerializeField] GameObject triggerPassQuestPoint;
@@ -70,106 +72,114 @@ public class OutsideGameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (dialoguesController.eleventhDialogue != null) { 
-        distance = Vector2.Distance(dialoguesController.eleventhDialogue.transform.position, playerController.hero.transform.position);
-        if (distance <= dialoguesController.eleventhDialogue.radius)
+        if (OutsideGameController.second_location_completed == false)
+        {
+            if (dialoguesController.eleventhDialogue != null)
+            {
+                distance = Vector2.Distance(dialoguesController.eleventhDialogue.transform.position, playerController.hero.transform.position);
+                if (distance <= dialoguesController.eleventhDialogue.radius)
+                {
+                    dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
+                    dialoguesController.eleventhDialogue.TriggerDialog();
+                    Destroy(dialoguesController.eleventhDialogue.gameObject);
+                }
+            }
+
+            if (dialogManager.dialogueNumber == 2 && SceneManager.GetActiveScene().buildIndex == 4 && waittimeoutside == 0)
+            {
+                skillsFlag = 1;
+
+                if (inventory.windowInventory.gameObject.activeSelf == false)
+                {
+                    gameController.interactive_with_inventory_button.gameObject.SetActive(true);
+                }
+                if ((inventory.windowInventory.gameObject.activeSelf == true) || (playerController.bottle_weapon.activeSelf == true))
+                {
+                    gameController.interactive_with_inventory_button.gameObject.SetActive(false);
+                }
+
+
+                if (gameController.bottle.activeSelf == true)
+                {
+                    special_attack_button.gameObject.SetActive(true);
+                }
+                else
+                {
+                    special_attack_button.gameObject.SetActive(false);
+                }
+
+
+                //playerController.speed = 0;
+                //playerController.animator.SetBool("ReadyToGo", false);
+                if (inventory.windowInventory.gameObject.activeSelf == true)
+                {
+                    bottle_pointer.gameObject.SetActive(true);
+                }
+                if (inventory.windowInventory.gameObject.activeSelf == false)
+                {
+                    bottle_pointer.gameObject.SetActive(false);
+                }
+            }
+
+            if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
+            {
+                waittimeoutside = 2f;
+                bottleSkillIcon.gameObject.SetActive(true);
+                playerController.avaible_skills = true;
+
+                special_attack_button.gameObject.SetActive(false);
+
+                bottle_pointer.gameObject.SetActive(false);
+                waittimeflag = true;
+            }
+
+            if (waittimeoutside > 0)
+            {
+                waittimeoutside -= Time.deltaTime;
+            }
+            else if (waittimeoutside <= 0 && skillsFlag == 1 && dialogManager.dialogueNumber == 2 && waittimeflag == true)
             {
                 dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
-                dialoguesController.eleventhDialogue.TriggerDialog();
-                Destroy(dialoguesController.eleventhDialogue.gameObject);
+                dialoguesController.twelfthDialogue.TriggerDialog();
             }
-        }
 
-        if (dialogManager.dialogueNumber == 2 && SceneManager.GetActiveScene().buildIndex == 4 && waittimeoutside == 0)
-        {
-            skillsFlag = 1;
-
-            if (inventory.windowInventory.gameObject.activeSelf == false)
+            if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4)
             {
-                gameController.interactive_with_inventory_button.gameObject.SetActive(true);
+                bottle_pointer.gameObject.SetActive(false);
+                block.gameObject.SetActive(false);
             }
-            if ((inventory.windowInventory.gameObject.activeSelf == true) || (playerController.bottle_weapon.activeSelf == true))
+
+            if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4
+                && Vector2.Distance(triggerPassQuestPoint.transform.position, playerController.hero.transform.position) <= triggerPassQuestRadius)
             {
-                gameController.interactive_with_inventory_button.gameObject.SetActive(false);
-            }
-
-
-            if (gameController.bottle.activeSelf == true) 
-            { 
-                special_attack_button.gameObject.SetActive(true);
+                gameController.F.gameObject.SetActive(true);
+                if (Input.GetKey("f"))
+                {
+                    inventory.itemList.Add(student_pass);
+                    inventoryUI.UpdateUI();
+                    dialogManager.dialogueWindow.SetActive(true);
+                    sixQuest.gameObject.SetActive(false);
+                    dialoguesController.thirteenthDialogue.TriggerDialog();
+                    PlayerController.pass_flag = true;
+                }
             }
             else
             {
-                special_attack_button.gameObject.SetActive(false);
+                gameController.F.gameObject.SetActive(false);
             }
 
-
-            playerController.speed = 0;
-            playerController.animator.SetBool("ReadyToGo", false);
-            if (inventory.windowInventory.gameObject.activeSelf == true)
+            if (dialogManager.dialogueNumber == 4 && SceneManager.GetActiveScene().buildIndex == 4)
             {
-                bottle_pointer.gameObject.SetActive(true);
-            }
-            if (inventory.windowInventory.gameObject.activeSelf == false)
-            {
-                bottle_pointer.gameObject.SetActive(false);
+                seventhQuest.gameObject.SetActive(true);
+                second_location_completed = true;
             }
         }
 
-        if (Input.GetKey("z") && gameController.bottle.activeSelf == true && dialogManager.dialogueNumber == 2 && skillsFlag == 1)
+        if (second_location_completed == true)
         {
-            waittimeoutside = 1f;
             bottleSkillIcon.gameObject.SetActive(true);
             playerController.avaible_skills = true;
-            //dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
-            special_attack_button.gameObject.SetActive(false);
-            playerController.attackEnable = true;
-            inventory.windowInventory.gameObject.SetActive(false);
-            //dialoguesController.twelfthDialogue.TriggerDialog();
-
-            bottle_pointer.gameObject.SetActive(false);
-            waittimeflag = true;
-        }
-
-        if (waittimeoutside > 0)
-        {
-            waittimeoutside -= Time.deltaTime;
-        }
-        else if (waittimeoutside <= 0 && skillsFlag == 1 && dialogManager.dialogueNumber == 2 && waittimeflag == true)
-        {
-            dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
-            dialoguesController.twelfthDialogue.TriggerDialog();
-        }
-
-        if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            bottle_pointer.gameObject.SetActive(false);
-            playerController.speed = playerController.maxspeed;
-            playerController.animator.SetBool("ReadyToGo", true);
-        }
-
-        if (dialogManager.dialogueNumber == 3 && SceneManager.GetActiveScene().buildIndex == 4 
-            && Vector2.Distance(triggerPassQuestPoint.transform.position, playerController.hero.transform.position) <= triggerPassQuestRadius)
-        {
-            gameController.F.gameObject.SetActive(true);
-            if (Input.GetKey("f"))
-            {
-                inventory.itemList.Add(student_pass);
-                inventoryUI.UpdateUI();
-                dialogManager.dialogueWindow.SetActive(true);
-                sixQuest.gameObject.SetActive(false);
-                dialoguesController.thirteenthDialogue.TriggerDialog();
-                PlayerController.pass_flag = true;
-            }
-        }
-        else
-        {
-            gameController.F.gameObject.SetActive(false);
-        }
-
-        if (dialogManager.dialogueNumber == 4 && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            seventhQuest.gameObject.SetActive(true);
+            block.gameObject.SetActive(false);
         }
     }
     private void OnDrawGizmosSelected()

@@ -3241,7 +3241,7 @@ MonoBehaviour:
   ZagumIcon: {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   HelloWorldIcon: {fileID: 21300000, guid: a925ba2ba4724b541af635d91931cec0, type: 3}
   DeveloperIcon: {fileID: 0}
-  SecurityIcon: {fileID: 0}
+  SecurityIcon: {fileID: 21300000, guid: 344a59bcb010e014da91d0bd1fa43634, type: 3}
   Raider: {fileID: 0}
   dialogueWindow: {fileID: 1449051009133322622}
   Hero: {fileID: 1349641861}

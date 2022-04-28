@@ -48,14 +48,21 @@ public class SurvivalMode : MonoBehaviour
     public int maxScore;
     [SerializeField] Text maxScoreCount;
 
+    [SerializeField] Text wavesSurvived;
+    [SerializeField] int pointsForWaves = 100;
+
     public int diedZombieCount = 0;
     [SerializeField] Text diedZombie;
-
     public int pointsForClassicZombie = 10;
+
+    [SerializeField] Text drunkEnergy;
+    public int pointsForEnergy = 2;
+    public int energyCount = 0;
     #endregion
 
     private void Awake()
     {
+        energyCount = 0;
         redCatSpawned = false;
 
         diedZombieCount = 0;
@@ -84,7 +91,7 @@ public class SurvivalMode : MonoBehaviour
                 timeToSpawn -= Time.deltaTime;
                 if (timeToSpawn < 0)
                 {
-                   //while (i < 4) { 
+                   while (i < MaxEnenyInScene) { 
                     _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
                     if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
                     {
@@ -94,16 +101,18 @@ public class SurvivalMode : MonoBehaviour
                         {
                             Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
                             count++;
-                            //i++;
+                            i++;
                         }
                         timeToSpawn = maxTimeToSpawn;
-                    //}
+                   }
                 }
+                i = 0;
             }
 
             if (currentWaveTime <= 0)
             {
                 waveCounter++;
+                maxScore += pointsForWaves;
                 waveCounterImg.gameObject.SetActive(true);
                 waveCounterTxt.text = $"{waveCounter}";
                 MaxEnenyInScene++;
@@ -133,6 +142,9 @@ public class SurvivalMode : MonoBehaviour
 
             diedZombie.text = $"{diedZombieCount}";
             maxScoreCount.text = $"{maxScore}";
+            wavesSurvived.text = $"{waveCounter}";
+            drunkEnergy.text = $"{energyCount}";
+
             yourScore.SetActive(true);
        }
     }

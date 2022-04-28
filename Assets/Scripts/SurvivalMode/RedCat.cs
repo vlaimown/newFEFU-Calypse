@@ -8,6 +8,7 @@ public class RedCat : MonoBehaviour
     [SerializeField] PlayerController playerController;
     public float buffTime = 0.5f;
     public bool buffActive = false;
+    [SerializeField] SurvivalMode survivalMode;
 
     public int count;
     public float distance;
@@ -17,6 +18,8 @@ public class RedCat : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         buffActive = false;
         count = 0;
+
+        survivalMode = FindObjectOfType<SurvivalMode>();
     }
 
     private void FixedUpdate()
@@ -54,6 +57,8 @@ public class RedCat : MonoBehaviour
             playerController.GetComponent<PlayerStat>().TakeDamage(-5f);
             count = 1;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            survivalMode.maxScore += survivalMode.pointsForEnergy;
+            survivalMode.energyCount++;
         }
         buffActive = true;
     }

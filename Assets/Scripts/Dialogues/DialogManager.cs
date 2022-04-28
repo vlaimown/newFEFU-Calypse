@@ -195,6 +195,23 @@ public class DialogManager : MonoBehaviour
         }
         #endregion
 
+        #region
+        else if ((dialogueNumber == 1) && (counter == 2 || counter == 4 || counter == 5 || counter == 6 || counter == 8 || counter == 10 || counter == 11 || counter == 15) &&
+    (SceneManager.GetActiveScene().buildIndex == 5))
+        {
+            nameText.text = "Рейдер";
+            nameText.color = Color.red;
+            characterIcon.sprite = Raider;
+        }
+
+        else if ((dialogueNumber == 1) && (counter == 6 || counter == 9 || counter == 12 || counter == 13 || counter == 17) && (SceneManager.GetActiveScene().buildIndex == 5))
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
         else
         {
             nameText.text = "Главный герой";

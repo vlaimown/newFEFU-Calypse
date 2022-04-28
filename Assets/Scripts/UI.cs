@@ -58,6 +58,13 @@ public class UI : MonoBehaviour
                 }
             }
         }
+
+        if (SceneManager.GetActiveScene().buildIndex == 5 && KitchenController.kitchenVisisted == false)
+        {
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.sixteenthDialogue.TriggerDialog();
+            KitchenController.kitchenVisisted = true;
+        }
     }
 
     public void InventoryInvise()
