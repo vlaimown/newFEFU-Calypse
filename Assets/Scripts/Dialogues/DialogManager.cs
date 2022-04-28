@@ -139,14 +139,14 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if (dialogueNumber == 1 && (counter == 1 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 3)
+        else if (dialogueNumber == 1 && (counter == 1 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.indianQuest == false)
         {
             nameText.text = "Охранник";
             nameText.color = Color.red;
             characterIcon.sprite = SecurityIcon;
         }
 
-        else if (dialogueNumber == 1 && (counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 3)
+        else if (dialogueNumber == 1 && (counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.indianQuest == false)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
@@ -196,8 +196,25 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
+        else if ((dialogueNumber == 1) && (counter == 1 || counter == 4 || counter == 6 || counter == 8) &&
+    (SceneManager.GetActiveScene().buildIndex == 3))
+        {
+            nameText.text = "Охранник";
+            nameText.color = Color.red;
+            characterIcon.sprite = SecurityIcon;
+        }
+
+        else if ((dialogueNumber == 1) && (counter == 3 || counter == 9) && (SceneManager.GetActiveScene().buildIndex == 3))
+        {
+            nameText.text = "Алексей Андреевич Загумённов";
+            nameText.color = Color.yellow;
+            characterIcon.sprite = ZagumIcon;
+        }
+        #endregion
+
+        #region
         else if ((dialogueNumber == 1) && (counter == 2 || counter == 4 || counter == 5 || counter == 6 || counter == 8 || counter == 10 || counter == 11 || counter == 15) &&
-    (SceneManager.GetActiveScene().buildIndex == 5))
+(SceneManager.GetActiveScene().buildIndex == 5))
         {
             nameText.text = "Рейдер";
             nameText.color = Color.red;
@@ -210,7 +227,7 @@ public class DialogManager : MonoBehaviour
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
         }
-        #endregion
+#endregion
 
         else
         {

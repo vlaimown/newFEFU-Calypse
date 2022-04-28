@@ -14,9 +14,9 @@ public class EnemyStats : CharacterStats
     [SerializeField] Skill skill;
     public override void Die()
     {
+        player.GetComponent<SpriteRenderer>().color = Color.white;
         base.Die();
         Destroy(gameObject);
-        player.GetComponent<SpriteRenderer>().color = Color.white;
         healthBar.fillAmount = 1f;
 
         if (SceneManager.GetActiveScene().buildIndex != 6)

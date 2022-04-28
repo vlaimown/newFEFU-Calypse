@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
         moveToHotelFlag = 0;
 
-        maxcooldown = 0.2f;
+        maxcooldown = 0.25f;
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();

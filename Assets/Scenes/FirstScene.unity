@@ -1409,7 +1409,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d3efdaea6c7e5e146b1e8f37c8488595, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4092,6 +4092,7 @@ GameObject:
   - component: {fileID: 1409650128}
   - component: {fileID: 1409650131}
   - component: {fileID: 1409650130}
+  - component: {fileID: 1409650132}
   m_Layer: 7
   m_Name: "\u041E\u0431\u0449\u0430\u0433\u0430"
   m_TagString: Untagged
@@ -4204,7 +4205,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.4444253}
+  m_Offset: {x: 0, y: 1.4584706}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4215,8 +4216,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.64, y: 4.891149}
+  m_Size: {x: 11.64, y: 4.7669935}
   m_EdgeRadius: 0
+--- !u!58 &1409650132
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409650127}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.6413116, y: 0.06395984}
+  serializedVersion: 2
+  m_Radius: 0.9997139
 --- !u!1 &1507146253
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,7 +5874,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.1992998, y: -0.03389716}
+  m_Offset: {x: -2.1992998, y: -0.018722415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5868,7 +5885,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.988602, y: 4.8277946}
+  m_Size: {x: 16.988602, y: 4.7974453}
   m_EdgeRadius: 0
 --- !u!212 &2042992754
 SpriteRenderer:
@@ -6593,6 +6610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 770688689}
     m_Modifications:
+    - target: {fileID: 1866624540519350735, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5160503395633488770, guid: b481341debf58404594bda79d20a8a2f, type: 3}
       propertyPath: healthBar
       value: 
@@ -6657,6 +6678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 5160503395852211748, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5160503395852211802, guid: b481341debf58404594bda79d20a8a2f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6664,6 +6689,10 @@ PrefabInstance:
     - target: {fileID: 5160503396565634546, guid: b481341debf58404594bda79d20a8a2f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160503396565634556, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b481341debf58404594bda79d20a8a2f, type: 3}

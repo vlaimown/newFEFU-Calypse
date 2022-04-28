@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KitchenController : MonoBehaviour
 {
-    public static bool kitchenVisisted = false;
+    public static bool indianQuest = false;
 
     [SerializeField] DialogManager dialogManager;
     [SerializeField] DialoguesController dialoguesController;

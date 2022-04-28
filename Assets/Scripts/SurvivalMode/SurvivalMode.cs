@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class SurvivalMode : MonoBehaviour
 {
@@ -40,7 +37,7 @@ public class SurvivalMode : MonoBehaviour
 
     [SerializeField] CameraFollow cameraFollow;
 
-    public int i = 0;
+    //public int i = 0;
 
     bool redCatSpawned = false;
 
@@ -91,7 +88,7 @@ public class SurvivalMode : MonoBehaviour
                 timeToSpawn -= Time.deltaTime;
                 if (timeToSpawn < 0)
                 {
-                   while (i < MaxEnenyInScene) { 
+                  // while (i < MaxEnenyInScene) { 
                     _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
                     if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
                     {
@@ -101,12 +98,12 @@ public class SurvivalMode : MonoBehaviour
                         {
                             Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
                             count++;
-                            i++;
-                        }
+                            //i++;
+                        //}
                         timeToSpawn = maxTimeToSpawn;
                    }
                 }
-                i = 0;
+                //i = 0;
             }
 
             if (currentWaveTime <= 0)
@@ -118,7 +115,7 @@ public class SurvivalMode : MonoBehaviour
                 MaxEnenyInScene++;
                 if (waveCounter % 4 == 0)
                 {
-                    MaxEnenyInScene += 1;
+                    MaxEnenyInScene += 3;
                 }
                 if (waveCounter % 10 == 0 && (maxTimeToSpawn - 0.4f >= minTimeToSpawn))
                 {

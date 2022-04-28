@@ -212,8 +212,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   attackPoint: {fileID: 5160503395583709445}
   attackRange: 0.5
-  maxspeed: 4
-  speed: 4
+  maxspeed: 3.5
+  speed: 3.5
   moveToHotelFlag: 0
   wait_attack_flag: 0
   enemyLayers:
@@ -230,7 +230,7 @@ MonoBehaviour:
   BJD_weapon: {fileID: 5160503396565634546}
   student_pass: {fileID: 8794529583937443199}
   skillCoolDownTime: 0
-  maxSkillCoolDownTime: 8
+  maxSkillCoolDownTime: 12
   notAvaibleBottle: {fileID: 0}
   avaibleBottle: {fileID: 0}
   coolDownBottle: {fileID: 0}
@@ -305,7 +305,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.25, y: 0.9}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.1
 --- !u!114 &5160503395633488768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxHealth: 100
   damage:
-    baseValue: 40
+    baseValue: 30
 --- !u!1 &5160503395852211802
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5160503395852211749}
   - component: {fileID: 5160503395852211748}
+  - component: {fileID: 5120425400926692246}
   m_Layer: 0
   m_Name: BottleWeapon
   m_TagString: Untagged
@@ -424,6 +425,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5120425400926692246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503395852211802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 6
 --- !u!1 &5160503396343704982
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5160503396565634557}
   - component: {fileID: 5160503396565634556}
+  - component: {fileID: 4672065036589062335}
   m_Layer: 0
   m_Name: "\u0411\u0416\u0414"
   m_TagString: Untagged
@@ -590,6 +605,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4672065036589062335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503396565634546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 6
 --- !u!1001 &8332130050622916983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,3 +689,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3334886297652075103, guid: 56d3ddf80e268dc4e9f9bd792046e618, type: 3}
   m_PrefabInstance: {fileID: 8332130050622916983}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938789377452638864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794529583937443199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 6

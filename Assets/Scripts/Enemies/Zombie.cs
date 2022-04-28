@@ -64,11 +64,6 @@ public class Zombie : MonoBehaviour
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             anim.SetBool("IsAttacking", true);
             zombieAttackFlag = true;
-            /*if (targetStats != null)
-            {
-                zombieAttackFlag = true;
-                combat.Attack(targetStats);
-            }*/
             speed = 0;
         }
 
@@ -108,7 +103,10 @@ public class Zombie : MonoBehaviour
             foreach (Collider2D hero in hitHeroes)
             {
                 hero.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
-                StartCoroutine(RedVersionOfSprite());
+                if (gameObject != null)
+                {
+                    StartCoroutine(RedVersionOfSprite());
+                }
             }
         }
         else

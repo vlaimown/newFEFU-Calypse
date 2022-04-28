@@ -54,7 +54,10 @@ public class RedCat : MonoBehaviour
         {
             playerController = FindObjectOfType<PlayerController>();
             playerController.speed += 1f;
-            playerController.GetComponent<PlayerStat>().TakeDamage(-5f);
+            if (playerController.GetComponent<PlayerStat>().currentHealth < playerController.GetComponent<PlayerStat>().maxHealth)
+            {
+                playerController.GetComponent<PlayerStat>().TakeDamage(-20f);
+            }
             count = 1;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             survivalMode.maxScore += survivalMode.pointsForEnergy;

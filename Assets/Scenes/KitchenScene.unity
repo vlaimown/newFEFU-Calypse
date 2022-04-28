@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185610995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.32, y: 0.1, z: -10}
+  m_LocalPosition: {x: 2.32, y: 0.12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -389,8 +389,8 @@ MonoBehaviour:
   target: {fileID: 1577140523}
   offset: {x: 0, y: 0, z: -10}
   smoothFactor: 3
-  minValues: {x: -2.36, y: 0, z: -10}
-  maxValue: {x: 2.32, y: 0, z: -10}
+  minValues: {x: -2.36, y: 0.12, z: -10}
+  maxValue: {x: 2.32, y: 0.12, z: -10}
 --- !u!1 &324232798
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &381759462 stripped
 MonoBehaviour:
@@ -1979,7 +1979,7 @@ RectTransform:
   - {fileID: 597739788}
   - {fileID: 858547504}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -51,11 +51,20 @@ public class UI : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 3) {
             if (HoleController.quest_with_security_finished == false)
             {
-                if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.kitchenVisisted == false)
+                if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.indianQuest == false)
                 {
                     dialogManager.dialogueWindow.SetActive(true);
                     dialoguesController.fourteenthDialogue.TriggerDialog();
                 }
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            if (KitchenController.indianQuest == false) 
+            {
+                dialogManager.dialogueWindow.SetActive(true);
+                dialoguesController.sixteenthDialogue.TriggerDialog();
+                KitchenController.indianQuest = true;
             }
         }
     }
@@ -71,6 +80,10 @@ public class UI : MonoBehaviour
             if (PlayerController.pass_flag == true)
             {
                 inventory.itemList.Add(student_pass);
+            }
+            if (KitchenController.indianQuest == true)
+            {
+                inventory.itemList.Remove(student_pass);
             }
             inventoryUI.UpdateUI();
         }

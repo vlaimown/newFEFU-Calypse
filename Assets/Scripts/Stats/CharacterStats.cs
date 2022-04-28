@@ -22,7 +22,10 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.fillAmount -= damage / maxHealth;
-        Debug.Log(transform.name + " take " + damage + " damage.");
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth - (currentHealth - maxHealth);
+        }
 
         if (currentHealth <= 0)
         {
@@ -32,6 +35,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log(transform.name + " died");
+        //Debug.Log(transform.name + " died");
     }
 }
