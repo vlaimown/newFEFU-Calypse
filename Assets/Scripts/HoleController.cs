@@ -105,7 +105,7 @@ public class HoleController : MonoBehaviour
             waitFinalTime = 2f;
         }
 
-        if (waitFinalTime > 0 && dialogManager.dialogueNumber == 2)
+        if (waitFinalTime > 0 && dialogManager.dialogueNumber == 2 && quest_with_security_finished == true)
         {
             Final.gameObject.SetActive(true);
             waitFinalTime -= Time.deltaTime;
