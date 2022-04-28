@@ -43,9 +43,11 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
+            Debug.Log("uze");
             if (item.name == "Slavda Bottle (1)")
             {
                 playerController.BJD_weapon.SetActive(false);
+                playerController.student_pass.SetActive(false);
                 playerController.bottle_weapon.SetActive(true);
                 anim.SetBool("BottleAttack", true);
                 anim.SetBool("BJDAttack", false);
@@ -54,6 +56,7 @@ public class InventorySlot : MonoBehaviour
             if (item.name == "БЖД")
             {
                 playerController.bottle_weapon.SetActive(false);
+                playerController.student_pass.SetActive(false);
                 playerController.BJD_weapon.SetActive(true);
                 anim.SetBool("BottleAttack", false);
                 anim.SetBool("BJDAttack", true);
@@ -66,6 +69,16 @@ public class InventorySlot : MonoBehaviour
                         gameController.dialoguesController.eighthDialogue.TriggerDialog();
                     }
                 }
+            }
+
+            if (item.name == "Пропуск")
+            {
+                playerController.bottle_weapon.SetActive(false);
+                playerController.BJD_weapon.SetActive(false);
+                anim.SetBool("BottleAttack", false);
+                anim.SetBool("BJDAttack", false);
+
+                playerController.student_pass.SetActive(true);
             }
         }
     }

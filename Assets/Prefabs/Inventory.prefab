@@ -48,5 +48,5 @@ MonoBehaviour:
   dialogManager: {fileID: 0}
   pointer_BJD: {fileID: 0}
   itemList: []
-  windowInventory: {fileID: 0}
+  windowInventory: {fileID: 2672415656129297412}
   space: 3

@@ -20,6 +20,9 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject survivalModePreview;
     [SerializeField] OutsideGameController outsideGameController;
 
+    [SerializeField] DialogManager dialogManager;
+    [SerializeField] DialoguesController dialoguesController;
+
     [SerializeField] SurvivalMode survivalMode;
 
     private void Awake()
@@ -42,6 +45,11 @@ public class UI : MonoBehaviour
     public void Fade()
     {
         fade.gameObject.SetActive(false);
+        if (dialogManager.dialogueNumber == 1 && PlayerController.pass_flag == true)
+        {
+            dialogManager.dialogueWindow.SetActive(true);
+            dialoguesController.fourteenthDialogue.TriggerDialog();
+        }
     }
 
     public void InventoryInvise()
@@ -74,9 +82,14 @@ public class UI : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 3 && HoleController.goInFlag == false)
         {
             SceneManager.LoadScene("OutsideScene");
+        }
+
+        else if (SceneManager.GetActiveScene().buildIndex == 3 && HoleController.goInFlag == true)
+        {
+            SceneManager.LoadScene(7);
         }
     }
 

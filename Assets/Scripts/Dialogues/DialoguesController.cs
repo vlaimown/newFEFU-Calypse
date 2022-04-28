@@ -13,6 +13,8 @@ public class DialoguesController : MonoBehaviour
     public int PrayFlag = 0;
     public PlayerController playerController;
 
+
+    #region AllDialogues
     public DialogTrigger firstDialogue,
                          secondDialogue,
                          thirdDialogue,
@@ -25,7 +27,12 @@ public class DialoguesController : MonoBehaviour
                          tenthDialogue,
                          eleventhDialogue,
                          twelfthDialogue,
-                         thirteenthDialogue;
+                         thirteenthDialogue,
+                         fourteenthDialogue,
+                         fifteenthDialogue,
+                         sixteenthDialogue,
+                         seventeenthDialogue;
+    #endregion
 
     public int fourthDialogueFlag = 0;
     public float radius;

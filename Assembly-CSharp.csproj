@@ -56,6 +56,8 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GoToOutside.cs" />
+    <Compile Include="Assets\Scripts\PassFlag.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialogTrigger.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemPick.cs" />
@@ -67,9 +69,11 @@
     <Compile Include="Assets\Scripts\Dialogues\DialoguesController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\HoleController.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Mouse.cs" />
     <Compile Include="Assets\Scripts\GoToHotel.cs" />
     <Compile Include="Assets\Scripts\SurvivalMode\SurvivalMode.cs" />
     <Compile Include="Assets\Scripts\SurvivalMode\RedCat.cs" />
@@ -93,10 +97,6 @@
     <Compile Include="Assets\Scripts\Player\Skill.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Mouse.cs" />
-    <Compile Include="Assets\Scripts\HoleController.cs" />
-    <Compile Include="Assets\Scripts\GoToOutside.cs" />
-    <Compile Include="Assets\Scripts\PassFlag.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

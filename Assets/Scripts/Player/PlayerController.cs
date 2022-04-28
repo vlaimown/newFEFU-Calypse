@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public static bool pass_flag = false;
+    [SerializeField] public static bool pass_flag = true;
 
     [SerializeField] AudioSource water_splash;
     public float waittime;
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     #region Weapons
     public GameObject bottle_weapon;
     public GameObject BJD_weapon;
+    public GameObject student_pass;
     #endregion
 
     #region Skills
