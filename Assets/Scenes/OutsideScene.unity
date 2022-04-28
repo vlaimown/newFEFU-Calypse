@@ -467,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &856763338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,18 +490,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d62b21fca448e1a4cb7041d1d3610215, type: 3}
-    m_FontSize: 60
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 60
-    m_Alignment: 7
+    m_MaxSize: 300
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u0432 \u043E\u0431\u0449\u0435\u0436\u0438\u0442\u0438\u0435\n"
+  m_Text: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u0432 \n\u043E\u0431\u0449\u0435\u0436\u0438\u0442\u0438\u0435\n"
 --- !u!222 &856763339
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -526,8 +526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -290.86, y: 70.99802}
-  m_SizeDelta: {x: 581.72, y: 87.216}
+  m_AnchoredPosition: {x: -290.86, y: 57.30301}
+  m_SizeDelta: {x: 581.72, y: 114.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872839835 stripped
 MonoBehaviour:
@@ -3489,6 +3489,7 @@ MonoBehaviour:
   fade: {fileID: 0}
   bottle: {fileID: 0}
   BJD: {fileID: 0}
+  student_pass: {fileID: 0}
   inventoryUI: {fileID: 0}
   goToKitchen: {fileID: 0}
   survivalModePreview: {fileID: 0}

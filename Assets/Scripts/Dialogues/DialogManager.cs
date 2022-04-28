@@ -152,6 +152,13 @@ public class DialogManager : MonoBehaviour
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
         }
+
+        else if (dialogueNumber == 2 && (counter == 1) && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            nameText.text = "Охранник";
+            nameText.color = Color.red;
+            characterIcon.sprite = SecurityIcon;
+        }
         #endregion
 
         #region
