@@ -14,7 +14,6 @@ public class SurvivalMode : MonoBehaviour
     [SerializeField] Image waveCounterImg;
     [SerializeField] int waveCounter = 1;
 
-    //[SerializeField] RedCat redCat;
     [SerializeField] int randomRedCatSpawnPoint;
     [SerializeField] Transform[] arrayRedCatSpawnPoint = new Transform[4];
     [SerializeField] GameObject redCatPrefab;
@@ -40,6 +39,8 @@ public class SurvivalMode : MonoBehaviour
     [SerializeField] Skill skill;
 
     [SerializeField] CameraFollow cameraFollow;
+
+    public int i = 0;
 
     bool redCatSpawned = false;
 
@@ -83,17 +84,20 @@ public class SurvivalMode : MonoBehaviour
                 timeToSpawn -= Time.deltaTime;
                 if (timeToSpawn < 0)
                 {
+                   //while (i < 4) { 
                     _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
                     if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
                     {
                         _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
                     }
-                    if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
-                    {
-                        Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
-                        count++;
+                        if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
+                        {
+                            Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
+                            count++;
+                            //i++;
+                        }
                         timeToSpawn = maxTimeToSpawn;
-                    }
+                    //}
                 }
             }
 
