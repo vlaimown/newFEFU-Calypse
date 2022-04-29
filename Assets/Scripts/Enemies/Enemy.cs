@@ -9,7 +9,6 @@ public class Enemy : Interactable
     PlayerManager playerManager;
     CharacterStats myStats;
 
-
     private void Start()
     {
         playerManager = PlayerManager.instance;

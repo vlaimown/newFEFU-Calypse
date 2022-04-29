@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f6cd8973bfec4b04fa3c30dd65c94eef
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: a3436de9686d58546a7c7b52e83fb9c2
+  - enabled: 1
     path: Assets/Scenes/FirstScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/SecondScene.unity
+    path: Assets/Scenes/HostelScene.unity
     guid: dc750b65d128aee499c59015fc592f95
+  - enabled: 1
+    path: Assets/Scenes/OutsideScene.unity
+    guid: b0f5486a5666e1c4986c9e84db94f525
+  - enabled: 1
+    path: Assets/Scenes/KitchenScene.unity
+    guid: 7d872780f75b70d41810e5c57e1ebb98
+  - enabled: 1
+    path: Assets/Scenes/SurvivalMode.unity
+    guid: ac34c2791c917c142b81a5ddde28a123
+  - enabled: 1
+    path: Assets/Scenes/ThirdScene.unity
+    guid: 497636060161dd5478ca5f2a3475f8a9
   m_configObjects: {}

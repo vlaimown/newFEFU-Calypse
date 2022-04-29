@@ -1,44 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour 
 {
     public static Inventory instance;
+    [SerializeField] GameObject newGameObject;
+    PlayerController playerController;
+    [SerializeField] GameController gameController;
+    [SerializeField] DialogManager dialogManager;
+    public GameObject pointer_BJD;
 
     public List<Item> itemList = new List<Item>();
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+    Item item;
+
     public GameObject windowInventory;
-    public bool inventoryOpened = false;
 
     public int space;
 
     private void Awake()
     {
         instance = this;
-        windowInventory.SetActive(true);
+        playerController = FindObjectOfType<PlayerController>();
+        gameController = FindObjectOfType<GameController>();
     }
 
     private void Update()
     {
-        if (inventoryOpened == false) 
-        { 
-            if (Input.GetKeyUp("i"))
+        if (SceneManager.GetActiveScene().buildIndex == 2) 
+        {
+            if (windowInventory.gameObject.activeSelf == false)
             {
-                windowInventory.SetActive(true);
-                inventoryOpened = true;
+                if (Input.GetKeyUp("i") && gameController.inventoryEnable == true)
+                {
+                    windowInventory.gameObject.SetActive(true);
+                    playerController.attackEnable = false;
+
+                    if (dialogManager.dialogueNumber == 8)
+                    {
+                        gameController.interactive_with_inventory_button.gameObject.SetActive(false);
+                        pointer_BJD.gameObject.SetActive(true);
+                    }
+                }
+            }
+            else if (windowInventory.gameObject.activeSelf == true)
+            {
+                playerController.attackEnable = false;
+                if (Input.GetKeyUp("i"))
+                {
+                    windowInventory.gameObject.SetActive(false);
+                    playerController.attackEnable = true;
+
+                    if (dialogManager.dialogueNumber == 8)
+                    {
+                        gameController.interactive_with_inventory_button.gameObject.SetActive(true);
+                        pointer_BJD.gameObject.SetActive(false);
+                    }
+                }
             }
         }
 
-        else if (inventoryOpened == true)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
-            if (Input.GetKeyUp("i"))
+            if (windowInventory.gameObject.activeSelf == false)
             {
-                windowInventory.SetActive(false);
-                inventoryOpened = false;
+                if (Input.GetKeyUp("i"))
+                {
+                    windowInventory.gameObject.SetActive(true);
+                    playerController.attackEnable = false;
+                }
+            }
+            else if (windowInventory.gameObject.activeSelf == true)
+            {
+                playerController.attackEnable = false;
+                if (Input.GetKeyUp("i"))
+                {
+                    windowInventory.gameObject.SetActive(false);
+                    playerController.attackEnable = true;
+                }
             }
         }
     }
@@ -51,6 +96,7 @@ public class Inventory : MonoBehaviour
             {
                 itemList.Add(item);
             }
+
             if (onItemChangedCallback != null)
             {
                 onItemChangedCallback.Invoke();
@@ -60,11 +106,28 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
+        SpawnItem(item);
         itemList.Remove(item);
+
+        if (item.name == "Slavda Bottle (1)")
+        {
+            gameController.bottle.SetActive(false);
+        }
+
+        if (item.name == "ÁÆÄ")
+        {
+            gameController.BJD_notebook.SetActive(false);
+        }
 
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
         }
+    }
+
+    public void SpawnItem(Item item)
+    {
+        newGameObject = Resources.Load(item.name) as GameObject;
+        Instantiate(newGameObject, new Vector2(playerController.hero.transform.position.x + 1, playerController.hero.transform.position.y), Quaternion.identity);
     }
 }

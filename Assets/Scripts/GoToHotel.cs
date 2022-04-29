@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoToHotel : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GoToHotel : MonoBehaviour
     public Image buttonToHotel;
 
     public int goToHotelFlag;
+    public bool hotelSceneEnable = false;
 
     public CircleCollider2D heroCircleCollider;
 
@@ -20,12 +22,16 @@ public class GoToHotel : MonoBehaviour
 
     private void Start()
     {
-        goToHotelFlag = 0;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            goToHotelFlag = 0;
+            hotelSceneEnable = false;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.3f && player.moveToHotelFlag == 1)
+        if (Vector2.Distance(player.hero.transform.position, TriggerPoint) <= 3.5f && player.moveToHotelFlag == 1 && hotelSceneEnable == true)
         {
             buttonToHotel.gameObject.SetActive(true);
             if (Input.GetKey("e"))
@@ -64,15 +70,15 @@ public class GoToHotel : MonoBehaviour
                     if (Vector2.Distance(player.character.position, hotelPoint.position) < 0.21f)
                     {
                         heroCircleCollider.enabled = true;
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadScene(3);
                         goToHotelFlag = 0;
                         player.character.transform.localScale = defaultScale;
                     }
                 }
             }
-        else
-        {
-            buttonToHotel.gameObject.SetActive(false);
-        }
-        }
+         else
+         {
+             buttonToHotel.gameObject.SetActive(false);
+         }
     }
+}

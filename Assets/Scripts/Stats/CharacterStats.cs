@@ -1,29 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth { get; private set; }
+    public PlayerController player;
+    public Image healthBar;
+    public float maxHealth = 100;
+    public float currentHealth { get; private set; }
 
     public Stat damage;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
-    }
-
     private void Awake()
     {
+        player = FindObjectOfType<PlayerController>();
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage (int damage)
+    public void TakeDamage (float damage)
     {
         currentHealth -= damage;
-        Debug.Log(transform.name + " take " + damage + " damage.");
+        healthBar.fillAmount -= damage / maxHealth;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth - (currentHealth - maxHealth);
+        }
 
         if (currentHealth <= 0)
         {
@@ -33,6 +35,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log(transform.name + " died");
+        //Debug.Log(transform.name + " died");
     }
 }
