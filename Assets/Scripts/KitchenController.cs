@@ -44,7 +44,6 @@ public class KitchenController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        inventory.itemList.Remove(student_pass);
 
         if (Vector2.Distance(door.transform.position, playerController.hero.position) <= interactiveWithDoor)
         {

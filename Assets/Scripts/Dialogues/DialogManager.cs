@@ -196,19 +196,19 @@ public class DialogManager : MonoBehaviour
         #endregion
 
         #region
-        else if ((dialogueNumber == 1) && (counter == 1 || counter == 3) &&
-    (SceneManager.GetActiveScene().buildIndex == 3))
-        {
-            nameText.text = "Охранник";
-            nameText.color = Color.red;
-            characterIcon.sprite = SecurityIcon;
-        }
-
-        else if ((dialogueNumber == 1) && (counter == 5 || counter == 7) && (SceneManager.GetActiveScene().buildIndex == 3))
+        else if ((dialogueNumber == 1) && (counter == 3 || counter == 9) && (SceneManager.GetActiveScene().buildIndex == 3) && KitchenController.indianQuest == true)
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;
             characterIcon.sprite = ZagumIcon;
+        }
+
+        else if ((dialogueNumber == 1) && (counter == 1 || counter == 4 || counter == 6 || counter == 8) &&
+    (SceneManager.GetActiveScene().buildIndex == 3) && KitchenController.indianQuest == true)
+        {
+            nameText.text = "Охранник";
+            nameText.color = Color.red;
+            characterIcon.sprite = SecurityIcon;
         }
         #endregion
 
@@ -221,7 +221,7 @@ public class DialogManager : MonoBehaviour
             characterIcon.sprite = Raider;
         }
 
-        else if ((dialogueNumber == 1) && (counter == 6 || counter == 9 || counter == 12 || counter == 13 || counter == 17) && (SceneManager.GetActiveScene().buildIndex == 5))
+        else if ((dialogueNumber == 1) && (counter == 6 || counter == 9 || counter == 12 || counter == 13 || counter == 17 || counter == 18) && (SceneManager.GetActiveScene().buildIndex == 5))
         {
             nameText.text = "Алексей Андреевич Загумённов";
             nameText.color = Color.yellow;

@@ -39,6 +39,8 @@ public class HoleController : MonoBehaviour
     [SerializeField] GameObject Final;
     [SerializeField] float waitFinalTime;
 
+    [SerializeField] GameObject bottleImg;
+
     private void Awake()
     {
         fade.gameObject.SetActive(true);
@@ -63,6 +65,11 @@ public class HoleController : MonoBehaviour
             currentHoleWaitTime = maxHoleWaitTime;
         }
         GoToKitchen.to_hole = false;
+
+        if (OutsideGameController.second_location_completed == false)
+        {
+            bottleImg.gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()

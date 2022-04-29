@@ -157,7 +157,7 @@ public class GameController : MonoBehaviour
                 thirdQuest.gameObject.SetActive(false);
                 backgroundQuest.gameObject.SetActive(false);
                 questText.gameObject.SetActive(false);
-                Instantiate(zombie_1, new Vector2(-8, -2), Quaternion.identity);
+                Instantiate(zombie_1, new Vector2(-11, -2), Quaternion.identity);
                 newZombie = GameObject.Find("Zombie(Clone)");
                 anim.SetBool("BottleAttack", true);
 

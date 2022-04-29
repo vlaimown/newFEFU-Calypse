@@ -31,6 +31,7 @@ public class UI : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         dialogManager = FindObjectOfType<DialogManager>();
         dialoguesController = FindObjectOfType<DialoguesController>();
+
     }
 
     public void CloseReadNext()
@@ -65,6 +66,7 @@ public class UI : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
                 dialoguesController.sixteenthDialogue.TriggerDialog();
                 KitchenController.indianQuest = true;
+                inventory.itemList.Remove(student_pass);
             }
         }
     }

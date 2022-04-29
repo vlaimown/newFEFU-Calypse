@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class OutsideGameController : MonoBehaviour
 {
-    [SerializeField] static bool second_location_completed = false;
+   public static bool second_location_completed = false;
     
     [SerializeField] Image fade;
     [SerializeField] Inventory inventory;
@@ -33,8 +33,8 @@ public class OutsideGameController : MonoBehaviour
 
     [SerializeField] GoToHotel goToHotel;
 
-    [SerializeField]
-    Image backgroundMainQuest;
+    //[SerializeField]
+    //Image backgroundMainQuest;
 
     [SerializeField] float waittimeoutside;
     [SerializeField] bool waittimeflag;
@@ -42,13 +42,16 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] Image bottleSkillIcon;
 
     [SerializeField]
-    Text mainQuest,
-         neMainQuest,
+    //Text mainQuest;
+    Text    neMainQuest,
          sixQuest,
          seventhQuest;
 
+    [SerializeField] static bool pass_in_the_trash = true;
+    [SerializeField] GameObject pass_in_the_trash_object;
     private void Awake()
     {
+
         anim.SetBool("ReadyToGo" ,true);
         inventory.windowInventory.SetActive(true);
         fade.gameObject.SetActive(true);
@@ -59,8 +62,8 @@ public class OutsideGameController : MonoBehaviour
         playerController.moveToHotelFlag = 1;
         goToHotel.hotelSceneEnable = true;
 
-        backgroundMainQuest.gameObject.SetActive(true);
-        mainQuest.gameObject.SetActive(true);
+        //backgroundMainQuest.gameObject.SetActive(true);
+       // mainQuest.gameObject.SetActive(true);
 
         neMainQuest.gameObject.SetActive(true);
         sixQuest.gameObject.SetActive(true);
@@ -72,6 +75,11 @@ public class OutsideGameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (OutsideGameController.pass_in_the_trash == false)
+        {
+            pass_in_the_trash_object.SetActive(false);
+        }
+
         if (OutsideGameController.second_location_completed == false)
         {
             if (dialoguesController.eleventhDialogue != null)
@@ -161,6 +169,7 @@ public class OutsideGameController : MonoBehaviour
                     sixQuest.gameObject.SetActive(false);
                     dialoguesController.thirteenthDialogue.TriggerDialog();
                     PlayerController.pass_flag = true;
+                    OutsideGameController.pass_in_the_trash = false;
                 }
             }
             else
