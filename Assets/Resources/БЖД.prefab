@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1301174396256466289}
   - component: {fileID: 1984053081482655468}
-  - component: {fileID: 7366220542964444037}
   - component: {fileID: 1004270516917540977}
   - component: {fileID: 7916290159113476424}
   - component: {fileID: -8323978290536763260}
+  - component: {fileID: 3625528962548386588}
   m_Layer: 0
   m_Name: "\u0411\u0416\u0414"
   m_TagString: Untagged
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7366220542964444037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692383821022720033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44812edb53cc5194cbd2723133be8234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  item: {fileID: 11400000, guid: 96f62cc32644e1a44b1e8cefee00e199, type: 2}
-  gameController: {fileID: 0}
-  character: {fileID: 0}
-  radius: 0.7
 --- !u!114 &1004270516917540977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.5
+  offset: 0.3
 --- !u!58 &7916290159113476424
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +115,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.5
+  m_Radius: 10
 --- !u!61 &-8323978290536763260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +142,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0868807, y: 1.8168924}
   m_EdgeRadius: 0
+--- !u!114 &3625528962548386588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692383821022720033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff30960060824474c83deea1318a33da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill_range: 10
+  max_alive_time: 1.5
+  current_alive_time: 0
+  playerController: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  effect_time: 0
+  array: []

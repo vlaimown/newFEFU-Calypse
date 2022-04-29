@@ -62,8 +62,19 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject water;
     public int water_count = 0;
-
     public bool avaible_skills = false;
+
+
+    public bool act = false;
+    public GameObject BJD;
+
+
+    public Image notAvaibleBJD;
+    public Image avaibleBJD;
+    public Image coolDownBJD;
+
+    public float skillCoolDownTime_BJD;
+    public float maxSkillCoolDownTime_BJD;
     #endregion
 
 
@@ -78,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         moveToHotelFlag = 0;
 
-        maxcooldown = 0.25f;
+        maxcooldown = 0.15f;
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();
@@ -149,6 +160,39 @@ public class PlayerController : MonoBehaviour
                     {
                         Instantiate(water, new Vector2(character.transform.position.x + 3.5f * -1f, character.position.y), Quaternion.identity);
                     }
+                }
+            }
+        }
+
+
+
+        if (avaible_skills == true && SceneManager.GetActiveScene().buildIndex == 6)
+        {
+
+            if (skillCoolDownTime_BJD > 0)
+            {
+                notAvaibleBJD.gameObject.SetActive(true);
+                skillCoolDownTime_BJD -= Time.fixedDeltaTime;
+                notAvaibleBJD.fillAmount = skillCoolDownTime_BJD / maxSkillCoolDownTime_BJD;
+            }
+
+
+            if (skillCoolDownTime_BJD <= 0)
+            {
+                notAvaibleBJD.gameObject.SetActive(false);
+                avaibleBJD.gameObject.SetActive(true);
+                if (Input.GetKey("z") && BJD_weapon.activeSelf == true && act == false)
+                {
+                    if (facingRight == true)
+                    {
+                        Instantiate(BJD, new Vector2(character.transform.position.x + 1f, character.position.y), Quaternion.identity);
+                    }
+                    else if (facingRight == false)
+                    {
+                        Instantiate(BJD, new Vector2(character.transform.position.x + 1f * -1f, character.position.y), Quaternion.identity);
+                    }
+                    BJD_weapon.SetActive(false);
+                    act = true;
                 }
             }
         }

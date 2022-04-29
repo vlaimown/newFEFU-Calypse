@@ -139,4 +139,4 @@ MonoBehaviour:
   waterTargets: []
   enemy_counter: 0
   currentSkillTime: 0
-  maxSkillTime: 6
+  maxSkillTime: 7

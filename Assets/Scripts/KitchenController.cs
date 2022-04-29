@@ -21,6 +21,9 @@ public class KitchenController : MonoBehaviour
     [SerializeField] float interactiveWithDoor;
 
     [SerializeField] Image interativeButton;
+    [SerializeField] Inventory inventory;
+
+    [SerializeField] Item student_pass;
 
     private void Awake()
     {
@@ -41,6 +44,8 @@ public class KitchenController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        inventory.itemList.Remove(student_pass);
+
         if (Vector2.Distance(door.transform.position, playerController.hero.position) <= interactiveWithDoor)
         {
             interativeButton.gameObject.SetActive(true);

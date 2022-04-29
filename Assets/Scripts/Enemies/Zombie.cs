@@ -16,8 +16,8 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] float triggerZone;
     [SerializeField] float zombieAttackZone;
-    [SerializeField] float speed;
-    [SerializeField] float maxspeed;
+    public float speed;
+    public float maxspeed;
     [SerializeField] bool zombieFacingRight;
 
     [SerializeField] Animator anim;

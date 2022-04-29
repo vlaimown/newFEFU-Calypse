@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,10 +22,10 @@ public class SurvivalMode : MonoBehaviour
     public GameObject Enemy;
     public Transform[] EnemySpawnerPosition;
     private int _randomSpawnPoints;
-    public int MaxEnenyInScene = 5;
+    public int SpawnInWave = 1;
     public int count = 0;
 
-    [SerializeField] float nextWaveWillBeginTime;
+    [SerializeField] float nextWaveWillBeginTime = 10f;
     [SerializeField] float currentWaveTime;
 
     public bool spawnEnemyFlag = false;
@@ -37,7 +39,7 @@ public class SurvivalMode : MonoBehaviour
 
     [SerializeField] CameraFollow cameraFollow;
 
-    //public int i = 0;
+    public int i = 0;
 
     bool redCatSpawned = false;
 
@@ -67,7 +69,7 @@ public class SurvivalMode : MonoBehaviour
         inventory.windowInventory.SetActive(true);
         fade.gameObject.SetActive(true);
 
-        count = MaxEnenyInScene;
+        count = SpawnInWave;
         playerController.avaible_skills = true;
         bottleSkillIcon.gameObject.SetActive(true);
     }
@@ -83,27 +85,25 @@ public class SurvivalMode : MonoBehaviour
        if (spawnEnemyFlag == true)
         {
             currentWaveTime -= Time.deltaTime;
-            if (count < MaxEnenyInScene)
-            {
-                timeToSpawn -= Time.deltaTime;
-                if (timeToSpawn < 0)
+            timeToSpawn -= Time.deltaTime;
+            if (timeToSpawn < 0)
                 {
-                  // while (i < MaxEnenyInScene) { 
+
+                _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
+                if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
+                {
                     _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
-                    if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
-                    {
-                        _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
-                    }
-                        if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
-                        {
-                            Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
-                            count++;
-                            //i++;
-                        //}
-                        timeToSpawn = maxTimeToSpawn;
-                   }
                 }
-                //i = 0;
+                else if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
+                {
+                    for (int i = 0; i < SpawnInWave; i++)
+                    {
+                        Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
+                        count++;
+                    }
+                    timeToSpawn = maxTimeToSpawn;
+                }
+            //StartCoroutine(SpawnClassicZombie());
             }
 
             if (currentWaveTime <= 0)
@@ -112,15 +112,16 @@ public class SurvivalMode : MonoBehaviour
                 maxScore += pointsForWaves;
                 waveCounterImg.gameObject.SetActive(true);
                 waveCounterTxt.text = $"{waveCounter}";
-                MaxEnenyInScene++;
-                if (waveCounter % 4 == 0)
+                if (waveCounter % 5 == 0)
                 {
-                    MaxEnenyInScene += 3;
+                    SpawnInWave += 1;
                 }
                 if (waveCounter % 10 == 0 && (maxTimeToSpawn - 0.4f >= minTimeToSpawn))
                 {
                     maxTimeToSpawn -= 0.2f;
                 }
+
+                nextWaveWillBeginTime += 0.5f;
                 currentWaveTime = nextWaveWillBeginTime;
                 redCatSpawned = false;
             }
@@ -145,4 +146,25 @@ public class SurvivalMode : MonoBehaviour
             yourScore.SetActive(true);
        }
     }
+
+    /*IEnumerator SpawnClassicZombie()
+    {
+        for (int i = 0; i < MaxEnenyInScene; i++)
+        {
+            _randomSpawnPoints = Random.Range(0, EnemySpawnerPosition.Length);
+            if ((EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.minValues.x))
+            {
+                //StopAllCoroutines();
+                //yield return null;
+                StartCoroutine(SpawnClassicZombie());
+            }
+            if ((EnemySpawnerPosition[_randomSpawnPoints].position.x < cameraFollow.maxValue.x) && (EnemySpawnerPosition[_randomSpawnPoints].position.x > cameraFollow.minValues.x))
+            {
+                Instantiate(Enemy, EnemySpawnerPosition[_randomSpawnPoints].position, Quaternion.identity);
+                count++;
+            }
+        }
+        yield return null;
+        timeToSpawn = maxTimeToSpawn;
+    }*/
 }

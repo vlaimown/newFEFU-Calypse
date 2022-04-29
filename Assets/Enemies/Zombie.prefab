@@ -156,16 +156,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb1ee7f0cc8c3004c9cae862c02167d5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.07
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 150
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 10
+  MaxDistance: 4
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   healthBar: {fileID: 4028201719914912985}
   maxHealth: 100
   damage:
-    baseValue: 20
+    baseValue: 10
   sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
   spawnEnemy: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
   survivalMode: {fileID: 0}
@@ -429,7 +429,7 @@ MonoBehaviour:
   triggerZone: 10
   zombieAttackZone: 1
   speed: 0
-  maxspeed: 1.8
+  maxspeed: 1.2
   zombieFacingRight: 0
   anim: {fileID: 8640749023890743126}
   zombiePosition: {fileID: 5072224494823797129}

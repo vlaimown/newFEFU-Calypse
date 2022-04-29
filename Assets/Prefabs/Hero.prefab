@@ -211,7 +211,7 @@ MonoBehaviour:
   animator: {fileID: 5160503395633488775}
   direction: {x: 0, y: 0}
   attackPoint: {fileID: 5160503395583709445}
-  attackRange: 0.5
+  attackRange: 0.6
   maxspeed: 3.5
   speed: 3.5
   moveToHotelFlag: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   BJD_weapon: {fileID: 5160503396565634546}
   student_pass: {fileID: 8794529583937443199}
   skillCoolDownTime: 0
-  maxSkillCoolDownTime: 12
+  maxSkillCoolDownTime: 10
   notAvaibleBottle: {fileID: 0}
   avaibleBottle: {fileID: 0}
   coolDownBottle: {fileID: 0}
@@ -340,7 +340,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxHealth: 100
   damage:
-    baseValue: 30
+    baseValue: 50
 --- !u!1 &5160503395852211802
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 6
+  offset: 3
 --- !u!1 &5160503396343704982
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 6
+  offset: 3
 --- !u!1001 &8332130050622916983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,4 +701,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 6
+  offset: 3
