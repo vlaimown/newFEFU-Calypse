@@ -237,6 +237,13 @@ MonoBehaviour:
   water: {fileID: 1854605704752158351, guid: 27a400760943c8d408f5ffddce58f5e7, type: 3}
   water_count: 0
   avaible_skills: 0
+  act: 0
+  BJD: {fileID: 0}
+  notAvaibleBJD: {fileID: 0}
+  avaibleBJD: {fileID: 0}
+  coolDownBJD: {fileID: 0}
+  skillCoolDownTime_BJD: 0
+  maxSkillCoolDownTime_BJD: 10
 --- !u!50 &5160503395633488827
 Rigidbody2D:
   serializedVersion: 4
@@ -340,7 +347,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxHealth: 100
   damage:
-    baseValue: 50
+    baseValue: 40
 --- !u!1 &5160503395852211802
 GameObject:
   m_ObjectHideFlags: 0

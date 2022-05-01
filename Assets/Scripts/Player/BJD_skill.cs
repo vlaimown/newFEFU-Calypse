@@ -12,19 +12,13 @@ public class BJD_skill : MonoBehaviour
 
     [SerializeField] LayerMask enemyLayers;
 
-    [SerializeField] float effect_time;
-    //[SerializeField] bool effect_active = false;
-
-    [SerializeField] Enemy[] array;
-
-    Vector2 direction;
+    [SerializeField] List<Enemy> list;
 
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
         current_alive_time = max_alive_time;
         playerController.coolDownBJD.gameObject.SetActive(true);
-        //effect_active = false;
     }
 
     private void FixedUpdate()
@@ -36,15 +30,10 @@ public class BJD_skill : MonoBehaviour
         }
         if (current_alive_time <= 0)
         {
-            array = FindObjectsOfType<Enemy>();
-
-            foreach (Enemy enemy in array)
+            foreach (Enemy enemy in list)
             {
                  enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                  enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-                //enemy.GetComponent<Zombie>().speed = 0;
-                //enemy.GetComponent<Zombie>().speed = enemy.GetComponent<Zombie>().maxspeed;
             }
             playerController.BJD_weapon.SetActive(true);
             playerController.act = false;
@@ -59,13 +48,14 @@ public class BJD_skill : MonoBehaviour
         foreach (Collider2D col in cols)
         {
             Rigidbody2D rb = col.GetComponent<Rigidbody2D>();
+            list.Add(col.GetComponent<Enemy>());
             float directionx = transform.position.x - col.GetComponent<Transform>().transform.position.x;
             float directiony = transform.position.y - col.GetComponent<Transform>().transform.position.y;
 
-            //direction = new Vector2(directionx, directiony);
+            Vector2 distance = new Vector2(directionx, directiony);
 
-            rb.AddForce(new Vector2(col.transform.position.x + directionx * (-20000f), col.transform.position.y + directiony * (-20000f)), ForceMode2D.Impulse);
-            col.GetComponent<CharacterStats>().TakeDamage(15f);
+            //rb.AddForce(new Vector2(col.transform.position.x + distance.normalized.x * (-30000f), col.transform.position.x + distance.normalized.y * (-30000f), ForceMode2D.Impulse));
+            col.GetComponent<CharacterStats>().TakeDamage(10f);
         }
     }
 

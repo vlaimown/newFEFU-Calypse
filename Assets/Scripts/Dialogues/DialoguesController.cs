@@ -41,33 +41,6 @@ public class DialoguesController : MonoBehaviour
     public int coun = 0;
     private void FixedUpdate()
     {
-
-        /*if (gameWillStart.gameWillStartIn > 0 && gameWillStart.flagIntro == 1)
-        {
-            playerController.speed = 0;
-            playerController.attackEnable = false;
-            gameWillStart.gameWillStartIn -= Time.deltaTime;
-        }
-
-
-        if (gameWillStart.gameWillStartIn <= 0 && gameWillStart.flagIntro == 1)
-        {
-            if (startFlag == 0)
-            {
-                Intro.SetActive(false);
-
-                dialogueManager.dialogueWindow.SetActive(true);
-                if (dialogueManager.dialogueWindow == true)
-                {
-                    dialogueTrigger.TriggerDialog();
-                }
-                startFlag = 1;
-            }
-        }*/
-
-
-
-
         if (PrayFlag == 2 && dialogueManager.dialogueNumber == 3)
         {
             buttonF.gameObject.SetActive(true);
@@ -80,8 +53,6 @@ public class DialoguesController : MonoBehaviour
             }
         }
 
-
-
         if (fourthDialogue != null)
         {
             if (Vector2.Distance(playerController.hero.transform.position, fourthDialogue.transform.position) < fourthDialogue.radius && fourthDialogueFlag == 0)
@@ -92,4 +63,4 @@ public class DialoguesController : MonoBehaviour
             }
         }
     }
-    }
+}

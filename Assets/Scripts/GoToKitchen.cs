@@ -22,6 +22,11 @@ public class GoToKitchen : MonoBehaviour
 
     private void Awake()
     {
+        if (GoToKitchen.to_hole == true)
+        {
+            playerController.hero.transform.position = new Vector2(16.4f, -1.8f);
+            GoToKitchen.to_hole = false;
+        }
         inventory.windowInventory.SetActive(true);
         fade.gameObject.SetActive(true);
 

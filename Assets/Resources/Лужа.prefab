@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6943938797724200737}
   - component: {fileID: 3877882588927342140}
   - component: {fileID: 3181864709874127263}
+  - component: {fileID: 5032878716689894587}
   m_Layer: 0
   m_Name: "\u041B\u0443\u0436\u0430"
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: c2bf525e52fcd4d48bd1b63bc5031316, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,3 +141,16 @@ MonoBehaviour:
   enemy_counter: 0
   currentSkillTime: 0
   maxSkillTime: 7
+--- !u!114 &5032878716689894587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854605704752158351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f2a6290d93ac140aaf16b0397f6c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0

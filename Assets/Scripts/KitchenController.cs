@@ -51,6 +51,7 @@ public class KitchenController : MonoBehaviour
             if (Input.GetKey("e"))
             {
                 blackout.gameObject.SetActive(true);
+                //KitchenController.goFromKitchen = true;
             }
         }
         else

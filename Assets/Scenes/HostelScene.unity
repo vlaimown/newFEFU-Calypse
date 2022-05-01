@@ -1026,6 +1026,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8492189838006255431}
     - target: {fileID: 8827527154570797073, guid: 4e8e5b49077408e4699aefabc4e55357, type: 3}
+      propertyPath: holeController
+      value: 
+      objectReference: {fileID: 2017831273}
+    - target: {fileID: 8827527154570797073, guid: 4e8e5b49077408e4699aefabc4e55357, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1349641861}

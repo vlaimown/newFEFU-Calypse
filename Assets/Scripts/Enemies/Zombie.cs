@@ -22,7 +22,6 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    /*[SerializeField]*/
     public Transform zombiePosition;
     [SerializeField] Transform zombieAttackArea;
     [SerializeField] LayerMask hero;

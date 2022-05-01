@@ -9,7 +9,7 @@ public class HoleController : MonoBehaviour
     [SerializeField] float maxHoleWaitTime;
     [SerializeField] float currentHoleWaitTime;
 
-    //[SerializeField] static bool already_visited = false;
+    public static bool pass_quest_completed = false;
 
     public static bool goInFlag = true;
 
@@ -27,7 +27,7 @@ public class HoleController : MonoBehaviour
     [SerializeField] float interactiveWithTheDoor;
 
     [SerializeField] Image interactiveButton;
-    [SerializeField] BoxCollider2D block;
+    public BoxCollider2D block;
 
     [SerializeField] static bool first_dialogue_with_security_complete = false;
     public static bool quest_with_security_finished = false;
@@ -74,6 +74,11 @@ public class HoleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (HoleController.pass_quest_completed == true)
+        {
+            block.gameObject.SetActive(false);
+        }
+
         if (quest_with_security_finished == true)
         {
             block.gameObject.SetActive(false);
@@ -101,6 +106,7 @@ public class HoleController : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
                 dialoguesController.fifteenthDialogue.TriggerDialog();
                 block.gameObject.SetActive(false);
+                HoleController.pass_quest_completed = true;
             }
         }
 
