@@ -79,7 +79,7 @@ public class UI : MonoBehaviour
         {
             inventory.itemList.Add(bottle);
             inventory.itemList.Add(BJD);
-            if (PlayerController.pass_flag == true)
+            if (PlayerController.pass_flag == true || SceneManager.GetActiveScene().buildIndex == 6)
             {
                 inventory.itemList.Add(student_pass);
             }
@@ -101,7 +101,7 @@ public class UI : MonoBehaviour
             }
             if (goToKitchen.door == 1)
             {
-                SceneManager.LoadScene("HostelScene");
+                SceneManager.LoadScene("HotelScene");
             }
         }
 

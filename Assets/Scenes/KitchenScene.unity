@@ -328,7 +328,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.23529413, g: 0.23137257, b: 0.23529413, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1349,8 +1349,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
       objectReference: {fileID: 0}
+    - target: {fileID: 1449051010641080573, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
+      propertyPath: m_Text
+      value: "\u043D\u0430\u0436\u043C\u0438\u0442\u0435\n\"Space\"\n\u0447\u0442\u043E\u0431\u044B\n\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
+--- !u!114 &507449026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1449051010641080572, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
+  m_PrefabInstance: {fileID: 507449025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &565240801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1676,28 +1691,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f59b6fec8930e458e3008fb39a184a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog:
-    name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+  dialogue:
+    name:
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0420\u0435\u0439\u0434\u0435\u0440"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
     sentenses:
-    - "\u041E\u0433\u043E. \u0416\u0438\u0432\u043E\u0439 \u0447\u0435\u043B\u043E\u0432\u0435\u043A?"
+    - "\u041E\u0433\u043E, \u0436\u0438\u0432\u043E\u0439 \u0447\u0435\u043B\u043E\u0432\u0435\u043A?"
     - "*\u0447\u0442\u043E-\u0442\u043E \u043D\u0435 \u043D\u0430 \u0440\u0443\u0441\u0441\u043A\u043E\u043C
       \u0432 \u0430\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043D\u043E\u0439 \u043C\u0430\u043D\u0435\u0440\u0435*"
     - "\u0410 \u0432\u043E\u0442 \u044D\u0442\u043E \u0447\u0442\u043E \u0442\u044B
       \u0432\u0442\u043E\u0440\u043E\u0435 \u0441\u043A\u0430\u0437\u0430\u043B,
       \u044F \u0432\u043E\u043E\u0431\u0449\u0435 \u043D\u0435 \u043F\u043E\u043D\u044F\u043B"
     - "*\u0412\u043A\u043B\u044E\u0447\u0430\u0435\u0442 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0447\u0438\u043A*"
-    - "\u041D\u0430\u043D\u0434\u0443, \u0442\u044B \u0433\u0434\u0435 \u0431\u044B\u043B?"
-    - "\u041F\u043E\u0433\u043E\u0434\u0438. \u0427\u0442\u043E-\u0442\u043E \u043D\u0435
-      \u0442\u0430\u043A..."
-    - "\u044D\u044D\u044D..."
+    - "\u042D\u0439, \u043D\u043E\u0432\u0435\u043D\u044C\u043A\u0438\u0439, \u0442\u044B
+      \u0433\u0434\u0435 \u0431\u044B\u043B? \u041F\u043E\u0433\u043E\u0434\u0438-\u043A\u0430.
+      \u0427\u0442\u043E-\u0442\u043E \u0432 \u0442\u0435\u0431\u044F \u0438\u0437\u043C\u0435\u043D\u0438\u043B\u043E\u0441\u044C..."
+    - "\u042D\u044D\u044D..."
     - "\u041F\u043E\u0434\u0441\u0442\u0440\u0438\u0433\u0441\u044F \u0447\u0442\u043E
       \u043B\u0438?"
-    - "\u044D\u044D\u044D..."
+    - "\u042D\u044D\u044D..."
     - "\u0422\u0435\u0431\u0435 \u0438\u0434\u0451\u0442. \u0414\u0435\u043B\u043E
-      \u0435\u0441\u0442\u044C..."
-    - "\u042F \u0442\u0443\u0442 \u043D\u0435\u0434\u0430\u0432\u043D\u043E \u043F\u0440\u043E\u043F\u0443\u0441\u043A
-      \u043F\u043E\u0442\u0435\u0440\u044F\u043B. \u041C\u043E\u0436\u0435\u0448\u044C
-      \u0441\u0432\u043E\u0439 \u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C?"
+      \u0435\u0441\u0442\u044C... \u044F \u0442\u0443\u0442 \u043D\u0435\u0434\u0430\u0432\u043D\u043E
+      \u043F\u0440\u043E\u043F\u0443\u0441\u043A \u043F\u043E\u0442\u0435\u0440\u044F\u043B.
+      \u041C\u043E\u0436\u0435\u0448\u044C \u0441\u0432\u043E\u0439 \u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C?"
     - "\u0421\u043B\u0443\u0448\u0430\u0439, \u043A\u043E\u043D\u0441\u043F\u0435\u043A\u0442\u044B
       - \u043A\u043E\u043D\u0435\u0447\u043D\u043E \u043C\u043E\u0449\u043D\u043E\u0435
       \u043E\u0440\u0443\u0436\u0438\u0435, \u043D\u043E \u043A\u0430\u043A \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C\u0441\u044F
@@ -1714,6 +1744,23 @@ MonoBehaviour:
     - "\u0427\u0442\u043E \u0436, \u043F\u043E\u0445\u043E\u0436\u0435 \u043D\u0430\u043C
       \u043D\u0443\u0436\u043D\u043E \u043F\u0440\u043E\u0433\u0443\u043B\u044F\u0442\u044C\u0441\u044F
       \u0434\u043E \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0430"
+    icons:
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: cefb7c6d17bf5c449854766dfd81925b, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   radius: 0
 --- !u!1 &799813796
 GameObject:
@@ -2717,6 +2764,10 @@ PrefabInstance:
       propertyPath: dialogueWindow
       value: 
       objectReference: {fileID: 1243923630}
+    - target: {fileID: 8492189838770571070, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: nextSentenceButton
+      value: 
+      objectReference: {fileID: 507449026}
     - target: {fileID: 8492189838770571071, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
       propertyPath: m_Name
       value: DialogManager

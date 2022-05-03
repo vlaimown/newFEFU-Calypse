@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
-    public Dialogue dialog;
+    public Dialogue dialogue;
     public float radius;
 
     public void TriggerDialog() {
-        FindObjectOfType<DialogManager>().StartDialogue(dialog);
-        //FindObjectOfType<DialogManager>().UpdateIcon(dialog);
+        FindObjectOfType<DialogManager>().StartDialogue(dialogue);
     }
 
 

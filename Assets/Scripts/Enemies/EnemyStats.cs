@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EnemyStats : CharacterStats
@@ -11,7 +10,8 @@ public class EnemyStats : CharacterStats
     [SerializeField] SpawnEnemy spawnEnemy;
     [SerializeField] SurvivalMode survivalMode;
 
-    [SerializeField] Skill skill;
+    [SerializeField] WaterFirstSkill water_first_skill;
+    [SerializeField] BJD_skill bjd_Skill;
     public override void Die()
     {
         player.GetComponent<SpriteRenderer>().color = Color.white;
@@ -33,7 +33,7 @@ public class EnemyStats : CharacterStats
             survivalMode.maxScore += survivalMode.pointsForClassicZombie;
         }
 
-        skill = FindObjectOfType<Skill>();
+        water_first_skill = FindObjectOfType<WaterFirstSkill>();
 
         //if (skill.waterTargets.Count > 1)
         //{

@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6511021725909160991, guid: da34af290c12f514696216e8aa7b6656, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7278930501892376249, guid: da34af290c12f514696216e8aa7b6656, type: 3}
       propertyPath: m_Text
       value: "\n\u0421\u043E\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0441\u0435\u0445
@@ -607,6 +611,10 @@ PrefabInstance:
     - target: {fileID: 7925839107750893998, guid: da34af290c12f514696216e8aa7b6656, type: 3}
       propertyPath: m_Name
       value: Canvas 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021995941594665167, guid: da34af290c12f514696216e8aa7b6656, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da34af290c12f514696216e8aa7b6656, type: 3}
@@ -775,24 +783,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f59b6fec8930e458e3008fb39a184a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog:
-    name: "\u0410\u043B\u0435\u043A\u0441\u0435\u0439 \u0410\u043D\u0434\u0440\u0435\u0435\u0432\u0438\u0447
-      \u0417\u0430\u0433\u0443\u043C\u0451\u043D\u043D\u043E\u0432"
+  dialogue:
+    name:
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
     sentenses:
     - "\u041E\u041C\u0413. \u042F \u0436\u0435 \u0441\u043E\u0432\u0441\u0435\u043C
       \u0437\u0430\u0431\u044B\u043B \u0432\u0430\u043C \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C"
-    - "\u0412\u0441\u0451 \u0432 \u044D\u0442\u043E\u043C \u043C\u0438\u0440\u0435
-      \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E \u0438 \u0438\u043C\u0435\u0435\u0442
-      \u0441\u0432\u043E\u0438 \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u043D\u044B\u0435
-      \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u0438"
-    - "\u041D\u0443\u0436\u043D\u043E \u043D\u0430\u0443\u0447\u0438\u0442\u044C\u0441\u044F
-      \u0432\u0438\u0434\u0435\u0442\u044C \u043F\u043E\u0442\u0435\u043D\u0446\u0438\u0430\u043B
-      \u043D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0432 \u043B\u044E\u0434\u044F\u0445,
-      \u043D\u043E \u0432\u043E \u0432\u0441\u0451\u043C, \u0447\u0442\u043E \u0442\u0435\u0431\u044F
-      \u043E\u043A\u0440\u0443\u0436\u0430\u0435\u0442 "
-    - "\u0412\u0430\u043C \u043E\u0447\u0435\u043D\u044C \u0441\u043A\u043E\u0440\u043E
-      \u044D\u0442\u043E \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u0438\u0442\u0441\u044F
-      (\u0441\u0435\u0439\u0447\u0430\u0441)"
+    - "\u0423 \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043E\u0440\u0443\u0436\u0438\u044F
+      \u0435\u0441\u0442\u044C \u0441\u0432\u043E\u044F \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C,
+      \u043D\u043E \u0435\u0451 \u043D\u0443\u0436\u043D\u043E \u043D\u0430\u0443\u0447\u0438\u0442\u044C\u0441\u044F
+      \u0440\u0430\u0441\u043A\u0440\u044B\u0432\u0430\u0442\u044C"
+    icons:
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   radius: 2
 --- !u!114 &1032178775 stripped
 MonoBehaviour:
@@ -864,26 +868,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f59b6fec8930e458e3008fb39a184a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog:
-    name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+  dialogue:
+    name:
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
     sentenses:
     - "\u041E\u0433\u043E, \u0432\u043E\u0442 \u044D\u0442\u043E \u043F\u043E\u0432\u0435\u0437\u043B\u043E.
       \u041A\u043B\u0430\u0441\u0441\u043D\u043E, \u043A\u043E\u0433\u0434\u0430
-      \u0435\u0441\u0442\u044C \u0432\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0439
+      \u0435\u0441\u044C \u0432\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0439
       \u0433\u043E\u043B\u043E\u0441, \u043A\u043E\u0442\u043E\u0440\u044B\u0439
       \u0437\u043D\u0430\u0435\u0442 \u0432\u0441\u0435 \u043E\u0442\u0432\u0435\u0442\u044B"
     - "\u041A\u0441\u0442\u0430\u0442\u0438, \u0430 \u043E\u0442\u043A\u0443\u0434\u0430
-      \u0412\u044B \u0432\u0441\u0451 \u044D\u0442\u043E \u0437\u043D\u0430\u0435\u0442\u0435?"
+      \u0432\u044B \u0432\u0441\u0451 \u044D\u0442\u043E \u0437\u043D\u0430\u0435\u0442\u0435?"
     - "\u0412\u0441\u0435 \u043C\u044B \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u043E
       \u0443\u0447\u0438\u043C\u0441\u044F. \u0418 \u043C\u043D\u0435 \u0442\u043E\u0436\u0435
       \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u043F\u043E\u043C\u043E\u0433\u0430\u044E\u0442"
     - "\u0414\u0430 \u043D\u0435 \u0437\u0430 \u0447\u0442\u043E"
     - "\u0410 \u044D\u0442\u043E \u0447\u0442\u043E \u0441\u0435\u0439\u0447\u0430\u0441
       \u0431\u044B\u043B\u043E?"
-    - "\u041F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E \u043B\u0443\u0447\u0448\u0435
-      \u043F\u043E\u0441\u043A\u043E\u0440\u0435\u0435 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F
-      \u0432 \u043E\u0431\u0449\u0430\u0433\u0443. \u041A\u043E\u0442\u044B \u0441\u0430\u043C\u0438
-      \u0441\u0435\u0431\u044F \u043D\u0435 \u0441\u043E\u0431\u0435\u0440\u0443\u0442"
+    - "\u041F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E \u043F\u043E\u0441\u043A\u043E\u0440\u0435\u0435
+      \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u043E\u0431\u0449\u0430\u0433\u0443.
+      \u041A\u043E\u0442\u044B \u0441\u0430\u043C\u0438 \u0441\u0435\u0431\u044F
+      \u043D\u0435 \u0441\u043E\u0431\u0435\u0440\u0443\u0442"
+    icons:
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: 530e84fffa9371343b10004c9d6aa141, type: 3}
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   radius: 0
 --- !u!114 &1237219778 stripped
 MonoBehaviour:
@@ -926,6 +943,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327345615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1449051010641080572, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
+  m_PrefabInstance: {fileID: 2478842565522290075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1338544143 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 915134629560013169, guid: b041f377f64e0b448b5965aaf25a0886, type: 3}
@@ -1215,8 +1243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f59b6fec8930e458e3008fb39a184a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog:
-    name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+  dialogue:
+    name:
+    - "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
+    - "\u0411\u043E\u0433 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"
     sentenses:
     - "\u042D\u043C... \u043A\u043B\u0430\u0441\u0441. \u041B\u0443\u0436\u0430"
     - "\u042D\u0442\u043E \u043D\u0435 \u043F\u0440\u043E\u0441\u0442\u043E \u043B\u0443\u0436\u0430.
@@ -1227,18 +1258,14 @@ MonoBehaviour:
       \u043A\u0430\u043A \u043C\u0438\u043D\u0438\u043C\u0443\u043C \u043E\u0447\u0435\u043D\u044C
       \u043D\u0435\u043E\u0431\u044B\u0447\u043D\u0430\u044F \u0438 \u043A\u0440\u0443\u0442\u0430\u044F
       \u043B\u0443\u0436\u0430"
-    - "\u0418\u0441\u0446\u0435\u043B\u044F\u0435\u0442 \u0434\u0443\u0448\u0443
-      \u0438 \u0440\u0430\u0437\u0443\u043C, \u0438 \u0440\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442
-      \u0432\u0441\u0435 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B \u043D\u0430
-      \u0432\u0430\u0448\u0435\u043C \u043F\u0443\u0442\u0438"
-    - "\u0417\u0430\u0433\u0430\u0434\u0430\u0447\u043D\u043E. \u0422\u0430\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u043E.
-      \u041D\u0438\u0444\u0438\u0433\u0430 \u043D\u0435 \u043F\u043E\u043D\u044F\u0442\u043D\u043E"
-    - "\u0412\u0441\u0451 \u043A\u0430\u043A \u044F \u043B\u044E\u0431\u043B\u044E"
-    - "\u041B\u0443\u0436\u0430 \u0432\u0430\u0441 \u043B\u0435\u0447\u0438\u0442,
-      \u0430 \u0432\u0440\u0430\u0433\u043E\u0432 \u0434\u0430\u043C\u0430\u0436\u0438\u0442"
-    - "\u0410, \u043D\u0443, \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u043E\u043D\u044F\u0442\u043D\u043E"
-    - "\u0421\u043E\u0432\u0435\u0442\u0443\u044E \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C
-      \u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C \u0431\u043E\u044E"
+    - "\u041A\u0430\u0436\u0434\u043E\u0435 \u043E\u0440\u0443\u0436\u0438\u0435
+      \u0438\u043C\u0435\u0435\u0442 \u0441\u0432\u043E\u044E \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C.
+      \u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u0435\u0433\u043E \u0440\u0430\u0441\u043A\u0440\u044B\u0432\u0430\u0442\u044C
+      (\u041D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443 \"z\")"
+    icons:
+    - {fileID: 21300000, guid: ba2965bb10de5c047b20dce98f955a05, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
+    - {fileID: 21300000, guid: 31e316a8c0ca34f47b0767afabc3d4c2, type: 3}
   radius: 0
 --- !u!1 &1836858570
 GameObject:
@@ -1509,7 +1536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1680197297947418976, guid: d2f3cdd15d7138e4ba09210461904c07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1688,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3925606263750759408}
+    - target: {fileID: 1449051010641080573, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
+      propertyPath: m_Text
+      value: "\u043D\u0430\u0436\u043C\u0438\u0442\u0435\n\"Space\"\n\u0447\u0442\u043E\u0431\u044B\n\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e0d50f78bc89e48ab680bc7892243a, type: 3}
 --- !u!1001 &3348273200266998806
@@ -1707,7 +1738,7 @@ PrefabInstance:
       objectReference: {fileID: 3925606265168597553}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: maxTimeToSpawn
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: MaxEnenyInScene
@@ -1727,7 +1758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466429, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.58
+      value: -11.7
       objectReference: {fileID: 0}
     - target: {fileID: 1733317019680466429, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2562,7 +2593,7 @@ RectTransform:
   - {fileID: 3925606263936650589}
   - {fileID: 1645528486}
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2818,8 +2849,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 22
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3925606263781524193
 MonoBehaviour:
@@ -3778,6 +3809,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3925606264845178086}
   - {fileID: 3925606265168597711}
   - {fileID: 3925606264625581297}
   - {fileID: 3925606265179270914}
@@ -3785,7 +3817,6 @@ Transform:
   - {fileID: 3925606265233542344}
   - {fileID: 3925606263750759311}
   - {fileID: 3925606265365932261}
-  - {fileID: 3925606264845178086}
   - {fileID: 3925606263477739006}
   - {fileID: 3925606264607800816}
   - {fileID: 3925606263677106031}
@@ -3800,7 +3831,6 @@ Transform:
   - {fileID: 3925606263300338387}
   - {fileID: 379180208}
   - {fileID: 3925606263897368304}
-  - {fileID: 3925606263781524192}
   - {fileID: 3925606264530329391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4123,7 +4153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &3925606264539597494
 CanvasRenderer:
@@ -4354,7 +4384,7 @@ Transform:
   - {fileID: 3925606264939611384}
   - {fileID: 3925606264198670238}
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3925606264625581298
 GameObject:
@@ -4747,7 +4777,7 @@ RectTransform:
   m_Children:
   - {fileID: 3925606263912546699}
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5518,7 +5548,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0}
+  m_BackGroundColor: {r: 0.23529413, g: 0.23137257, b: 0.23529413, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5704,7 +5734,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &3925606265173534869
 RectTransform:
@@ -6307,7 +6337,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3925606264313638142}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3925606265233542345
 BoxCollider2D:
@@ -6715,13 +6745,17 @@ PrefabInstance:
       propertyPath: dialogueWindow
       value: 
       objectReference: {fileID: 3925606263677106003}
+    - target: {fileID: 8492189838770571070, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
+      propertyPath: nextSentenceButton
+      value: 
+      objectReference: {fileID: 1327345615}
     - target: {fileID: 8492189838770571071, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
       propertyPath: m_Name
       value: DialogManager
       objectReference: {fileID: 0}
     - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8492189838770571073, guid: d5a2588ae90686c478706e473b9d60b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7446,7 +7480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5536473517206549725, guid: 0c202ea6e25a79d4ab0c48c54f7dd9f6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5536473517206549725, guid: 0c202ea6e25a79d4ab0c48c54f7dd9f6, type: 3}
       propertyPath: m_AnchorMax.x

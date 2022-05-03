@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float waittime;
 
     [SerializeField] GameController gameController;
-    [SerializeField] Skill waterSkill;
+    [SerializeField] WaterFirstSkill water_first_skill;
 
     [SerializeField] DialogManager dialoguesManager;
     [SerializeField] DialoguesController dialoguesController;
@@ -50,6 +49,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bottle_weapon;
     public GameObject BJD_weapon;
     public GameObject student_pass;
+
+    [SerializeField] GameObject student_pass_prefab;
     #endregion
 
     #region Skills
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
         moveToHotelFlag = 0;
 
-        maxcooldown = 0.15f;
+        maxcooldown = 0.05f;
         cooldown = maxcooldown;
 
         myStats = GetComponent<CharacterStats>();
@@ -197,6 +198,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKey("x") && student_pass.activeSelf == true)
+        {
+            student_pass.SetActive(false);
+            Instantiate(student_pass_prefab, new Vector2(student_pass.transform.position.x + 0.05f * transform.localScale.normalized.x, student_pass.transform.position.y), Quaternion.identity);
+        }
+
         if (Input.GetKey("x") 
         && (attackEnable == true) 
         && (cooldown == maxcooldown) 
@@ -205,7 +212,40 @@ public class PlayerController : MonoBehaviour
         {
             AttackAnimation();
         }
+
+       /* if (Input.GetKey("x") && (attackEnable == true) && (student_pass.activeSelf == true))
+        {
+            StudentPassAttackMoveToward();
+        }
+
+        if (current_student_pass != null) 
+        {
+            float distance = Vector2.Distance(current_student_pass.transform.position, last_student_point.transform.position);
+            float distance_hero_pass = Vector2.Distance(hero.transform.position, current_student_pass.transform.position);
+
+            if (student_pass_attack == true)
+            {
+                current_student_pass.transform.position = Vector2.MoveTowards(hero.transform.position, last_student_point.transform.position, Time.deltaTime);
+            }
+            if (distance <= 0.05f)
+            {
+                student_pass_attack = false;
+                current_student_pass.transform.position = Vector2.MoveTowards(last_student_point.transform.position, hero.transform.position, Time.deltaTime);
+            }
+            if (student_pass_attack = false && (distance_hero_pass <= 0.05f))
+            {
+                student_pass.SetActive(true);
+            }
+        }*/
     }
+
+    /*private void StudentPassAttackMoveToward()
+    {
+        student_pass_attack = true;
+        student_pass.SetActive(false);
+        Instantiate(student_pass_prefab, new Vector2(hero.position.x + 2f, hero.position.y), Quaternion.identity);
+        current_student_pass = GameObject.Find("пропуск(Clone)");
+    }*/
 
     private void AttackAnimation()
     {

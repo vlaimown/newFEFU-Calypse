@@ -35,7 +35,7 @@ public class SurvivalMode : MonoBehaviour
 
     [SerializeField] Image bottleSkillIcon;
 
-    [SerializeField] Skill skill;
+    //[SerializeField] WaterFirstSkill water_first_skill;
 
     [SerializeField] CameraFollow cameraFollow;
 

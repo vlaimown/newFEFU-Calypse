@@ -6,20 +6,18 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     public int dialogueNumber;
-
     public int counter;
-    public string newName;
 
-    public Image characterIcon;
+    public GameObject dialogueWindow;
+    public Button nextSentenceButton;
 
     private Dialogue dialogue;
 
-    public GameObject dialogueWindow;
-
-    [SerializeField] private PlayerController Hero;
-
+    #region Phrase
     public Text nameText,
                 dialogueText;
+    public Image characterIcon;
+    #endregion
 
     public Queue<string> sentences;
 
@@ -44,8 +42,19 @@ public class DialogManager : MonoBehaviour
         foreach (string sentence in dialog.sentenses) { 
             sentences.Enqueue(sentence);
         }
-
         DisplayNextSentence();
+    }
+
+    private void Update()
+    {
+        if (dialogueWindow.activeSelf == true)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                nextSentenceButton.onClick.Invoke();
+                
+            }
+        }
     }
 
     public void DisplayNextSentence()
@@ -57,177 +66,6 @@ public class DialogManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
-        #region
-        /*
-                #region
-                if (dialogueNumber == 3 && (counter == 2 || counter == 4 || counter == 7 || counter == 8 || counter == 9) && SceneManager.GetActiveScene().buildIndex != 4)
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 4 && (counter == 1 || counter == 3 || counter == 5))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 5 && (counter == 1 || counter == 3 || counter == 4))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 6 && (counter == 1 || counter == 3 || counter == 5 || counter == 6 || counter == 7))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 7 && (counter == 1))
-                {
-                    nameText.text = "Hello World Cat";
-                    nameText.color = Color.green;
-                    characterIcon.sprite = HelloWorldIcon;
-                }
-
-                else if (dialogueNumber == 7 && (counter == 4 || counter == 5 || counter == 6))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 8 && (counter == 1 || counter == 2 || counter == 3))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 9 && (counter == 3 || counter == 5 || counter == 6 || counter == 8 || counter == 12 || counter == 14))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 1 && (counter == 1 || counter == 3) && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.indianQuest == false)
-                {
-                    nameText.text = "Охранник";
-                    nameText.color = Color.red;
-                    characterIcon.sprite = SecurityIcon;
-                }
-
-                else if (dialogueNumber == 1 && (counter == 5 || counter == 7) && SceneManager.GetActiveScene().buildIndex == 3 && KitchenController.indianQuest == false)
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-
-                else if (dialogueNumber == 2 && (counter == 1) && SceneManager.GetActiveScene().buildIndex == 3)
-                {
-                    nameText.text = "Охранник";
-                    nameText.color = Color.red;
-                    characterIcon.sprite = SecurityIcon;
-                }
-                #endregion
-
-                #region
-                else if (dialogueNumber == 1 && SceneManager.GetActiveScene().buildIndex == 4)
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if ((dialogueNumber == 2) && (counter == 2 || counter == 3 || counter == 6 || counter == 8) && (SceneManager.GetActiveScene().buildIndex == 4))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-                #endregion
-
-                #region
-                else if ((dialogueNumber == 3) && (counter == 3 || counter == 6) && (SceneManager.GetActiveScene().buildIndex == 4))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-
-                else if ((dialogueNumber == 3) && (counter == 4) && (SceneManager.GetActiveScene().buildIndex == 4))
-                {
-                    nameText.text = "Разработчик";
-                    nameText.color = Color.green;
-                    characterIcon.sprite = DeveloperIcon;
-                }
-                #endregion
-
-                #region
-                else if ((dialogueNumber == 1) && (counter == 3 || counter == 9) && (SceneManager.GetActiveScene().buildIndex == 3) && KitchenController.indianQuest == true)
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-
-                else if ((dialogueNumber == 1) && (counter == 1 || counter == 4 || counter == 6 || counter == 8) &&
-            (SceneManager.GetActiveScene().buildIndex == 3) && KitchenController.indianQuest == true)
-                {
-                    nameText.text = "Охранник";
-                    nameText.color = Color.red;
-                    characterIcon.sprite = SecurityIcon;
-                }
-                #endregion
-
-                #region
-                else if ((dialogueNumber == 1) && (counter == 2 || counter == 4 || counter == 5 || counter == 6 || counter == 8 || counter == 10 || counter == 11 || counter == 15) &&
-        (SceneManager.GetActiveScene().buildIndex == 5))
-                {
-                    nameText.text = "Рейдер";
-                    nameText.color = Color.red;
-                    characterIcon.sprite = Raider;
-                }
-
-                else if ((dialogueNumber == 1) && (counter == 6 || counter == 9 || counter == 12 || counter == 13 || counter == 17 || counter == 18) && (SceneManager.GetActiveScene().buildIndex == 5))
-                {
-                    nameText.text = "Алексей Андреевич Загумённов";
-                    nameText.color = Color.yellow;
-                    characterIcon.sprite = ZagumIcon;
-                }
-        #endregion
-
-                else
-                {
-                    nameText.text = "Главный герой";
-                    nameText.color = new Color(0, 1, 150);
-                    characterIcon.sprite = heroIcon;
-                }*/
-        #endregion
 
         string sentence = sentences.Dequeue();
         UpdateIcon(dialogue);
@@ -259,6 +97,26 @@ public class DialogManager : MonoBehaviour
         if (dialogue.name[counter-1] == "Бог программирования")
         {
             nameText.color = Color.yellow;
+        }
+
+        if (dialogue.name[counter - 1] == "«Hello, World!» Cat")
+        {
+            nameText.color = Color.green;
+        }
+
+        if (dialogue.name[counter - 1] == "Разработчик")
+        {
+            nameText.color = Color.green;
+        }
+
+        if (dialogue.name[counter - 1] == "Охранник")
+        {
+            nameText.color = Color.red;
+        }
+
+        if (dialogue.name[counter - 1] == "Рейдер")
+        {
+            nameText.color = Color.red;
         }
     }
 

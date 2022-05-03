@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7140498364085298895}
   - component: {fileID: 6943938797724200737}
   - component: {fileID: 3877882588927342140}
-  - component: {fileID: 3181864709874127263}
   - component: {fileID: 5032878716689894587}
+  - component: {fileID: 1045588303782485988}
   m_Layer: 0
   m_Name: "\u041B\u0443\u0436\u0430"
   m_TagString: Untagged
@@ -117,30 +117,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.3131056, y: 2.3803353}
   m_EdgeRadius: 0
---- !u!114 &3181864709874127263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854605704752158351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8862e4ffbc582aa42a2459e644eac31e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  water_splash: {fileID: 6392580697274589047, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}
-  water: {fileID: 1854605704752158351}
-  waterRange: 1
-  playerController: {fileID: 0}
-  damageFlag: 0
-  healFlag: 0
-  hero: {fileID: 5160503395633488824, guid: b481341debf58404594bda79d20a8a2f, type: 3}
-  playerStat: {fileID: 0}
-  waterTargets: []
-  enemy_counter: 0
-  currentSkillTime: 0
-  maxSkillTime: 7
 --- !u!114 &5032878716689894587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +130,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+--- !u!114 &1045588303782485988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854605704752158351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8862e4ffbc582aa42a2459e644eac31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water_splash: {fileID: 6392580697274589047, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}
+  waterRange: 0
+  playerController: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+  damageFlag: 0
+  healFlag: 0
+  playerStat: {fileID: 5160503395633488770, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+  waterTargets: []
+  enemy_counter: 0
+  currentSkillTime: 0
+  maxSkillTime: 9

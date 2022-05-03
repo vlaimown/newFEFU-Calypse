@@ -73,7 +73,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        gameWillStartIn = 3.5f;
+        gameWillStartIn = 3.25f;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             playerController.speed = 0;
@@ -88,13 +88,13 @@ public class GameController : MonoBehaviour
             if (gameWillStartIn > 0)
             {
                 gameWillStartIn -= Time.fixedDeltaTime;
-                if (gameWillStartIn < 2.75f && dialoguesController.PrayFlag == 0)
+                if (gameWillStartIn < 2.5f && dialoguesController.PrayFlag == 0)
                 {
                     dialoguesController.dialogueManager.dialogueWindow.SetActive(true);
                     dialoguesController.firstDialogue.TriggerDialog();
                     dialoguesController.PrayFlag = 1;
                 }
-                else if (dialoguesController.PrayFlag == 1 && gameWillStartIn < 1.75f)
+                else if (dialoguesController.PrayFlag == 1 && gameWillStartIn < 2f)
                 {
                     god_paper_cutscene.gameObject.SetActive(true);
                     if (sound_flag == false)
@@ -231,6 +231,8 @@ public class GameController : MonoBehaviour
 
                 inventory.windowInventory.gameObject.SetActive(false);
                 playerController.attackEnable = true;
+
+                interactive_with_inventory_button.gameObject.SetActive(false);
             }
 
             if (dialogManager.dialogueNumber == 10)

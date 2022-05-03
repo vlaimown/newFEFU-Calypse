@@ -9,6 +9,8 @@ public class Intro : MonoBehaviour
     public int firstCutscene;
     public PlayerController player;
 
+    [SerializeField] Button nextImageButton;
+
     public int flagIntro = 0;
     public GameObject windowIntro;
     public Image[] opening;
@@ -25,6 +27,18 @@ public class Intro : MonoBehaviour
         opening[0].gameObject.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (windowIntro.activeSelf == true)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                nextImageButton.onClick.Invoke();
+
+            }
+        }
+    }
+
     public void NextImg()
     {
         if (i < N && i != (N-1))
@@ -34,6 +48,7 @@ public class Intro : MonoBehaviour
         }
         else if (i == (N - 1))
         {
+            windowIntro.SetActive(false);
             SceneManager.LoadScene(2);
 
             return;
