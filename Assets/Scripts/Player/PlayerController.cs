@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] DialoguesController dialoguesController;
 
     public Rigidbody2D hero;
-    //public Transform character;
     public Transform hitBoxPoint;
     public Animator animator;
 
     public Vector2 direction;
 
-    public Transform attackPoint;
+    public Transform attackBottlePoint;
+    [SerializeField] Transform attackBJD_point;
     public float attackRange;
 
     public float maxspeed,
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
      public bool attackEnable, 
                  facingRight;
+
+    [SerializeField] bool attacking = false;
 
     public float cooldown,
                  maxcooldown;
@@ -48,6 +50,11 @@ public class PlayerController : MonoBehaviour
     public GameObject student_pass;
 
     [SerializeField] GameObject student_pass_prefab;
+    #endregion
+
+    #region Attack
+    bool bottle_attack = false;
+    bool bjd_attack = false;
     #endregion
 
     #region Skills
@@ -178,6 +185,7 @@ public class PlayerController : MonoBehaviour
             {
                 notAvaibleBJD.gameObject.SetActive(false);
                 avaibleBJD.gameObject.SetActive(true);
+
                 if (Input.GetKey("z") && BJD_weapon.activeSelf == true && act == false)
                 {
                     if (facingRight == true)
@@ -203,36 +211,49 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("x") 
         && (attackEnable == true) 
         && (cooldown == maxcooldown) 
-        && ((animator.GetBool("BottleAttack") == true) || (animator.GetBool("BJDAttack") == true))
-        && (bottle_weapon.activeSelf == true || BJD_weapon.activeSelf == true))
+        && ((animator.GetBool("BottleAttack") == true))
+        && (bottle_weapon.activeSelf == true))
         {
+            bottle_attack = true;
+            attacking = true;
             AttackAnimation();
         }
 
-       /* if (Input.GetKey("x") && (attackEnable == true) && (student_pass.activeSelf == true))
+        if (Input.GetKey("x")
+        && (attackEnable == true)
+        && (cooldown == maxcooldown)
+        && ((animator.GetBool("BJDAttack") == true))
+        && (BJD_weapon.activeSelf == true))
         {
-            StudentPassAttackMoveToward();
+            bjd_attack = true;
+            attacking = true;
+            AttackAnimation();
         }
 
-        if (current_student_pass != null) 
-        {
-            float distance = Vector2.Distance(current_student_pass.transform.position, last_student_point.transform.position);
-            float distance_hero_pass = Vector2.Distance(hero.transform.position, current_student_pass.transform.position);
+        /* if (Input.GetKey("x") && (attackEnable == true) && (student_pass.activeSelf == true))
+         {
+             StudentPassAttackMoveToward();
+         }
 
-            if (student_pass_attack == true)
-            {
-                current_student_pass.transform.position = Vector2.MoveTowards(hero.transform.position, last_student_point.transform.position, Time.deltaTime);
-            }
-            if (distance <= 0.05f)
-            {
-                student_pass_attack = false;
-                current_student_pass.transform.position = Vector2.MoveTowards(last_student_point.transform.position, hero.transform.position, Time.deltaTime);
-            }
-            if (student_pass_attack = false && (distance_hero_pass <= 0.05f))
-            {
-                student_pass.SetActive(true);
-            }
-        }*/
+         if (current_student_pass != null) 
+         {
+             float distance = Vector2.Distance(current_student_pass.transform.position, last_student_point.transform.position);
+             float distance_hero_pass = Vector2.Distance(hero.transform.position, current_student_pass.transform.position);
+
+             if (student_pass_attack == true)
+             {
+                 current_student_pass.transform.position = Vector2.MoveTowards(hero.transform.position, last_student_point.transform.position, Time.deltaTime);
+             }
+             if (distance <= 0.05f)
+             {
+                 student_pass_attack = false;
+                 current_student_pass.transform.position = Vector2.MoveTowards(last_student_point.transform.position, hero.transform.position, Time.deltaTime);
+             }
+             if (student_pass_attack = false && (distance_hero_pass <= 0.05f))
+             {
+                 student_pass.SetActive(true);
+             }
+         }*/
     }
 
     /*private void StudentPassAttackMoveToward()
@@ -252,27 +273,56 @@ public class PlayerController : MonoBehaviour
 
     public void playerAttack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
+        if (bottle_attack == true)
         {
-            enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
-
-            float dist = Mathf.Infinity;
-            var cols = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            Collider2D currentCollider = cols[0];
-            foreach (Collider2D col in cols)
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackBottlePoint.position, attackRange, enemyLayers);
+            foreach (Collider2D enemy in hitEnemies)
             {
-                float currentDist = Vector2.Distance(attackPoint.position, col.transform.position);
-                if (currentDist < dist)
-                {
-                    currentCollider = col;
-                    dist = currentDist;
-                }
-            }
-            currentTarget = currentCollider.gameObject;
+                enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
 
-            StartCoroutine(RedVersionOfSprite());
+                float dist = Mathf.Infinity;
+                var cols = Physics2D.OverlapCircleAll(attackBottlePoint.position, attackRange, enemyLayers);
+                Collider2D currentCollider = cols[0];
+                foreach (Collider2D col in cols)
+                {
+                    float currentDist = Vector2.Distance(attackBottlePoint.position, col.transform.position);
+                    if (currentDist < dist)
+                    {
+                        currentCollider = col;
+                        dist = currentDist;
+                    }
+                }
+                currentTarget = currentCollider.gameObject;
+
+                StartCoroutine(RedVersionOfSprite());
+            }
+            bottle_attack = false;
+        }
+
+        if (bjd_attack == true)
+        {
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackBJD_point.position, attackRange, enemyLayers);
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<CharacterStats>().TakeDamage(myStats.damage.GetValue());
+
+                float dist = Mathf.Infinity;
+                var cols = Physics2D.OverlapCircleAll(attackBJD_point.position, attackRange, enemyLayers);
+                Collider2D currentCollider = cols[0];
+                foreach (Collider2D col in cols)
+                {
+                    float currentDist = Vector2.Distance(attackBJD_point.position, col.transform.position);
+                    if (currentDist < dist)
+                    {
+                        currentCollider = col;
+                        dist = currentDist;
+                    }
+                }
+                currentTarget = currentCollider.gameObject;
+
+                StartCoroutine(RedVersionOfSprite());
+            }
+            bjd_attack = false;
         }
     }
 
@@ -289,26 +339,25 @@ public class PlayerController : MonoBehaviour
     {
         speed = maxspeed;
         wait_attack_flag = true;
+        attacking = false;
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackBottlePoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackBJD_point.position, attackRange);
     }
 
     public void Flip()
     {
-        if (animator.GetBool("ReadyToGo") == true) {
-            facingRight = !facingRight;
-            Vector3 scaler = transform.localScale;
-            scaler.x *= -1;
+        if (attacking == false) {
+            if (animator.GetBool("ReadyToGo") == true) {
+                facingRight = !facingRight;
+                Vector3 scaler = transform.localScale;
+                scaler.x *= -1;
 
-            transform.localScale = scaler;
+                transform.localScale = scaler;
+            }
         }
     }
 

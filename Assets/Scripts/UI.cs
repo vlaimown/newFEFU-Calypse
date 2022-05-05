@@ -66,7 +66,11 @@ public class UI : MonoBehaviour
                 dialogManager.dialogueWindow.SetActive(true);
                 dialoguesController.sixteenthDialogue.TriggerDialog();
                 KitchenController.indianQuest = true;
-                inventory.itemList.Remove(student_pass);
+                if (dialogManager.counter == 12)
+                {
+                    inventory.itemList.Remove(student_pass);
+                    inventoryUI.UpdateUI();
+                }
             }
         }
     }

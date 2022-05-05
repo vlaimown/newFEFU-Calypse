@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject Info;
-     public void NewGame()
+    public void NewGame()
     {
         SceneManager.LoadScene(1);  
-
     } 
     public void ExitGame()
     {
@@ -30,5 +27,4 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(6);
     }
-
 }

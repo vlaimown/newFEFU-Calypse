@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\GoToKitchen.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialogManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\Zombie_By_Ilya.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Enemies\SheetDropLoot.cs" />
     <Compile Include="Assets\Scripts\SurvivalMode\SurvivalModeFuncs.cs" />
     <Compile Include="Assets\Scripts\Dialogues\DialoguesController.cs" />

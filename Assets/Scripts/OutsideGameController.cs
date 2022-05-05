@@ -33,21 +33,17 @@ public class OutsideGameController : MonoBehaviour
 
     [SerializeField] GoToHotel goToHotel;
 
-    //[SerializeField]
-    //Image backgroundMainQuest;
-
     [SerializeField] float waittimeoutside;
     [SerializeField] bool waittimeflag;
 
     [SerializeField] Image bottleSkillIcon;
 
     [SerializeField]
-    //Text mainQuest;
-    Text    neMainQuest,
+    Text neMainQuest,
          sixQuest,
          seventhQuest;
 
-    [SerializeField] static bool pass_in_the_trash = true;
+    public static bool pass_in_the_trash = true;
     [SerializeField] GameObject pass_in_the_trash_object;
     private void Awake()
     {

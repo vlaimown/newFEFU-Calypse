@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +17,7 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
 
     Item item;
+    [SerializeField] Item student_pass;
 
     public GameObject windowInventory;
 
@@ -84,6 +84,11 @@ public class Inventory : MonoBehaviour
                     playerController.attackEnable = true;
                 }
             }
+        }
+
+        if (KitchenController.indianQuest == true)
+        {
+            itemList.Remove(student_pass);
         }
     }
 

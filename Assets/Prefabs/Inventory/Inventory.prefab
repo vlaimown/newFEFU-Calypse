@@ -48,5 +48,6 @@ MonoBehaviour:
   dialogManager: {fileID: 0}
   pointer_BJD: {fileID: 0}
   itemList: []
+  student_pass: {fileID: 11400000, guid: 351b96e1bdf2b554da8f457c237afe11, type: 2}
   windowInventory: {fileID: 2672415656129297412}
   space: 3

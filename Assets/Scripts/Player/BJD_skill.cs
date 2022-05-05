@@ -25,6 +25,7 @@ public class BJD_skill : MonoBehaviour
         playerController.coolDownBJD.gameObject.SetActive(true);
 
        cols = Physics2D.OverlapCircleAll(transform.position, skill_range, enemyLayers);
+       //Debug.Log(cols.Length);
     }
 
     private void FixedUpdate()

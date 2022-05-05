@@ -27,7 +27,7 @@ public class HoleController : MonoBehaviour
     [SerializeField] Image interactiveButton;
     public BoxCollider2D block;
 
-    [SerializeField] static bool first_dialogue_with_security_complete = false;
+    static bool first_dialogue_with_security_complete = false;
     public static bool quest_with_security_finished = false;
 
 
@@ -72,7 +72,7 @@ public class HoleController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (HoleController.pass_quest_completed == true)
+        if (pass_quest_completed == true)
         {
             block.gameObject.SetActive(false);
         }
@@ -123,6 +123,14 @@ public class HoleController : MonoBehaviour
         }
         else if (waitFinalTime <= 0)
         {
+            quest_with_security_finished = false;
+            KitchenController.indianQuest = false;
+            pass_quest_completed = false;
+            PlayerController.pass_flag = false;
+            quest_with_security_finished = false;
+            first_dialogue_with_security_complete = false;
+            OutsideGameController.second_location_completed = false;
+            OutsideGameController.pass_in_the_trash = true;
             SceneManager.LoadScene(0);
         }
 

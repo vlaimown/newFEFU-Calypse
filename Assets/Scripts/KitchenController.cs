@@ -56,6 +56,12 @@ public class KitchenController : MonoBehaviour
         {
             interativeButton.gameObject.SetActive(false);
         }
+
+        if (KitchenController.indianQuest == true)
+        {
+            inventory.itemList.Remove(student_pass);
+            //inventoryUI.UpdateUI();
+        }
     }
 
     private void OnDrawGizmos()
