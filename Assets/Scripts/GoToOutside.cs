@@ -13,7 +13,7 @@ public class GoToOutside : MonoBehaviour
     {
         if (Vector2.Distance(playerController.hero.position, transform.position) <= interactive_distance)
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKeyDown("e"))
             {
                 blackout.gameObject.SetActive(true);
             }

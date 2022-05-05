@@ -5,8 +5,8 @@ public class KitchenController : MonoBehaviour
 {
     public static bool indianQuest = false;
 
-    [SerializeField] DialogManager dialogManager;
-    [SerializeField] DialoguesController dialoguesController;
+    private DialogManager dialogManager;
+    private DialoguesController dialoguesController;
 
     [SerializeField] PlayerController playerController;
 

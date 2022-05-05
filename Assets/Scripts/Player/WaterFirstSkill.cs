@@ -20,12 +20,14 @@ public class WaterFirstSkill : MonoBehaviour
     [SerializeField] float currentSkillTime;
     [SerializeField] float maxSkillTime;
 
+    [SerializeField] AudioSource water_splash_sound;
 
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
         playerStat = FindObjectOfType<PlayerStat>();
         currentSkillTime = maxSkillTime;
+        Instantiate(water_splash_sound, transform.position, Quaternion.identity);
     }
 
     private void FixedUpdate()

@@ -5,18 +5,15 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] public static bool pass_flag = false;
-
-    [SerializeField] AudioSource water_splash;
     public float waittime;
 
-    [SerializeField] GameController gameController;
     [SerializeField] WaterFirstSkill water_first_skill;
 
     [SerializeField] DialogManager dialoguesManager;
     [SerializeField] DialoguesController dialoguesController;
 
     public Rigidbody2D hero;
-    public Transform character;
+    //public Transform character;
     public Transform hitBoxPoint;
     public Animator animator;
 
@@ -149,17 +146,16 @@ public class PlayerController : MonoBehaviour
                 avaibleBottle.gameObject.SetActive(true);
                 if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
                 {
-                    Instantiate(water_splash, transform.position, Quaternion.identity);
                     avaibleBottle.gameObject.SetActive(false);
                     water_count = 1;
 
                     if (facingRight == true)
                     {
-                        Instantiate(water, new Vector2(character.transform.position.x + 3.5f, character.position.y), Quaternion.identity);
+                        Instantiate(water, new Vector2(hero.transform.position.x + 3.5f, hero.position.y), Quaternion.identity);
                     }
                     else if (facingRight == false)
                     {
-                        Instantiate(water, new Vector2(character.transform.position.x + 3.5f * -1f, character.position.y), Quaternion.identity);
+                        Instantiate(water, new Vector2(hero.transform.position.x + 3.5f * -1f, hero.position.y), Quaternion.identity);
                     }
                 }
             }
@@ -186,11 +182,11 @@ public class PlayerController : MonoBehaviour
                 {
                     if (facingRight == true)
                     {
-                        Instantiate(BJD, new Vector2(character.transform.position.x + 1f, character.position.y), Quaternion.identity);
+                        Instantiate(BJD, new Vector2(hero.transform.position.x + 1f, hero.position.y), Quaternion.identity);
                     }
                     else if (facingRight == false)
                     {
-                        Instantiate(BJD, new Vector2(character.transform.position.x + 1f * -1f, character.position.y), Quaternion.identity);
+                        Instantiate(BJD, new Vector2(hero.transform.position.x + 1f * -1f, hero.position.y), Quaternion.identity);
                     }
                     BJD_weapon.SetActive(false);
                     act = true;

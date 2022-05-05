@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
@@ -16,25 +15,13 @@ public class CharacterCombat : MonoBehaviour
 
     private void Start()
     {
-        //attackCooldown = maxAttackCooldown;
         myStats = GetComponent<CharacterStats>();
-    }
-
-    private void Update()
-    {
-        /*if (attackCooldown > 0 && zombie.zombieAttackFlag == true){
-            attackCooldown -= Time.deltaTime;
-        }*/
     }
 
     public void Attack (CharacterStats targetStats)
     {
-        //if (attackCooldown <= 0f)
-        //{
-            StartCoroutine(DoDamage(targetStats, attackDelay));
-            targetStats.TakeDamage(myStats.damage.GetValue());
-            //attackCooldown = maxAttackCooldown;
-        //}
+        StartCoroutine(DoDamage(targetStats, attackDelay));
+        targetStats.TakeDamage(myStats.damage.GetValue());
     }
 
     IEnumerator DoDamage (CharacterStats stats, float delay)

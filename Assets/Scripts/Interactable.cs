@@ -5,14 +5,14 @@ public class Interactable : MonoBehaviour
     public float radius = 3f;
     public Transform interactionTransform;
 
-    bool isFocus = false;
+    /*bool isFocus = false;
     Transform player;
 
-    bool hasInteracted = false;
+    bool hasInteracted = false;*/
 
     public virtual void Interact()
     {
-       // Debug.Log("Interacting wiht " + transform.name);
+        // Debug.Log("Interacting wiht " + transform.name);
     }/*
 
     private void Update()
@@ -28,3 +28,4 @@ public class Interactable : MonoBehaviour
         }
     }*/
 }
+

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -63,11 +61,11 @@ public class GameController : MonoBehaviour
     [SerializeField] Image attack_button;
     public Image interactive_with_inventory_button;
 
-    bool sound_flag;
+    bool sound_sheet_flag;
 
     private void Awake()
     {
-        sound_flag = false;
+        sound_sheet_flag = false;
         inventory.windowInventory.SetActive(true);
     }
 
@@ -97,10 +95,10 @@ public class GameController : MonoBehaviour
                 else if (dialoguesController.PrayFlag == 1 && gameWillStartIn < 2f)
                 {
                     god_paper_cutscene.gameObject.SetActive(true);
-                    if (sound_flag == false)
+                    if (sound_sheet_flag == false)
                     {
                         Instantiate(sheet, transform.position, Quaternion.identity);
-                        sound_flag = true;
+                        sound_sheet_flag = true;
                     }
                     background_god_paper_cutscene.gameObject.SetActive(true);
                 }

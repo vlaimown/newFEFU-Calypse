@@ -103,13 +103,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5160503395633488773}
   - component: {fileID: 5160503395633488826}
-  - component: {fileID: 5160503395633488772}
   - component: {fileID: 5160503395633488827}
-  - component: {fileID: 5160503395633488775}
-  - component: {fileID: 5160503395633488769}
   - component: {fileID: 5160503395633488774}
+  - component: {fileID: 5160503395633488775}
+  - component: {fileID: 5160503395633488772}
+  - component: {fileID: 5160503395633488769}
   - component: {fileID: 5160503395633488768}
   - component: {fileID: 5160503395633488770}
+  - component: {fileID: 4050617289609673838}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -187,6 +188,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &5160503395633488827
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503395633488824}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &5160503395633488774
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503395633488824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 1.1
+--- !u!95 &5160503395633488775
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503395633488824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6faa67b99db7d8c41b62a7e083c9910a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5160503395633488772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,14 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c31f1c45c7ce64e90d4bd0c19af468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  water_splash: {fileID: 4668115770715814982, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}
   waittime: 0
-  gameController: {fileID: 0}
   water_first_skill: {fileID: 0}
   dialoguesManager: {fileID: 0}
   dialoguesController: {fileID: 0}
   hero: {fileID: 5160503395633488827}
-  character: {fileID: 5160503395633488773}
   hitBoxPoint: {fileID: 5160503394939760325}
   animator: {fileID: 5160503395633488775}
   direction: {x: 0, y: 0}
@@ -245,46 +299,6 @@ MonoBehaviour:
   coolDownBJD: {fileID: 0}
   skillCoolDownTime_BJD: 0
   maxSkillCoolDownTime_BJD: 10
---- !u!50 &5160503395633488827
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160503395633488824}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!95 &5160503395633488775
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160503395633488824}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6faa67b99db7d8c41b62a7e083c9910a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5160503395633488769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,22 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.5
---- !u!58 &5160503395633488774
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160503395633488824}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.9}
-  serializedVersion: 2
-  m_Radius: 1.1
 --- !u!114 &5160503395633488768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +347,23 @@ MonoBehaviour:
   maxHealth: 100
   damage:
     baseValue: 40
+--- !u!114 &4050617289609673838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160503395633488824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fac5da21cf953448e977c98f5c5d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons_parent: {fileID: 5160503395397351402}
+  weapons_array:
+  - {fileID: 5160503395852211802}
+  - {fileID: 5160503396565634546}
+  - {fileID: 8794529583937443199}
 --- !u!1 &5160503395852211802
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6766176070206100264
 Transform:
   m_ObjectHideFlags: 0
@@ -654,7 +669,7 @@ Transform:
   m_GameObject: {fileID: 8794529583937443199}
   m_LocalRotation: {x: -0, y: -0, z: -0.09741489, w: 0.9952439}
   m_LocalPosition: {x: 2.079993, y: 2.2, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0}
   m_Children: []
   m_Father: {fileID: 5160503395397351402}
   m_RootOrder: 2
