@@ -65,11 +65,11 @@ public class BJD_skill : MonoBehaviour
 
                 Vector2 distance = new Vector2(directionx, directiony);
 
-                rb.AddForce(new Vector2(col.transform.position.x + distance.normalized.x * (-28000f), col.transform.position.y + distance.normalized.y * (-28000f)), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(col.transform.position.x + distance.normalized.x * (-25000f), col.transform.position.y + distance.normalized.y * (-25000f)), ForceMode2D.Impulse);
         }
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<EnemyStats>().TakeDamage(10f);
+            collision.GetComponent<EnemyStats>().TakeDamage(15f);
         }
     }
 

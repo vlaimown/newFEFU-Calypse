@@ -57,7 +57,7 @@ public class WaterFirstSkill : MonoBehaviour
 
         foreach (Collider2D enemy in waterTargets)
         {
-            enemy.GetComponent<EnemyStats>().TakeDamage(0.35f);
+            enemy.GetComponent<EnemyStats>().TakeDamage(0.4f);
         }
     }
 

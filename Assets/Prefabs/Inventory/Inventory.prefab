@@ -50,4 +50,6 @@ MonoBehaviour:
   itemList: []
   student_pass: {fileID: 11400000, guid: 351b96e1bdf2b554da8f457c237afe11, type: 2}
   windowInventory: {fileID: 2672415656129297412}
+  inventoryUI: {fileID: 6235093860106599968, guid: 2cbd2181fe099cb4bacf0c5a72c80d23, type: 3}
+  count_in_the_line: 0
   space: 3

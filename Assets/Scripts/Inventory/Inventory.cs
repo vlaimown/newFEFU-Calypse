@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour 
@@ -21,13 +22,20 @@ public class Inventory : MonoBehaviour
 
     public GameObject windowInventory;
 
+    [SerializeField]InventoryUI inventoryUI;
+    int j = 0;
+    [SerializeField] int count_in_the_line;
+
     public int space;
 
-    private void Awake()
+    private void Start()
     {
         instance = this;
         playerController = FindObjectOfType<PlayerController>();
         gameController = FindObjectOfType<GameController>();
+
+        inventoryUI = FindObjectOfType<InventoryUI>();
+        j = 0;
     }
 
     private void Update()
@@ -82,7 +90,25 @@ public class Inventory : MonoBehaviour
                 {
                     windowInventory.gameObject.SetActive(false);
                     playerController.attackEnable = true;
+                    j = 0;
                 }
+            }
+        }
+
+
+
+        if (windowInventory.gameObject.activeSelf == true)
+        {
+            if (Input.GetKey("d"))
+            {
+                j++;
+                inventoryUI.slots[0].GetComponent<Image>().color = Color.green;
+            }
+
+            else if (Input.GetKey("s"))
+            {
+                j += count_in_the_line;
+                inventoryUI.slots[0].GetComponent<Image>().color = Color.green;
             }
         }
 

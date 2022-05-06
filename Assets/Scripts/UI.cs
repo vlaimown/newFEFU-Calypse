@@ -83,7 +83,7 @@ public class UI : MonoBehaviour
         {
             inventory.itemList.Add(bottle);
             inventory.itemList.Add(BJD);
-            if (PlayerController.pass_flag == true || SceneManager.GetActiveScene().buildIndex == 6)
+            if (PlayerController.pass_flag == true)
             {
                 inventory.itemList.Add(student_pass);
             }

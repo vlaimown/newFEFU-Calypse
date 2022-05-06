@@ -202,11 +202,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("x") && student_pass.activeSelf == true)
+        /*if (Input.GetKey("x") && student_pass.activeSelf == true)
         {
             student_pass.SetActive(false);
             Instantiate(student_pass_prefab, new Vector2(student_pass.transform.position.x + 0.05f * transform.localScale.normalized.x, student_pass.transform.position.y), Quaternion.identity);
-        }
+        }*/
 
         if (Input.GetKey("x") 
         && (attackEnable == true) 
