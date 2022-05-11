@@ -1,16 +1,12 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] public static bool pass_flag = false;
-    public float waittime;
 
-    [SerializeField] WaterFirstSkill water_first_skill;
-
-    [SerializeField] DialogManager dialoguesManager;
-    [SerializeField] DialoguesController dialoguesController;
+    float waittime;
+    bool attacking = false;
 
     public Rigidbody2D hero;
     public Transform hitBoxPoint;
@@ -18,31 +14,32 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 direction;
 
-    public Transform attackBottlePoint;
+    #region AttackPoints & AttackRange
+
+    [SerializeField] Transform attackBottlePoint;
     [SerializeField] Transform attackBJD_point;
+
     public float attackRange;
+    #endregion
 
     public float maxspeed,
                  speed;
 
     public int moveToHotelFlag;
 
-    [SerializeField] bool wait_attack_flag;
+    bool wait_attack_flag;
 
     public LayerMask enemyLayers;
 
      public bool attackEnable, 
                  facingRight;
 
-    [SerializeField] bool attacking = false;
-
     public float cooldown,
                  maxcooldown;
 
     public CharacterStats myStats;
-    public SpriteRenderer zombie;
 
-    [SerializeField] GameObject currentTarget = null;
+    GameObject currentTarget = null;
 
     #region Weapons
     public GameObject bottle_weapon;
@@ -52,34 +49,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject student_pass_prefab;
     #endregion
 
-    #region Attack
+    #region Attack Flags
     bool bottle_attack = false;
     bool bjd_attack = false;
     #endregion
 
     #region Skills
-    public float skillCoolDownTime;
-    public float maxSkillCoolDownTime;
-
-    public Image notAvaibleBottle;
-    public Image avaibleBottle;
-    public Image coolDownBottle;
-
-    [SerializeField] GameObject water;
-    public int water_count = 0;
     public bool avaible_skills = false;
-
-
-    public bool act = false;
-    public GameObject BJD;
-
-
-    public Image notAvaibleBJD;
-    public Image avaibleBJD;
-    public Image coolDownBJD;
-
-    public float skillCoolDownTime_BJD;
-    public float maxSkillCoolDownTime_BJD;
     #endregion
 
 
@@ -138,80 +114,16 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (avaible_skills == true) 
-        {
-            if (skillCoolDownTime > 0)
-            {
-                notAvaibleBottle.gameObject.SetActive(true);
-                skillCoolDownTime -= Time.fixedDeltaTime;
-                notAvaibleBottle.fillAmount = skillCoolDownTime / maxSkillCoolDownTime;
-            }
-
-            if (skillCoolDownTime <= 0)
-            {
-                notAvaibleBottle.gameObject.SetActive(false);
-                avaibleBottle.gameObject.SetActive(true);
-                if (Input.GetKey("z") && bottle_weapon.activeSelf == true && water_count == 0)
-                {
-                    avaibleBottle.gameObject.SetActive(false);
-                    water_count = 1;
-
-                    if (facingRight == true)
-                    {
-                        Instantiate(water, new Vector2(hero.transform.position.x + 3.5f, hero.position.y), Quaternion.identity);
-                    }
-                    else if (facingRight == false)
-                    {
-                        Instantiate(water, new Vector2(hero.transform.position.x + 3.5f * -1f, hero.position.y), Quaternion.identity);
-                    }
-                }
-            }
-        }
-
-
-
-        if (avaible_skills == true && SceneManager.GetActiveScene().buildIndex == 6)
-        {
-
-            if (skillCoolDownTime_BJD > 0)
-            {
-                notAvaibleBJD.gameObject.SetActive(true);
-                skillCoolDownTime_BJD -= Time.fixedDeltaTime;
-                notAvaibleBJD.fillAmount = skillCoolDownTime_BJD / maxSkillCoolDownTime_BJD;
-            }
-
-
-            if (skillCoolDownTime_BJD <= 0)
-            {
-                notAvaibleBJD.gameObject.SetActive(false);
-                avaibleBJD.gameObject.SetActive(true);
-
-                if (Input.GetKey("z") && BJD_weapon.activeSelf == true && act == false)
-                {
-                    if (facingRight == true)
-                    {
-                        Instantiate(BJD, new Vector2(hero.transform.position.x + 1f, hero.position.y), Quaternion.identity);
-                    }
-                    else if (facingRight == false)
-                    {
-                        Instantiate(BJD, new Vector2(hero.transform.position.x + 1f * -1f, hero.position.y), Quaternion.identity);
-                    }
-                    BJD_weapon.SetActive(false);
-                    act = true;
-                }
-            }
-        }
-
         /*if (Input.GetKey("x") && student_pass.activeSelf == true)
         {
             student_pass.SetActive(false);
             Instantiate(student_pass_prefab, new Vector2(student_pass.transform.position.x + 0.05f * transform.localScale.normalized.x, student_pass.transform.position.y), Quaternion.identity);
         }*/
 
+    #region Attack
         if (Input.GetKey("x") 
         && (attackEnable == true) 
-        && (cooldown == maxcooldown) 
-        && ((animator.GetBool("BottleAttack") == true))
+        && (cooldown == maxcooldown)
         && (bottle_weapon.activeSelf == true))
         {
             bottle_attack = true;
@@ -222,13 +134,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("x")
         && (attackEnable == true)
         && (cooldown == maxcooldown)
-        && ((animator.GetBool("BJDAttack") == true))
         && (BJD_weapon.activeSelf == true))
         {
             bjd_attack = true;
             attacking = true;
             AttackAnimation();
         }
+    #endregion
 
         /* if (Input.GetKey("x") && (attackEnable == true) && (student_pass.activeSelf == true))
          {
@@ -365,8 +277,6 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("IsPraying", false);
         speed = maxspeed;
-        dialoguesManager.dialogueWindow.SetActive(true);
-        dialoguesController.thirdDialogue.TriggerDialog();
     }
 
     public void functionInvise()

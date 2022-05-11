@@ -10,7 +10,8 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        inventory = Inventory.instance;
+        inventory = FindObjectOfType<Inventory>();
+        //inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -20,9 +21,9 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.itemList.Count)
+            if (i < Inventory.itemList.Count)
             {
-                slots[i].AddItem(inventory.itemList[i]);
+                slots[i].AddItem(Inventory.itemList[i]);
             }
             else
             {

@@ -7,25 +7,29 @@ public class WaterFirstSkill : MonoBehaviour
     [SerializeField] GameObject water_splash;
     #endregion
 
-    [SerializeField] PlayerController playerController;
+    PlayerController playerController;
+    [SerializeField] SkillsUI skillUI;
+    BottleWeapon bottleWeapon;
 
-    [SerializeField] bool damageFlag;
-    [SerializeField] bool healFlag;
+    bool damageFlag;
+    bool healFlag;
 
-    [SerializeField] PlayerStat playerStat;
+    PlayerStat playerStat;
 
     public List<Collider2D> waterTargets;
-    [SerializeField] int enemy_counter;
+    int enemy_counter;
 
-    [SerializeField] float currentSkillTime;
-    [SerializeField] float maxSkillTime;
+    [SerializeField]float currentSkillTime;
+    [SerializeField]float maxSkillTime;
 
     [SerializeField] AudioSource water_splash_sound;
 
     private void Start()
     {
+        skillUI = FindObjectOfType<SkillsUI>();
         playerController = FindObjectOfType<PlayerController>();
         playerStat = FindObjectOfType<PlayerStat>();
+        bottleWeapon = FindObjectOfType<BottleWeapon>();
         currentSkillTime = maxSkillTime;
         Instantiate(water_splash_sound, transform.position, Quaternion.identity);
     }
@@ -35,19 +39,19 @@ public class WaterFirstSkill : MonoBehaviour
         if (gameObject != null)
         {
             currentSkillTime -= Time.fixedDeltaTime;
-            playerController.avaibleBottle.gameObject.SetActive(false);
-            playerController.coolDownBottle.gameObject.SetActive(true);
-            playerController.coolDownBottle.fillAmount = currentSkillTime / maxSkillTime;
+            skillUI.avaibleBottle.gameObject.SetActive(false);
+            skillUI.coolDownBottle.gameObject.SetActive(true);
+            skillUI.coolDownBottle.fillAmount = currentSkillTime / maxSkillTime;
         }
         if (currentSkillTime < 0)
         {
-            playerController.coolDownBottle.gameObject.SetActive(false);
-            playerController.notAvaibleBottle.gameObject.SetActive(true);
+            skillUI.coolDownBottle.gameObject.SetActive(false);
+            skillUI.notAvaibleBottle.gameObject.SetActive(true);
             Destroy(gameObject);
             currentSkillTime = maxSkillTime;
-            playerController.water_count = 0;
+            bottleWeapon.water_count = 0;
 
-            playerController.skillCoolDownTime = playerController.maxSkillCoolDownTime;
+            bottleWeapon.skillCoolDownTime = bottleWeapon.maxSkillCoolDownTime;
         }
 
         if (healFlag == true && (playerStat.currentHealth < playerStat.maxHealth))

@@ -19,19 +19,19 @@ public class UI : MonoBehaviour
 
     [SerializeField] GoToKitchen goToKitchen;
     [SerializeField] GameObject survivalModePreview;
-    [SerializeField] OutsideGameController outsideGameController;
+    //OutsideGameController outsideGameController;
 
-    [SerializeField] DialogManager dialogManager;
-    [SerializeField] DialoguesController dialoguesController;
+    DialogManager dialogManager;
+    DialoguesController dialoguesController;
 
-    [SerializeField] SurvivalMode survivalMode;
+    SurvivalMode survivalMode;
 
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
         dialogManager = FindObjectOfType<DialogManager>();
         dialoguesController = FindObjectOfType<DialoguesController>();
-
+        survivalMode = FindObjectOfType<SurvivalMode>();
     }
 
     public void CloseReadNext()
@@ -68,7 +68,7 @@ public class UI : MonoBehaviour
                 KitchenController.indianQuest = true;
                 if (dialogManager.counter == 12)
                 {
-                    inventory.itemList.Remove(student_pass);
+                    Inventory.itemList.Remove(student_pass);
                     inventoryUI.UpdateUI();
                 }
             }
@@ -79,20 +79,20 @@ public class UI : MonoBehaviour
     {
         inventory.windowInventory.SetActive(false);
 
-        if (SceneManager.GetActiveScene().buildIndex != 2)
+        if (SceneManager.GetActiveScene().name == "SurvivalMode")
         {
-            inventory.itemList.Add(bottle);
-            inventory.itemList.Add(BJD);
-            if (PlayerController.pass_flag == true)
-            {
-                inventory.itemList.Add(student_pass);
-            }
-            if (KitchenController.indianQuest == true)
-            {
-                inventory.itemList.Remove(student_pass);
-            }
-            inventoryUI.UpdateUI();
+            Inventory.itemList.Add(bottle);
+            Inventory.itemList.Add(BJD);
         }
+        if (PlayerController.pass_flag == true)
+        {
+            Inventory.itemList.Add(student_pass);
+        }
+        if (KitchenController.indianQuest == true)
+        {
+            Inventory.itemList.Remove(student_pass);
+        }
+        inventoryUI.UpdateUI();
     }
 
     public void GoTo()

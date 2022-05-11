@@ -143,12 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   water_splash: {fileID: 6392580697274589047, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}
-  playerController: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
-  damageFlag: 0
-  healFlag: 0
-  playerStat: {fileID: 5160503395633488770, guid: b481341debf58404594bda79d20a8a2f, type: 3}
+  skillUI: {fileID: 6335382381273237729, guid: 9de58f252ea8bc344bde6522376a41c2, type: 3}
   waterTargets: []
-  enemy_counter: 0
-  currentSkillTime: 0
-  maxSkillTime: 9
+  maxSkillTime: 10
   water_splash_sound: {fileID: 4668115770715814982, guid: e0c35bc9ab14edb469eb0caf68677ec6, type: 3}

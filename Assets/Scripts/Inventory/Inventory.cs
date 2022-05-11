@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] DialogManager dialogManager;
     public GameObject pointer_BJD;
 
-    public List<Item> itemList = new List<Item>();
+    public static List<Item> itemList = new List<Item>();
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
 
 
 
-        if (windowInventory.gameObject.activeSelf == true)
+       /* if (windowInventory.gameObject.activeSelf == true)
         {
             if (Input.GetKey("d"))
             {
@@ -110,7 +110,7 @@ public class Inventory : MonoBehaviour
                 j += count_in_the_line;
                 inventoryUI.slots[0].GetComponent<Image>().color = Color.green;
             }
-        }
+        }*/
 
         if (KitchenController.indianQuest == true)
         {

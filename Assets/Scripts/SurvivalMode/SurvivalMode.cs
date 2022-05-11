@@ -33,8 +33,6 @@ public class SurvivalMode : MonoBehaviour
     public float timeToSpawn;
     public float maxTimeToSpawn;
 
-    [SerializeField] Image bottleSkillIcon;
-
     //[SerializeField] WaterFirstSkill water_first_skill;
 
     [SerializeField] CameraFollow cameraFollow;
@@ -71,7 +69,6 @@ public class SurvivalMode : MonoBehaviour
 
         count = SpawnInWave;
         playerController.avaible_skills = true;
-        bottleSkillIcon.gameObject.SetActive(true);
     }
 
     private void Start()

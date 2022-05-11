@@ -59,7 +59,7 @@ public class KitchenController : MonoBehaviour
 
         if (KitchenController.indianQuest == true)
         {
-            inventory.itemList.Remove(student_pass);
+            Inventory.itemList.Remove(student_pass);
             //inventoryUI.UpdateUI();
         }
     }

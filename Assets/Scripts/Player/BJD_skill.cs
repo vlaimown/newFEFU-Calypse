@@ -4,6 +4,7 @@ using UnityEngine;
 public class BJD_skill : MonoBehaviour
 {
     [SerializeField] float skill_range;
+    /*[SerializeField] float skill_range;
     [SerializeField] float max_alive_time;
     [SerializeField] float current_alive_time;
 
@@ -76,5 +77,5 @@ public class BJD_skill : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, skill_range);
-    }
+    }*/
 }

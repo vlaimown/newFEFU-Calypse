@@ -14,7 +14,6 @@ public class OutsideGameController : MonoBehaviour
     [SerializeField] DialogManager dialogManager;
     [SerializeField] PlayerController playerController;
 
-    [SerializeField] Animator anim;
     [SerializeField] GameController gameController;
     [SerializeField] DialogTrigger eleventhDialogue;
 
@@ -48,7 +47,7 @@ public class OutsideGameController : MonoBehaviour
     private void Awake()
     {
 
-        anim.SetBool("ReadyToGo" ,true);
+        playerController.animator.SetBool("ReadyToGo" ,true);
         inventory.windowInventory.SetActive(true);
         fade.gameObject.SetActive(true);
 
@@ -159,7 +158,7 @@ public class OutsideGameController : MonoBehaviour
                 gameController.F.gameObject.SetActive(true);
                 if (Input.GetKey("f"))
                 {
-                    inventory.itemList.Add(student_pass);
+                    Inventory.itemList.Add(student_pass);
                     inventoryUI.UpdateUI();
                     dialogManager.dialogueWindow.SetActive(true);
                     sixQuest.gameObject.SetActive(false);

@@ -41,7 +41,7 @@ public class ItemPick : MonoBehaviour
         {
             if (Input.GetKey("f"))
             {
-                if (inventory.itemList.Count < inventory.space)
+                if (Inventory.itemList.Count < inventory.space)
                 {
                     Destroy(gameObject);
                     Inventory.instance.Add(item);

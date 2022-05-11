@@ -119,6 +119,12 @@ public class GameController : MonoBehaviour
                 questText.gameObject.SetActive(true);
             }
 
+            if (playerController.animator.GetBool("IsPraying") == false && dialogManager.dialogueNumber == 3 && F.gameObject.activeSelf == false)
+            {
+                dialogManager.dialogueWindow.SetActive(true);
+                dialoguesController.thirdDialogue.TriggerDialog();
+            }
+
             if (dialogManager.dialogueNumber == 4 && dialoguesController.fourthDialogueFlag != 1)
             {
                 firstQuest.gameObject.SetActive(false);
@@ -148,7 +154,7 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            if (inventory.itemList.Exists(item => item.name == "Slavda Bottle (1)") && bottleFlag == 0)
+            if (Inventory.itemList.Exists(item => item.name == "Slavda Bottle (1)") && bottleFlag == 0)
             {
                 playerController.attackEnable = true;
                 dialoguesController.fourthDialogueFlag = 2;
@@ -214,7 +220,7 @@ public class GameController : MonoBehaviour
             {
                 BJD_flag = false;
                 inventoryEnable = true;
-                inventory.itemList.Add(BJD);
+                Inventory.itemList.Add(BJD);
                 inventoryUI.UpdateUI();
 
                 interactive_with_inventory_button.gameObject.SetActive(true);
