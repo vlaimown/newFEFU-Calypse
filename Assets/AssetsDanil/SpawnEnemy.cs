@@ -18,7 +18,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ( other.gameObject.tag  == "Player")
+        if (other.gameObject.tag  == "Player")
         {
             spawnEnemyFlag = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;  

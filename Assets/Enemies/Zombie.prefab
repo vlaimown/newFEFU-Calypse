@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2493225473614510976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 5072224494823797129}
@@ -156,13 +156,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb1ee7f0cc8c3004c9cae862c02167d5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.07
+  m_Volume: 0.075
   m_Pitch: 0.8
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 150
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 20
@@ -405,11 +405,6 @@ MonoBehaviour:
   maxHealth: 100
   damage:
     baseValue: 17
-  sheet: {fileID: 4740566901923776503, guid: b9794196b08a70d409d79d23ab08175e, type: 3}
-  spawnEnemy: {fileID: 1733317019680466426, guid: 82109389646d2f341b48655bf2d455ff, type: 3}
-  survivalMode: {fileID: 0}
-  water_first_skill: {fileID: 0}
-  bjd_Skill: {fileID: 0}
 --- !u!114 &4155560215517414234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,24 +417,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bcd77026a33844ab473d2aa698e03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classicZombie: {fileID: 0}
-  playerController: {fileID: 5160503395633488772, guid: b481341debf58404594bda79d20a8a2f, type: 3}
-  distnce: 0
-  zombieAttackFlag: 0
-  target: {fileID: 5160503395633488773, guid: b481341debf58404594bda79d20a8a2f, type: 3}
-  triggerZone: 10.5
-  zombieAttackZone: 1
-  speed: 0
+  maxHealth: 100
+  currentHealth: 0
   maxspeed: 1.5
-  zombieFacingRight: 0
+  speed: 1.5
+  damage: 10
+  attackZone: 1
+  triggerZone: 8
+  playerController: {fileID: 0}
+  attackArea: {fileID: 5929543979403213029}
   anim: {fileID: 8640749023890743126}
-  zombiePosition: {fileID: 5072224494823797129}
-  zombieAttackArea: {fileID: 5929543979403213029}
   hero:
     serializedVersion: 2
     m_Bits: 256
-  myStats: {fileID: 0}
-  zombieBody: {fileID: 0}
 --- !u!95 &8640749023890743126
 Animator:
   serializedVersion: 3
